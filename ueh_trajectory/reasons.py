@@ -99,11 +99,18 @@ def reason_codes(shap: pd.DataFrame, values: pd.DataFrame, mapping: dict,
     return pos_out, sup_out
 
 
-def recommended_owner(state: str, support: list[str]) -> str:
+def recommended_owner(state: str, support: list[str], events: list[str] | None = None) -> str:
+    events = events or []
     if state == "INSUFFICIENT_EVIDENCE":
         return "DATA_STEWARD"
-    if "REGISTRATION_INCOMPLETE" in support:
+    if "REGISTRATION_INCOMPLETE" in support or "EVT_REGISTRATION_INCOMPLETE" in events:
         return "TRAINING_OFFICE"
+    # a fresh behavioural event deserves a look even when the forecast is still fine
+    if any(e in ("EVT_CONSECUTIVE_ABSENCES", "EVT_MANDATORY_MISSING", "EVT_SCORE_DECLINE")
+           for e in events):
+        return "ACADEMIC_ADVISOR"
+    if events == ["EVT_SOURCE_CONFLICT"] and state == "ON_TRACK":
+        return "DATA_STEWARD"
     if state in ("ON_TRACK", "PLAN_ADJUSTED") and not support:
         return "NONE"
     if state == "ON_TRACK":

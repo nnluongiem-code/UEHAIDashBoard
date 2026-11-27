@@ -1,0 +1,3510 @@
+[
+ {
+  "id": "STUDENT:S854EF1C0:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên S854EF1C0 (ACC) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S854EF1C0"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.492,
+   "delta_p": -0.115
+  }
+ },
+ {
+  "id": "STUDENT:S89AEDFA5:WEEK_10",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S89AEDFA5 (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 42 điểm % (68% → 26%).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S89AEDFA5"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.26,
+   "delta_p": -0.422
+  }
+ },
+ {
+  "id": "STUDENT:S3836F2A8:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên S3836F2A8 (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp; chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S3836F2A8"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES",
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.344,
+   "delta_p": -0.149
+  }
+ },
+ {
+  "id": "STUDENT:S334E68AA:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S334E68AA (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S334E68AA"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.322,
+   "delta_p": -0.119
+  }
+ },
+ {
+  "id": "STUDENT:S84854B05:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S84854B05 (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S84854B05"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.662,
+   "delta_p": -0.107
+  }
+ },
+ {
+  "id": "STUDENT:S77D7F76B:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S77D7F76B (FIN) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 18 điểm % (57% → 39%).",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S77D7F76B"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.394,
+   "delta_p": -0.177
+  }
+ },
+ {
+  "id": "STUDENT:S81727A08:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_SCORE_DECLINE",
+  "title": "Sinh viên S81727A08 (LOG) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: điểm thành phần suy giảm rõ rệt.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S81727A08"
+  ],
+  "triggers": [
+   "EVT_SCORE_DECLINE"
+  ],
+  "metrics": {
+   "p_plan": 0.013,
+   "delta_p": -0.0
+  }
+ },
+ {
+  "id": "STUDENT:S3DB13115:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S3DB13115 (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S3DB13115"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.014,
+   "delta_p": -0.011
+  }
+ },
+ {
+  "id": "STUDENT:S3020F1D0:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S3020F1D0 (LOG) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 40 điểm % (86% → 46%).",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S3020F1D0"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.465,
+   "delta_p": -0.395
+  }
+ },
+ {
+  "id": "STUDENT:S9FD42369:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S9FD42369 (ITE) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 28 điểm % (78% → 50%).",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S9FD42369"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.498,
+   "delta_p": -0.277
+  }
+ },
+ {
+  "id": "STUDENT:S580A5430:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên S580A5430 (BUS) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S580A5430"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.094,
+   "delta_p": -0.027
+  }
+ },
+ {
+  "id": "STUDENT:S571B8DE3:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên S571B8DE3 (ACC) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp, nhiều bài bắt buộc chưa hoàn thành, điểm thành phần suy giảm rõ rệt.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S571B8DE3"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES",
+   "EVT_MANDATORY_MISSING",
+   "EVT_SCORE_DECLINE"
+  ],
+  "metrics": {
+   "p_plan": 0.108,
+   "delta_p": -0.136
+  }
+ },
+ {
+  "id": "STUDENT:S4FAC7DB6:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S4FAC7DB6 (BUS) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành, điểm thành phần suy giảm rõ rệt; chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S4FAC7DB6"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "EVT_SCORE_DECLINE",
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.642,
+   "delta_p": -0.148
+  }
+ },
+ {
+  "id": "STUDENT:S598E2462:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S598E2462 (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S598E2462"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.061,
+   "delta_p": -0.036
+  }
+ },
+ {
+  "id": "STUDENT:S00D712EB:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S00D712EB (FIN) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S00D712EB"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.25,
+   "delta_p": -0.144
+  }
+ },
+ {
+  "id": "STUDENT:S4D0207D7:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S4D0207D7 (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 19 điểm % (74% → 55%).",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S4D0207D7"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.554,
+   "delta_p": -0.19
+  }
+ },
+ {
+  "id": "STUDENT:S6B1C52E4:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên S6B1C52E4 (ACC) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp; chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 16 điểm % (76% → 60%).",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S6B1C52E4"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES",
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.601,
+   "delta_p": -0.155
+  }
+ },
+ {
+  "id": "STUDENT:S6976CC23:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S6976CC23 (BUS) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S6976CC23"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.203,
+   "delta_p": -0.078
+  }
+ },
+ {
+  "id": "STUDENT:S6B3C6307:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S6B3C6307 (BUS) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; chuyển từ “Theo kế hoạch điều chỉnh” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 17 điểm % (62% → 45%).",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S6B3C6307"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.445,
+   "delta_p": -0.173
+  }
+ },
+ {
+  "id": "STUDENT:S1418E484:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S1418E484 (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S1418E484"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.114,
+   "delta_p": -0.031
+  }
+ },
+ {
+  "id": "STUDENT:SDF69CC33:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SDF69CC33 (ITE) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành, điểm thành phần suy giảm rõ rệt; chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SDF69CC33"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "EVT_SCORE_DECLINE",
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.415,
+   "delta_p": -0.131
+  }
+ },
+ {
+  "id": "STUDENT:SE3456B8B:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SE3456B8B (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 30 điểm % (62% → 32%).",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SE3456B8B"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.323,
+   "delta_p": -0.296
+  }
+ },
+ {
+  "id": "STUDENT:S169144C1:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S169144C1 (ACC) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S169144C1"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.01,
+   "delta_p": -0.003
+  }
+ },
+ {
+  "id": "STUDENT:SD1D55F04:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SD1D55F04 (LAW) – Theo kế hoạch điều chỉnh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; XS hoàn thành kế hoạch giảm 39 điểm % (96% → 58%).",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SD1D55F04"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.576,
+   "delta_p": -0.387
+  }
+ },
+ {
+  "id": "STUDENT:SDBFDB231:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SDBFDB231 (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SDBFDB231"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.672,
+   "delta_p": -0.132
+  }
+ },
+ {
+  "id": "STUDENT:SF918F8B2:WEEK_10",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SF918F8B2 (LOG) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 32 điểm % (65% → 33%).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SF918F8B2"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.33,
+   "delta_p": -0.317
+  }
+ },
+ {
+  "id": "STUDENT:S1187AF5C:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S1187AF5C (FIN) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S1187AF5C"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.049,
+   "delta_p": -0.004
+  }
+ },
+ {
+  "id": "STUDENT:S2490B394:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S2490B394 (ACC) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; XS hoàn thành kế hoạch giảm 22 điểm % (72% → 50%).",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S2490B394"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.499,
+   "delta_p": -0.221
+  }
+ },
+ {
+  "id": "STUDENT:SB9C18D4F:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SB9C18D4F (FIN) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 15 điểm % (80% → 65%).",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SB9C18D4F"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.653,
+   "delta_p": -0.151
+  }
+ },
+ {
+  "id": "STUDENT:SB9E20336:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên SB9E20336 (FIN) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SB9E20336"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.07,
+   "delta_p": -0.033
+  }
+ },
+ {
+  "id": "STUDENT:SBB437ECC:WEEK_10",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SBB437ECC (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đúng tiến độ” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SBB437ECC"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.701,
+   "delta_p": -0.145
+  }
+ },
+ {
+  "id": "STUDENT:SA9C29B54:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SA9C29B54 (ITE) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành, điểm thành phần suy giảm rõ rệt.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SA9C29B54"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "EVT_SCORE_DECLINE"
+  ],
+  "metrics": {
+   "p_plan": 0.014,
+   "delta_p": -0.025
+  }
+ },
+ {
+  "id": "STUDENT:SAAE4A591:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SAAE4A591 (ACC) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 17 điểm % (38% → 21%).",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SAAE4A591"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.21,
+   "delta_p": -0.169
+  }
+ },
+ {
+  "id": "STUDENT:S2B6A14D3:WEEK_10",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S2B6A14D3 (LOG) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đúng tiến độ” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 15 điểm % (86% → 71%).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S2B6A14D3"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.709,
+   "delta_p": -0.152
+  }
+ },
+ {
+  "id": "STUDENT:S29E73219:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S29E73219 (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S29E73219"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.417,
+   "delta_p": -0.071
+  }
+ },
+ {
+  "id": "STUDENT:S27C37E33:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S27C37E33 (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 34 điểm % (54% → 21%).",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S27C37E33"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.205,
+   "delta_p": -0.337
+  }
+ },
+ {
+  "id": "STUDENT:SB656FDB3:EVENT_W12",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên SB656FDB3 (ACC) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SB656FDB3"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.094,
+   "delta_p": -0.001
+  }
+ },
+ {
+  "id": "STUDENT:SBAFA618F:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SBAFA618F (FIN) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SBAFA618F"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.193,
+   "delta_p": -0.095
+  }
+ },
+ {
+  "id": "STUDENT:SC8547954:WEEK_10",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SC8547954 (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 27 điểm % (44% → 17%).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SC8547954"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.17,
+   "delta_p": -0.27
+  }
+ },
+ {
+  "id": "STUDENT:SBF801836:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên SBF801836 (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SBF801836"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.048,
+   "delta_p": -0.014
+  }
+ },
+ {
+  "id": "STUDENT:SC1002EB1:EVENT_W11",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SC1002EB1 (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành; chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 26 điểm % (61% → 35%); mới có nguy cơ cảnh báo học vụ (XS đạt yêu cầu 36%).",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SC1002EB1"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "BECAME_DIVERGING",
+   "SHARP_DROP",
+   "STANDING_WARNING_NEW"
+  ],
+  "metrics": {
+   "p_plan": 0.349,
+   "delta_p": -0.258
+  }
+ },
+ {
+  "id": "STUDENT:SC06939EE:WEEK_10",
+  "severity": "HIGH",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SC06939EE (BUS) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 40 điểm % (51% → 11%); mới có nguy cơ cảnh báo học vụ (XS đạt yêu cầu 40%).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SC06939EE"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING",
+   "SHARP_DROP",
+   "STANDING_WARNING_NEW"
+  ],
+  "metrics": {
+   "p_plan": 0.112,
+   "delta_p": -0.395
+  }
+ },
+ {
+  "id": "COURSE:FIN149:WEEK_10",
+  "severity": "HIGH",
+  "scope": "COURSE",
+  "type": "COURSE_RISK_CLUSTER",
+  "title": "Học phần FIN149: 19% sinh viên có xác suất đạt dưới 50%",
+  "detail": "8/43 sinh viên, gấp 6,1 lần mức chung của học kỳ (3%) (snapshot trước: 16%). Lý do phổ biến: điểm hiện tại thấp, GPA tích lũy trước đó thấp. Nên trao đổi với giảng viên phụ trách về thiết kế đánh giá và hỗ trợ học tập.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "FACULTY",
+  "students": [
+   "S1187AF5C",
+   "S16D29550",
+   "S4C505AB2",
+   "S634E25BA",
+   "S7BE173A2",
+   "SB48CEEDF",
+   "SBC47C89F",
+   "SD0272795"
+  ],
+  "triggers": [
+   "COURSE_RISK_CLUSTER"
+  ],
+  "metrics": {
+   "share": 0.186,
+   "n": 43,
+   "term_share": 0.03,
+   "share_prev": 0.163
+  }
+ },
+ {
+  "id": "STUDENT:S86793C1F:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S86793C1F (ACC) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S86793C1F"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.599,
+   "delta_p": -0.081
+  }
+ },
+ {
+  "id": "STUDENT:S820E6CD6:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S820E6CD6 (BUS) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S820E6CD6"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.652,
+   "delta_p": -0.149
+  }
+ },
+ {
+  "id": "STUDENT:S407A00D4:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S407A00D4 (ITE) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S407A00D4"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.859,
+   "delta_p": -0.034
+  }
+ },
+ {
+  "id": "STUDENT:S784206BA:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S784206BA (LAW) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S784206BA"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.703,
+   "delta_p": 0.068
+  }
+ },
+ {
+  "id": "STUDENT:S7BE173A2:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S7BE173A2 (ITE) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S7BE173A2"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.049,
+   "delta_p": -0.028
+  }
+ },
+ {
+  "id": "STUDENT:SA1CE4E3F:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên SA1CE4E3F (BUS) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: vắng học liên tiếp, nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SA1CE4E3F"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES",
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.598,
+   "delta_p": 0.031
+  }
+ },
+ {
+  "id": "STUDENT:S2E246485:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S2E246485 (LAW) – Đang cải thiện",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S2E246485"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.262,
+   "delta_p": 0.129
+  }
+ },
+ {
+  "id": "STUDENT:SA5F86BB0:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên SA5F86BB0 (LOG) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SA5F86BB0"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.01,
+   "delta_p": 0.0
+  }
+ },
+ {
+  "id": "STUDENT:SABF633AC:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_SCORE_DECLINE",
+  "title": "Sinh viên SABF633AC (BUS) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: điểm thành phần suy giảm rõ rệt.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SABF633AC"
+  ],
+  "triggers": [
+   "EVT_SCORE_DECLINE"
+  ],
+  "metrics": {
+   "p_plan": 0.415,
+   "delta_p": 0.025
+  }
+ },
+ {
+  "id": "STUDENT:S9C0B76AE:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S9C0B76AE (BUS) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S9C0B76AE"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.189,
+   "delta_p": 0.063
+  }
+ },
+ {
+  "id": "STUDENT:S91CD6FE6:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S91CD6FE6 (FIN) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S91CD6FE6"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.46,
+   "delta_p": -0.079
+  }
+ },
+ {
+  "id": "STUDENT:S786AD6AB:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S786AD6AB (ECO) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”; mới có nguy cơ cảnh báo học vụ (XS đạt yêu cầu 43%).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S786AD6AB"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING",
+   "STANDING_WARNING_NEW"
+  ],
+  "metrics": {
+   "p_plan": 0.415,
+   "delta_p": -0.091
+  }
+ },
+ {
+  "id": "STUDENT:S32DE0782:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_SCORE_DECLINE",
+  "title": "Sinh viên S32DE0782 (ECO) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: điểm thành phần suy giảm rõ rệt.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S32DE0782"
+  ],
+  "triggers": [
+   "EVT_SCORE_DECLINE"
+  ],
+  "metrics": {
+   "p_plan": 0.644,
+   "delta_p": 0.002
+  }
+ },
+ {
+  "id": "STUDENT:S6740E57F:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S6740E57F (BUS) – Theo kế hoạch điều chỉnh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S6740E57F"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.588,
+   "delta_p": -0.052
+  }
+ },
+ {
+  "id": "STUDENT:SFFA8352D:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SFFA8352D (ECO) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SFFA8352D"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.433,
+   "delta_p": -0.106
+  }
+ },
+ {
+  "id": "STUDENT:S6034F29B:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S6034F29B (FIN) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S6034F29B"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.527,
+   "delta_p": -0.004
+  }
+ },
+ {
+  "id": "STUDENT:S544A3C16:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_SCORE_DECLINE",
+  "title": "Sinh viên S544A3C16 (ITE) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: điểm thành phần suy giảm rõ rệt.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S544A3C16"
+  ],
+  "triggers": [
+   "EVT_SCORE_DECLINE"
+  ],
+  "metrics": {
+   "p_plan": 0.909,
+   "delta_p": 0.014
+  }
+ },
+ {
+  "id": "STUDENT:S602C1B96:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S602C1B96 (ECO) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S602C1B96"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.404,
+   "delta_p": -0.082
+  }
+ },
+ {
+  "id": "STUDENT:S72D7C79C:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S72D7C79C (BUS) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S72D7C79C"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.641,
+   "delta_p": -0.08
+  }
+ },
+ {
+  "id": "STUDENT:S42A8DC01:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên S42A8DC01 (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S42A8DC01"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.439,
+   "delta_p": 0.004
+  }
+ },
+ {
+  "id": "STUDENT:S437F8FBB:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S437F8FBB (FIN) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S437F8FBB"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.932,
+   "delta_p": -0.003
+  }
+ },
+ {
+  "id": "STUDENT:S43B4ABFF:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S43B4ABFF (BUS) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S43B4ABFF"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.851,
+   "delta_p": 0.021
+  }
+ },
+ {
+  "id": "STUDENT:S4C505AB2:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S4C505AB2 (FIN) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S4C505AB2"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.02,
+   "delta_p": 0.0
+  }
+ },
+ {
+  "id": "STUDENT:S13137277:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S13137277 (ACC) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S13137277"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.597,
+   "delta_p": -0.115
+  }
+ },
+ {
+  "id": "STUDENT:SD7FCEC3B:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SD7FCEC3B (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SD7FCEC3B"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.14,
+   "delta_p": -0.089
+  }
+ },
+ {
+  "id": "STUDENT:S16D29550:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S16D29550 (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S16D29550"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.119,
+   "delta_p": 0.008
+  }
+ },
+ {
+  "id": "STUDENT:SCE6C6247:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SCE6C6247 (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SCE6C6247"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.577,
+   "delta_p": -0.115
+  }
+ },
+ {
+  "id": "STUDENT:SC7A93FD1:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SC7A93FD1 (BUS) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 17 điểm % (65% → 47%).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SC7A93FD1"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.474,
+   "delta_p": -0.175
+  }
+ },
+ {
+  "id": "STUDENT:S1D16AFF8:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên S1D16AFF8 (FIN) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S1D16AFF8"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.55,
+   "delta_p": 0.051
+  }
+ },
+ {
+  "id": "STUDENT:S1D36D4E7:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S1D36D4E7 (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S1D36D4E7"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.44,
+   "delta_p": -0.022
+  }
+ },
+ {
+  "id": "STUDENT:S2A4F58F8:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_SCORE_DECLINE",
+  "title": "Sinh viên S2A4F58F8 (ECO) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: điểm thành phần suy giảm rõ rệt.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S2A4F58F8"
+  ],
+  "triggers": [
+   "EVT_SCORE_DECLINE"
+  ],
+  "metrics": {
+   "p_plan": 0.769,
+   "delta_p": -0.027
+  }
+ },
+ {
+  "id": "STUDENT:SD80E6E27:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên SD80E6E27 (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SD80E6E27"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.072,
+   "delta_p": 0.007
+  }
+ },
+ {
+  "id": "STUDENT:SECF1B0C6:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SECF1B0C6 (ITE) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SECF1B0C6"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.05,
+   "delta_p": 0.002
+  }
+ },
+ {
+  "id": "STUDENT:SE01288DD:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SE01288DD (ECO) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SE01288DD"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.847,
+   "delta_p": -0.004
+  }
+ },
+ {
+  "id": "STUDENT:SF00C70BD:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SF00C70BD (ITE) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SF00C70BD"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.364,
+   "delta_p": 0.071
+  }
+ },
+ {
+  "id": "STUDENT:S05084BCB:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S05084BCB (MKT) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S05084BCB"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.787,
+   "delta_p": 0.016
+  }
+ },
+ {
+  "id": "STUDENT:SEC44F091:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_SCORE_DECLINE",
+  "title": "Sinh viên SEC44F091 (ECO) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: điểm thành phần suy giảm rõ rệt.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SEC44F091"
+  ],
+  "triggers": [
+   "EVT_SCORE_DECLINE"
+  ],
+  "metrics": {
+   "p_plan": 0.825,
+   "delta_p": 0.047
+  }
+ },
+ {
+  "id": "STUDENT:SF811359F:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SF811359F (ITE) – Đang cải thiện",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SF811359F"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.523,
+   "delta_p": 0.146
+  }
+ },
+ {
+  "id": "STUDENT:SF07182BE:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SF07182BE (LOG) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SF07182BE"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.686,
+   "delta_p": -0.122
+  }
+ },
+ {
+  "id": "STUDENT:SFA7AFF6E:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SFA7AFF6E (MKT) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành, điểm thành phần suy giảm rõ rệt.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SFA7AFF6E"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING",
+   "EVT_SCORE_DECLINE"
+  ],
+  "metrics": {
+   "p_plan": 0.593,
+   "delta_p": -0.095
+  }
+ },
+ {
+  "id": "STUDENT:SF92150B9:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SF92150B9 (BUS) – Chưa đủ bằng chứng",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "DATA_STEWARD",
+  "students": [
+   "SF92150B9"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.11,
+   "delta_p": 0.074
+  }
+ },
+ {
+  "id": "STUDENT:SEA3711B1:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên SEA3711B1 (LAW) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: vắng học liên tiếp, nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SEA3711B1"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES",
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.638,
+   "delta_p": -0.061
+  }
+ },
+ {
+  "id": "STUDENT:SE53A3EE9:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SE53A3EE9 (FIN) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SE53A3EE9"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.595,
+   "delta_p": 0.082
+  }
+ },
+ {
+  "id": "STUDENT:S0FE52D27:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S0FE52D27 (LOG) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S0FE52D27"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.757,
+   "delta_p": 0.013
+  }
+ },
+ {
+  "id": "STUDENT:S0AAB7ED7:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S0AAB7ED7 (ECO) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S0AAB7ED7"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.7,
+   "delta_p": -0.004
+  }
+ },
+ {
+  "id": "STUDENT:SF26B84E8:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SF26B84E8 (ECO) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SF26B84E8"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.632,
+   "delta_p": -0.015
+  }
+ },
+ {
+  "id": "STUDENT:SF3EC682C:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SF3EC682C (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SF3EC682C"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.616,
+   "delta_p": -0.118
+  }
+ },
+ {
+  "id": "STUDENT:S24B110AF:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S24B110AF (ITE) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S24B110AF"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.593,
+   "delta_p": -0.134
+  }
+ },
+ {
+  "id": "STUDENT:SB0319689:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SB0319689 (LAW) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Theo kế hoạch điều chỉnh” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 24 điểm % (61% → 37%).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SB0319689"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.371,
+   "delta_p": -0.235
+  }
+ },
+ {
+  "id": "STUDENT:SB0561E4A:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SB0561E4A (ITE) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SB0561E4A"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.744,
+   "delta_p": -0.106
+  }
+ },
+ {
+  "id": "STUDENT:SBB52C4E5:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SBB52C4E5 (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SBB52C4E5"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.601,
+   "delta_p": -0.142
+  }
+ },
+ {
+  "id": "STUDENT:S2258FAEA:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên S2258FAEA (ACC) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S2258FAEA"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.463,
+   "delta_p": 0.054
+  }
+ },
+ {
+  "id": "STUDENT:SBC47C89F:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SBC47C89F (LOG) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SBC47C89F"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.018,
+   "delta_p": 0.003
+  }
+ },
+ {
+  "id": "STUDENT:SA412377A:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SA412377A (LOG) – Đang cải thiện",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SA412377A"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.612,
+   "delta_p": 0.237
+  }
+ },
+ {
+  "id": "STUDENT:SA734C20B:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SA734C20B (ECO) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 24 điểm % (84% → 60%).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SA734C20B"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.596,
+   "delta_p": -0.242
+  }
+ },
+ {
+  "id": "STUDENT:S2948320A:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S2948320A (MKT) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S2948320A"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.661,
+   "delta_p": -0.087
+  }
+ },
+ {
+  "id": "STUDENT:SB76EA6C6:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên SB76EA6C6 (LAW) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SB76EA6C6"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.846,
+   "delta_p": 0.012
+  }
+ },
+ {
+  "id": "STUDENT:SBA0D36DC:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SBA0D36DC (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SBA0D36DC"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.48,
+   "delta_p": -0.027
+  }
+ },
+ {
+  "id": "STUDENT:S1F188615:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S1F188615 (FIN) – Theo kế hoạch điều chỉnh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S1F188615"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.787,
+   "delta_p": 0.048
+  }
+ },
+ {
+  "id": "STUDENT:S22062A93:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S22062A93 (ECO) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S22062A93"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.913,
+   "delta_p": -0.04
+  }
+ },
+ {
+  "id": "STUDENT:SC48D9E0B:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SC48D9E0B (FIN) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 15 điểm % (76% → 61%).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SC48D9E0B"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.607,
+   "delta_p": -0.154
+  }
+ },
+ {
+  "id": "STUDENT:SC5415D2A:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SC5415D2A (ACC) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”; XS hoàn thành kế hoạch giảm 24 điểm % (74% → 50%).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SC5415D2A"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING",
+   "SHARP_DROP"
+  ],
+  "metrics": {
+   "p_plan": 0.497,
+   "delta_p": -0.24
+  }
+ },
+ {
+  "id": "STUDENT:S1AFB7181:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên S1AFB7181 (ECO) – Đang cải thiện",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S1AFB7181"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.291,
+   "delta_p": 0.145
+  }
+ },
+ {
+  "id": "STUDENT:SCEA3905B:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SCEA3905B (BUS) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SCEA3905B"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.912,
+   "delta_p": 0.04
+  }
+ },
+ {
+  "id": "STUDENT:SD0272795:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên SD0272795 (ECO) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SD0272795"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.085,
+   "delta_p": 0.043
+  }
+ },
+ {
+  "id": "STUDENT:SC74C43CB:EVENT_W12",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên SC74C43CB (LOG) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp; chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "EVENT_W12",
+  "snapshot_label": "Sự kiện tuần 12",
+  "week": 12,
+  "date": "2026-11-27",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SC74C43CB"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES",
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.01,
+   "delta_p": 0.0
+  }
+ },
+ {
+  "id": "STUDENT:S23526360:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "STANDING_WARNING_NEW",
+  "title": "Sinh viên S23526360 (FIN) – Theo kế hoạch điều chỉnh",
+  "detail": "Mới có nguy cơ cảnh báo học vụ (XS đạt yêu cầu 36%).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S23526360"
+  ],
+  "triggers": [
+   "STANDING_WARNING_NEW"
+  ],
+  "metrics": {
+   "p_plan": 0.769,
+   "delta_p": -0.09
+  }
+ },
+ {
+  "id": "STUDENT:S2369A78F:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên S2369A78F (ACC) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Đang cải thiện” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "S2369A78F"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.028,
+   "delta_p": -0.055
+  }
+ },
+ {
+  "id": "STUDENT:SC44B8413:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_CONSECUTIVE_ABSENCES",
+  "title": "Sinh viên SC44B8413 (FIN) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: vắng học liên tiếp.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SC44B8413"
+  ],
+  "triggers": [
+   "EVT_CONSECUTIVE_ABSENCES"
+  ],
+  "metrics": {
+   "p_plan": 0.372,
+   "delta_p": 0.076
+  }
+ },
+ {
+  "id": "STUDENT:SC1EFCEC3:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "BECAME_DIVERGING",
+  "title": "Sinh viên SC1EFCEC3 (ACC) – Lệch khỏi mục tiêu",
+  "detail": "Chuyển từ “Ổn định nhưng mong manh” sang “Lệch khỏi mục tiêu”.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SC1EFCEC3"
+  ],
+  "triggers": [
+   "BECAME_DIVERGING"
+  ],
+  "metrics": {
+   "p_plan": 0.462,
+   "delta_p": -0.098
+  }
+ },
+ {
+  "id": "STUDENT:SCB072F6B:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SCB072F6B (MKT) – Lệch khỏi mục tiêu",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SCB072F6B"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.186,
+   "delta_p": 0.091
+  }
+ },
+ {
+  "id": "STUDENT:SCA360627:EVENT_W11",
+  "severity": "MEDIUM",
+  "scope": "STUDENT",
+  "type": "EVT_MANDATORY_MISSING",
+  "title": "Sinh viên SCA360627 (MKT) – Ổn định nhưng mong manh",
+  "detail": "Sự kiện: nhiều bài bắt buộc chưa hoàn thành.",
+  "snapshot": "EVENT_W11",
+  "snapshot_label": "Sự kiện tuần 11",
+  "week": 11,
+  "date": "2026-11-20",
+  "owner": "ACADEMIC_ADVISOR",
+  "students": [
+   "SCA360627"
+  ],
+  "triggers": [
+   "EVT_MANDATORY_MISSING"
+  ],
+  "metrics": {
+   "p_plan": 0.748,
+   "delta_p": -0.048
+  }
+ },
+ {
+  "id": "COURSE:ACC158:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "COURSE",
+  "type": "COURSE_RISK_CLUSTER",
+  "title": "Học phần ACC158: 10% sinh viên có xác suất đạt dưới 50%",
+  "detail": "6/58 sinh viên, gấp 3,4 lần mức chung của học kỳ (3%) (snapshot trước: 9%). Lý do phổ biến: điểm hiện tại thấp, GPA tích lũy trước đó thấp. Nên trao đổi với giảng viên phụ trách về thiết kế đánh giá và hỗ trợ học tập.",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "FACULTY",
+  "students": [
+   "S0129124F",
+   "S05721C1C",
+   "S27C37E33",
+   "S2E246485",
+   "S31720B7D",
+   "SB9E20336"
+  ],
+  "triggers": [
+   "COURSE_RISK_CLUSTER"
+  ],
+  "metrics": {
+   "share": 0.103,
+   "n": 58,
+   "term_share": 0.03,
+   "share_prev": 0.086
+  }
+ },
+ {
+  "id": "DATA:LOW_GRADE_COVERAGE:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "DATA",
+  "type": "LOW_GRADE_COVERAGE",
+  "title": "Độ bao phủ điểm thấp ở 15% lượt học phần",
+  "detail": "573/3945 lượt đăng ký học phần, liên quan 404 sinh viên. Học phần bị ảnh hưởng nhiều nhất (số lượt): LOG147 (14), MKT135 (12), ECO164 (12), FIN101 (12), LAW130 (12).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "DATA_STEWARD",
+  "students": [
+   "S00168EE1",
+   "S00D4497E",
+   "S0129124F",
+   "S0347F5B4",
+   "S045FEF1A",
+   "S05084BCB",
+   "S065818F2",
+   "S06D69DAE",
+   "S071B2020",
+   "S07DF5C03",
+   "S07F8460E",
+   "S0858E9E4",
+   "S098C0BA5",
+   "S0A450E03",
+   "S0A622F2C",
+   "S0AAB7ED7",
+   "S0ABFC093",
+   "S0AFD3CCF",
+   "S0C25C5C2",
+   "S0C335EB5",
+   "S0C83539F",
+   "S0D276C57",
+   "S0D2FA602",
+   "S0DBEF1DF",
+   "S0E6F037C",
+   "S0FE52D27",
+   "S119EF8B9",
+   "S13137277",
+   "S13A243B2",
+   "S1418E484",
+   "S141C97D7",
+   "S15387282",
+   "S16063199",
+   "S169144C1",
+   "S16D29550",
+   "S1865A19D",
+   "S18D44DBE",
+   "S19C5243B",
+   "S1C6B0BF5",
+   "S1E6A8439",
+   "S2173909D",
+   "S22062A93",
+   "S221F4948",
+   "S22932944",
+   "S234B1878",
+   "S23F1A80F",
+   "S243EAAB7",
+   "S24B110AF",
+   "S24B8F5BB",
+   "S24FEDF9F",
+   "S25937B91",
+   "S25B2C708",
+   "S2691A8DA",
+   "S26BA1A56",
+   "S2750B5E9",
+   "S27B2F9A3",
+   "S27C37E33",
+   "S27F14183",
+   "S28BD788E",
+   "S2948320A",
+   "S2961BB0A",
+   "S29E73219",
+   "S2AE29BB2",
+   "S2B6A14D3",
+   "S2C3EC931",
+   "S2E145A0F",
+   "S2E246485",
+   "S2EBBA7C3",
+   "S301C42BD",
+   "S3020F1D0",
+   "S306A11CD",
+   "S30B8E81B",
+   "S30E46E9D",
+   "S31263002",
+   "S323C7D3D",
+   "S32DE0782",
+   "S32EC5FD4",
+   "S34684824",
+   "S36BF690E",
+   "S36F09156",
+   "S373101DE",
+   "S37F3234D",
+   "S3836F2A8",
+   "S386CBDF6",
+   "S39A3C5A6",
+   "S3A127BBC",
+   "S3AD28CD4",
+   "S3B2660D5",
+   "S3D3E2A30",
+   "S3D8A03F9",
+   "S3DC2909C",
+   "S3F097D35",
+   "S3F56A516",
+   "S407A00D4",
+   "S40B7C311",
+   "S419C3C45",
+   "S41A3F258",
+   "S41E94874",
+   "S4295389A",
+   "S42A8DC01",
+   "S431DDA4E",
+   "S437F8FBB",
+   "S43B4ABFF",
+   "S43C70B47",
+   "S43DAFF3E",
+   "S44F97AA9",
+   "S46DBF7F7",
+   "S49ED7C37",
+   "S49F2CD13",
+   "S4A027AA9",
+   "S4B967855",
+   "S4C2E5015",
+   "S4C3D06ED",
+   "S4D0207D7",
+   "S4E258FFD",
+   "S4F3FB282",
+   "S4F5F1F45",
+   "S4F936721",
+   "S4FAC7DB6",
+   "S50DEF9A2",
+   "S50EDC2ED",
+   "S5174978E",
+   "S520E7CA2",
+   "S52F2C497",
+   "S544A3C16",
+   "S55EF1136",
+   "S55F6C529",
+   "S56741659",
+   "S571B8DE3",
+   "S578AC84F",
+   "S58CBAB1C",
+   "S598E2462",
+   "S59AA9B23",
+   "S5A1FB858",
+   "S5A536E0B",
+   "S5B3350DA",
+   "S5B8C122B",
+   "S5C971A2E",
+   "S5CEA8177",
+   "S5DE219DD",
+   "S5E858726",
+   "S5F216B6C",
+   "S5F870315",
+   "S5F886851",
+   "S5F8F06CB",
+   "S609A7955",
+   "S6275CCFE",
+   "S62DA5C8D",
+   "S634E25BA",
+   "S63F0815A",
+   "S64420932",
+   "S659B98E7",
+   "S6740E57F",
+   "S6796411B",
+   "S68358934",
+   "S685C0E03",
+   "S693ED3CD",
+   "S6A927F83",
+   "S6B1C52E4",
+   "S6B3C6307",
+   "S6B4E5E3C",
+   "S6C878E2E",
+   "S6CE09AA2",
+   "S6DA5BD13",
+   "S6F71D370",
+   "S6FE7F52D",
+   "S6FF9FE0D",
+   "S6FFED627",
+   "S700EF253",
+   "S70590CA4",
+   "S716EF981",
+   "S71B714D1",
+   "S72A09480",
+   "S72D7C79C",
+   "S730402AA",
+   "S73D03ACE",
+   "S73F429DC",
+   "S741A5DA5",
+   "S7431C33D",
+   "S75215B4D",
+   "S761333B3",
+   "S761E6526",
+   "S7691729D",
+   "S76E0F417",
+   "S76FB6EC8",
+   "S7735BCD3",
+   "S77C6E8E7",
+   "S77D177E1",
+   "S77D7F76B",
+   "S784206BA",
+   "S786AD6AB",
+   "S79232BA8",
+   "S7A02DC6A",
+   "S7A1E7DD5",
+   "S7AADBBBF",
+   "S7AC727D1",
+   "S7B5D3021",
+   "S7BE173A2",
+   "S7C4574BD",
+   "S7D2BB507",
+   "S7DD5F03C",
+   "S7DDC51FB",
+   "S7E8368DC",
+   "S7F00821E",
+   "S7F918057",
+   "S80370603",
+   "S81BE61BD",
+   "S81EBC885",
+   "S82A14B79",
+   "S83A542AF",
+   "S83ADA3FB",
+   "S83CD3D2B",
+   "S84854B05",
+   "S84BEFD1B",
+   "S84C42388",
+   "S854EF1C0",
+   "S86372B40",
+   "S86793C1F",
+   "S868FD570",
+   "S8720F3A2",
+   "S87965DD9",
+   "S87F1BBB0",
+   "S886D18B5",
+   "S88C238A5",
+   "S89AEDFA5",
+   "S8A319827",
+   "S8AA96963",
+   "S8AADDE72",
+   "S8BA1633D",
+   "S8C9E4AA9",
+   "S8CBF7339",
+   "S8CFD44AB",
+   "S8D2B5031",
+   "S8F4DAE75",
+   "S90778591",
+   "S91CD6FE6",
+   "S930610BD",
+   "S93D801DF",
+   "S952D0F20",
+   "S95A736EE",
+   "S96543B37",
+   "S969012A2",
+   "S97356727",
+   "S9757D445",
+   "S981BB93D",
+   "S98894EBA",
+   "S98E634EA",
+   "S9BA3755F",
+   "S9BC00F9E",
+   "S9D742A3E",
+   "S9EFC8A2B",
+   "S9FD42369",
+   "SA1CE4E3F",
+   "SA2273DA1",
+   "SA485E1CE",
+   "SA4C32AFE",
+   "SA50796EA",
+   "SA591367E",
+   "SA5F86BB0",
+   "SA660804A",
+   "SA721CF8A",
+   "SA734C20B",
+   "SA8302E52",
+   "SA83531E7",
+   "SA9C29B54",
+   "SAAE4A591",
+   "SAB73480C",
+   "SABF633AC",
+   "SAC032520",
+   "SAC5E9CBB",
+   "SAC90D2C3",
+   "SAF67DB0B",
+   "SB0319689",
+   "SB044B078",
+   "SB3EEDCAB",
+   "SB48CEEDF",
+   "SB4F99CF3",
+   "SB5C21785",
+   "SB6354617",
+   "SB656FDB3",
+   "SB76EA6C6",
+   "SB79F0DA5",
+   "SB8251B05",
+   "SB9C18D4F",
+   "SB9E129CA",
+   "SB9E20336",
+   "SBADFE134",
+   "SBB0FB7F2",
+   "SBB2A609A",
+   "SBB437ECC",
+   "SBB52C4E5",
+   "SBB6761AA",
+   "SBC53AE5C",
+   "SBC640FE4",
+   "SBC7D7B71",
+   "SBCF9B6CD",
+   "SBD465638",
+   "SBDD0E58E",
+   "SBDFD28BF",
+   "SBE22F5D8",
+   "SBF396543",
+   "SBFFFCF69",
+   "SC0260549",
+   "SC06939EE",
+   "SC2176383",
+   "SC2B1B9C9",
+   "SC30556D0",
+   "SC392AB0E",
+   "SC44308FD",
+   "SC44B8413",
+   "SC453FEC3",
+   "SC5415D2A",
+   "SC6EF8944",
+   "SC72AEEFA",
+   "SC74C43CB",
+   "SC778EA5A",
+   "SC7A8C8D3",
+   "SC84C5987",
+   "SC8547954",
+   "SC990B8C9",
+   "SCA360627",
+   "SCB072F6B",
+   "SCB242A03",
+   "SCB4CC62D",
+   "SCCC75E01",
+   "SCD577E2C",
+   "SCD654A24",
+   "SCDBFC083",
+   "SCE6C6247",
+   "SCE6E7BA0",
+   "SCEA3905B",
+   "SCFD2E93B",
+   "SD0E63240",
+   "SD20C8C2E",
+   "SD2183EA1",
+   "SD3B71361",
+   "SD46C9684",
+   "SD5CB68FC",
+   "SD6111D50",
+   "SD80E6E27",
+   "SD8A77C09",
+   "SD8E0B725",
+   "SD8E90735",
+   "SDA46436A",
+   "SDACC89DE",
+   "SDDB67731",
+   "SDE2DADC3",
+   "SDE44DC72",
+   "SDEAA1CAA",
+   "SDF26EDE0",
+   "SE01288DD",
+   "SE0208104",
+   "SE1184FB4",
+   "SE3456B8B",
+   "SE355F62A",
+   "SE46F4D0C",
+   "SE4860454",
+   "SE53A3EE9",
+   "SE72F9212",
+   "SE7FCEA81",
+   "SE87EAFCE",
+   "SE8807487",
+   "SE8D31654",
+   "SE90851E2",
+   "SE9A55F51",
+   "SE9AA736D",
+   "SEA3711B1",
+   "SEAC869B3",
+   "SEAD8D717",
+   "SEC44F091",
+   "SEC4AC1A1",
+   "SECF1B0C6",
+   "SED1CD8D3",
+   "SEDF961FB",
+   "SEE80AF54",
+   "SF004D1EE",
+   "SF00C70BD",
+   "SF029EE9B",
+   "SF048AB5B",
+   "SF07648B9",
+   "SF1C35CE7",
+   "SF37EF655",
+   "SF3EC682C",
+   "SF4A2AA45",
+   "SF6BB8017",
+   "SF78726DE",
+   "SF7B293B7",
+   "SF7E901F2",
+   "SF92150B9",
+   "SF9851361",
+   "SF9D23A59",
+   "SFA52DAFE",
+   "SFA7AFF6E",
+   "SFC29B870",
+   "SFCB42763",
+   "SFE0B4B1D",
+   "SFEACA68D",
+   "SFEC91ED4",
+   "SFEE2B684",
+   "SFF03663F",
+   "SFF32AB18",
+   "SFF9338BB",
+   "SFFA8352D",
+   "SFFC8D6B2"
+  ],
+  "triggers": [
+   "LOW_GRADE_COVERAGE"
+  ],
+  "metrics": {
+   "share_enrolments": 0.145,
+   "share_students": 0.599,
+   "top_courses": {
+    "LOG147": 14,
+    "MKT135": 12,
+    "ECO164": 12,
+    "FIN101": 12,
+    "LAW130": 12
+   }
+  }
+ },
+ {
+  "id": "DATA:STALE_SOURCE:WEEK_10",
+  "severity": "MEDIUM",
+  "scope": "DATA",
+  "type": "STALE_SOURCE",
+  "title": "Nguồn dữ liệu chưa cập nhật ở 11% lượt học phần",
+  "detail": "445/3945 lượt đăng ký học phần, liên quan 311 sinh viên. Học phần bị ảnh hưởng nhiều nhất (số lượt): LOG171 (13), BUS168 (12), BUS144 (12), FIN101 (11), LAW106 (11).",
+  "snapshot": "WEEK_10",
+  "snapshot_label": "Tuần 10",
+  "week": 10,
+  "date": "2026-11-13",
+  "owner": "DATA_STEWARD",
+  "students": [
+   "S00168EE1",
+   "S0129124F",
+   "S0213893B",
+   "S02AA26D4",
+   "S0347F5B4",
+   "S05084BCB",
+   "S05721C1C",
+   "S06D69DAE",
+   "S071B2020",
+   "S07F8460E",
+   "S07FD33E6",
+   "S0858E9E4",
+   "S0989B02A",
+   "S0AAB7ED7",
+   "S0AFD3CCF",
+   "S0B284E52",
+   "S0C25C5C2",
+   "S0C83539F",
+   "S0D276C57",
+   "S0E6F037C",
+   "S0F68A787",
+   "S0FE52D27",
+   "S1187AF5C",
+   "S13137277",
+   "S13A243B2",
+   "S1418E484",
+   "S141C97D7",
+   "S146C4AC0",
+   "S14953D5B",
+   "S169144C1",
+   "S16D29550",
+   "S16F61608",
+   "S17E0CDFA",
+   "S18D44DBE",
+   "S1C6B0BF5",
+   "S1D04B83D",
+   "S1D16AFF8",
+   "S1D36D4E7",
+   "S1E6A8439",
+   "S2080E141",
+   "S215D03BC",
+   "S22062A93",
+   "S2258FAEA",
+   "S22932944",
+   "S234B1878",
+   "S2369A78F",
+   "S23AA9D23",
+   "S24B110AF",
+   "S25931DA5",
+   "S26B27108",
+   "S2750B5E9",
+   "S280C0E41",
+   "S29E73219",
+   "S2B6A14D3",
+   "S2C3EC931",
+   "S2D5575BD",
+   "S2E145A0F",
+   "S2E246485",
+   "S301C42BD",
+   "S306A11CD",
+   "S30B8E81B",
+   "S31263002",
+   "S31E70D50",
+   "S3287E68F",
+   "S32DE0782",
+   "S32EC5FD4",
+   "S334E68AA",
+   "S34684824",
+   "S36BF690E",
+   "S37160BC3",
+   "S373101DE",
+   "S39A3C5A6",
+   "S3AD28CD4",
+   "S3B2660D5",
+   "S3B950B84",
+   "S3BBF1FDF",
+   "S3E8585EF",
+   "S4185CBF7",
+   "S41A3F258",
+   "S4295389A",
+   "S43B4ABFF",
+   "S47FA11D9",
+   "S483AA667",
+   "S49F2CD13",
+   "S4A967122",
+   "S4B967855",
+   "S4C2E5015",
+   "S4C3D06ED",
+   "S4C505AB2",
+   "S4CE7EAAE",
+   "S4D0207D7",
+   "S4D15E976",
+   "S4E258FFD",
+   "S4F3FB282",
+   "S4F5F1F45",
+   "S4F936721",
+   "S4FAC7DB6",
+   "S50EDC2ED",
+   "S520E7CA2",
+   "S544A3C16",
+   "S578DDB48",
+   "S591EF251",
+   "S59AA9B23",
+   "S5A0F0FFA",
+   "S5BEB4715",
+   "S5C971A2E",
+   "S5D4C59F1",
+   "S5E858726",
+   "S6034F29B",
+   "S609A7955",
+   "S613A1BB4",
+   "S6163A2F2",
+   "S6275CCFE",
+   "S63AC4FC2",
+   "S64420932",
+   "S68170AB9",
+   "S685C0E03",
+   "S6978D9E9",
+   "S6A927F83",
+   "S6C263E06",
+   "S6C5DB6F8",
+   "S6CE09AA2",
+   "S6F71D370",
+   "S6FD4A91C",
+   "S6FE7F52D",
+   "S6FF9FE0D",
+   "S70961DFA",
+   "S7160EB1E",
+   "S716EF981",
+   "S72D7C79C",
+   "S75215B4D",
+   "S75617802",
+   "S7688D8F6",
+   "S7691729D",
+   "S76E0F417",
+   "S77C6E8E7",
+   "S77D177E1",
+   "S77D7F76B",
+   "S784206BA",
+   "S79232BA8",
+   "S799354E7",
+   "S7A1E7DD5",
+   "S7AADBBBF",
+   "S7AC727D1",
+   "S7B5D3021",
+   "S7BE173A2",
+   "S7DD5F03C",
+   "S7F00821E",
+   "S7F918057",
+   "S80370603",
+   "S81727A08",
+   "S81EBC885",
+   "S820E6CD6",
+   "S83302E7E",
+   "S83AB840C",
+   "S83CD3D2B",
+   "S84BEFD1B",
+   "S854F4738",
+   "S857E1F3F",
+   "S86372B40",
+   "S86793C1F",
+   "S87965DD9",
+   "S886D18B5",
+   "S88C238A5",
+   "S893FE07E",
+   "S89AEDFA5",
+   "S8A319827",
+   "S8AA96963",
+   "S8AADDE72",
+   "S8B920BED",
+   "S8BA1633D",
+   "S8CBF7339",
+   "S8CFD44AB",
+   "S8EAED591",
+   "S8F4DAE75",
+   "S952D0F20",
+   "S95A736EE",
+   "S97356727",
+   "S9757D445",
+   "S9764F413",
+   "S98E634EA",
+   "S9BC00F9E",
+   "S9BDCC2D4",
+   "S9D47F2E6",
+   "S9D742A3E",
+   "S9DD97293",
+   "S9DF2D488",
+   "S9E5E8CEB",
+   "S9ED136DC",
+   "S9EFC8A2B",
+   "S9FD42369",
+   "SA1CE4E3F",
+   "SA2273DA1",
+   "SA412377A",
+   "SA485E1CE",
+   "SA4C32AFE",
+   "SA50796EA",
+   "SA509A788",
+   "SA5448FF5",
+   "SA5F86BB0",
+   "SA660804A",
+   "SA721CF8A",
+   "SA8302E52",
+   "SAA03D288",
+   "SAAE4A591",
+   "SABF633AC",
+   "SAC032520",
+   "SAC90D2C3",
+   "SAD8FA7F5",
+   "SAF67DB0B",
+   "SB0319689",
+   "SB6354617",
+   "SB706A926",
+   "SB74EA2E0",
+   "SB76EA6C6",
+   "SB79F0DA5",
+   "SB9C18D4F",
+   "SB9E129CA",
+   "SB9E89701",
+   "SBA0D36DC",
+   "SBAFA618F",
+   "SBB0FB7F2",
+   "SBB2A609A",
+   "SBB52C4E5",
+   "SBC47C89F",
+   "SBC640FE4",
+   "SBCF9B6CD",
+   "SBD465638",
+   "SBDC99062",
+   "SBDD0E58E",
+   "SBDFD28BF",
+   "SBE2259EA",
+   "SBE54F0F0",
+   "SBE561C82",
+   "SBFFFCF69",
+   "SC09D3D68",
+   "SC23125E9",
+   "SC392AB0E",
+   "SC44308FD",
+   "SC44B8413",
+   "SC453FEC3",
+   "SC5415D2A",
+   "SC55ACBBE",
+   "SC6DDB0D9",
+   "SC6EF8944",
+   "SC778EA5A",
+   "SC7A8C8D3",
+   "SC7A93FD1",
+   "SC9A00E0A",
+   "SCB072F6B",
+   "SCB98AA3D",
+   "SCBD35001",
+   "SCD577E2C",
+   "SCDBFC083",
+   "SCF30B579",
+   "SCFD2E93B",
+   "SD0E63240",
+   "SD0FA198E",
+   "SD7FCEC3B",
+   "SD80E6E27",
+   "SD8A77C09",
+   "SD8C2AB7E",
+   "SD8E90735",
+   "SDB162774",
+   "SDDF3CFF2",
+   "SDF26EDE0",
+   "SDF557A75",
+   "SDF69CC33",
+   "SE0208104",
+   "SE1EFEE99",
+   "SE2AA3F5E",
+   "SE2ADD6D4",
+   "SE351AEED",
+   "SE355F62A",
+   "SE4671BE3",
+   "SE46F4D0C",
+   "SE53A3EE9",
+   "SE785F46D",
+   "SE90851E2",
+   "SE9A55F51",
+   "SE9EFBC64",
+   "SEB9D4646",
+   "SEC44F091",
+   "SEC4AC1A1",
+   "SEE221DBA",
+   "SEE306E50",
+   "SEE41B564",
+   "SEF6DC5A7",
+   "SF004D1EE",
+   "SF029EE9B",
+   "SF07182BE",
+   "SF1C35CE7",
+   "SF26B84E8",
+   "SF37EF655",
+   "SF3EC682C",
+   "SF5468999",
+   "SF6BB8017",
+   "SF78726DE",
+   "SF7E901F2",
+   "SF811359F",
+   "SF901409F",
+   "SF918F8B2",
+   "SF92150B9",
+   "SF9851361",
+   "SFA421EF5",
+   "SFC29B870",
+   "SFCB42763",
+   "SFEACA68D",
+   "SFEC91ED4",
+   "SFF9338BB",
+   "SFFC8D6B2"
+  ],
+  "triggers": [
+   "STALE_SOURCE"
+  ],
+  "metrics": {
+   "share_enrolments": 0.113,
+   "share_students": 0.461,
+   "top_courses": {
+    "LOG171": 13,
+    "BUS168": 12,
+    "BUS144": 12,
+    "FIN101": 11,
+    "LAW106": 11
+   }
+  }
+ }
+]

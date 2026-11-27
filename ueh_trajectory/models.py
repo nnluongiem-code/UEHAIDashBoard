@@ -3,7 +3,10 @@
 * Classifiers (M1, M2, M4): CatBoost + post-hoc calibration fitted on a held-out
   calibration term, so a predicted 0.70 means roughly 70 of 100 similar cases
   succeed. Isotonic regression is used when the calibration set is large; Platt
-  (logistic) scaling otherwise, because isotonic overfits small sets.
+  (logistic) scaling otherwise, because isotonic overfits small sets. The
+  calibrator is kept only if student-grouped cross-validation on the
+  calibration term shows it beats the raw probabilities (Brier score);
+  otherwise the raw CatBoost output is used.
   Calibrated probabilities are bounded to [P_MIN, 1-P_MIN]: a model should never
   tell an advisor that an outcome is certain.
 * Regressor (M3): CatBoost MultiQuantile (Q10/Q50/Q90), then conformalised on the
@@ -16,6 +19,8 @@ import pandas as pd
 from catboost import CatBoostClassifier, CatBoostRegressor, Pool
 from sklearn.isotonic import IsotonicRegression
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import brier_score_loss
+from sklearn.model_selection import GroupKFold
 
 from . import config as C
 
@@ -49,14 +54,33 @@ class CalibratedCatBoostClassifier:
     def raw_proba(self, X):
         return self.model.predict_proba(_pool(X[self.features], self.cat_features))[:, 1]
 
-    def calibrate(self, X, y, method: str = "auto"):
+    @staticmethod
+    def _fit_calibrator(method, raw, y):
+        if method == "isotonic":
+            return IsotonicRegression(out_of_bounds="clip", y_min=0.0, y_max=1.0).fit(raw, y)
+        return LogisticRegression(C=1e4).fit(_logit(raw), y)
+
+    @staticmethod
+    def _apply(method, cal, raw):
+        return cal.predict(raw) if method == "isotonic" else cal.predict_proba(_logit(raw))[:, 1]
+
+    def calibrate(self, X, y, groups=None, method: str = "auto"):
         raw, y = self.raw_proba(X), np.asarray(y)
         if method == "auto":
             method = "isotonic" if len(y) >= ISOTONIC_MIN_ROWS else "platt"
-        if method == "isotonic":
-            self.calibrator = IsotonicRegression(out_of_bounds="clip", y_min=0.0, y_max=1.0).fit(raw, y)
-        else:
-            self.calibrator = LogisticRegression(C=1e4).fit(_logit(raw), y)
+        self.calibration_cv = None
+        if groups is not None:
+            # guard: does calibration help out-of-sample, with students kept apart?
+            cal_pred = np.zeros(len(y))
+            for tr, va in GroupKFold(n_splits=5).split(raw, y, groups):
+                c = self._fit_calibrator(method, raw[tr], y[tr])
+                cal_pred[va] = self._apply(method, c, raw[va])
+            b_raw, b_cal = brier_score_loss(y, raw), brier_score_loss(y, cal_pred)
+            self.calibration_cv = {"brier_raw": round(float(b_raw), 5), "brier_calibrated": round(float(b_cal), 5)}
+            if b_cal >= b_raw:
+                self.calibrator, self.calibration_method = None, "none (raw better in CV)"
+                return self
+        self.calibrator = self._fit_calibrator(method, raw, y)
         self.calibration_method = method
         return self
 
@@ -64,10 +88,8 @@ class CalibratedCatBoostClassifier:
         raw = np.asarray(raw, dtype=float)
         if self.calibrator is None:
             p = raw
-        elif self.calibration_method == "isotonic":
-            p = self.calibrator.predict(raw)
         else:
-            p = self.calibrator.predict_proba(_logit(raw))[:, 1]
+            p = self._apply(self.calibration_method, self.calibrator, raw)
         return np.clip(p, P_MIN, 1 - P_MIN)
 
     def predict_proba(self, X):

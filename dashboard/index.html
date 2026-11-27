@@ -66,6 +66,7 @@ nav.tabs button[aria-selected="true"] { color: var(--accent); border-bottom-colo
 main { padding-bottom: 48px; }
 .grid { display: grid; gap: 16px; }
 .kpis { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.kpis.kpis4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .two { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); min-width: 0; }
 .card h2 { font-size: 14px; margin: 0 0 2px; font-weight: 600; }
@@ -85,7 +86,7 @@ main { padding-bottom: 48px; }
 .chip.dq { background: color-mix(in srgb, var(--s-ins) 18%, transparent); }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
 .filters select, .filters input { border: 1px solid var(--border); background: var(--surface); border-radius: 8px; padding: 7px 10px; font-size: 13px; min-width: 0; }
-.filters input { width: 200px; }
+.filters input[type="search"] { width: 200px; }
 .statechips { display: flex; flex-wrap: wrap; gap: 6px; }
 .statechips button { cursor: pointer; opacity: .45; }
 .statechips button[aria-pressed="true"] { opacity: 1; }
@@ -131,15 +132,34 @@ aside.drawer.open { transform: none; }
 .metric-grid .card .row:last-child { border-bottom: 0; }
 .metric-grid .card .row b { font-variant-numeric: tabular-nums; }
 .hidden { display: none !important; }
+.sev { display: inline-flex; align-items: center; gap: 5px; padding: 2px 9px 2px 6px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; border: 1px solid var(--border); background: var(--surface); }
+.sev i { font-style: normal; width: 16px; height: 16px; border-radius: 50%; display: grid; place-items: center; font-size: 10px; font-weight: 700; color: #191919; }
+.sev.HIGH i { background: #dc3c3d; color: #fff; } .sev.MEDIUM i { background: #fbb315; }
+.alert-list { display: grid; gap: 10px; }
+.alert { border: 1px solid var(--border); border-left: 4px solid var(--border); border-radius: 10px; padding: 12px 14px; background: var(--surface); display: grid; gap: 6px; }
+.alert.HIGH { border-left-color: #dc3c3d; } .alert.MEDIUM { border-left-color: #fbb315; }
+.alert.acked { opacity: .6; }
+.alert .a-head { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.alert .a-title { font-weight: 600; flex: 1; min-width: 200px; }
+.alert .a-detail { color: var(--text-2); font-size: 13px; }
+.alert .a-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.chip.over { background: color-mix(in srgb, #dc3c3d 14%, transparent); color: var(--bad-text); font-weight: 600; }
+.chip.evt { background: color-mix(in srgb, #fbb315 22%, transparent); color: var(--text); }
+.banner { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; border: 1px solid var(--border); border-left: 4px solid #dc3c3d; background: var(--surface); border-radius: 10px; padding: 10px 14px; margin-bottom: 16px; box-shadow: var(--shadow); }
+.banner .b-text { flex: 1; min-width: 220px; }
+.filter-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-soft); border: 1px solid var(--border); border-radius: 999px; padding: 3px 6px 3px 10px; font-size: 12px; }
+.filter-tag button { border: 0; background: none; cursor: pointer; padding: 0 4px; }
+.tab-count { display: inline-block; min-width: 18px; padding: 0 5px; border-radius: 999px; background: #dc3c3d; color: #fff; font-size: 11px; line-height: 18px; text-align: center; margin-left: 4px; }
+.evt-mark { display: block; font-size: 11px; color: var(--text-2); margin-top: 2px; white-space: nowrap; }
 .empty { padding: 28px; text-align: center; color: var(--text-3); }
-@media (max-width: 1080px) { .kpis { grid-template-columns: repeat(3, minmax(0,1fr)); } .metric-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 1080px) { .kpis { grid-template-columns: repeat(3, minmax(0,1fr)); } .kpis.kpis4 { grid-template-columns: repeat(2, minmax(0,1fr)); } .metric-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 860px) { .two { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 640px) {
   .wrap { padding: 0 16px; }
-  .kpis { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .kpis, .kpis.kpis4 { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .metric-grid, .mini-kpis { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .kpi .value { font-size: 22px; }
-  .filters input { width: 100%; }
+  .filters input[type="search"] { width: 100%; }
   .drawer-body { padding: 16px; }
   .brand p { display: none; }
 }
@@ -163,6 +183,7 @@ aside.drawer.open { transform: none; }
     </div>
     <nav class="tabs" role="tablist">
       <button role="tab" data-tab="overview" aria-selected="true">Tổng quan</button>
+      <button role="tab" data-tab="alerts" aria-selected="false" id="tab-alerts-btn">Cảnh báo</button>
       <button role="tab" data-tab="queue" aria-selected="false">Danh sách xem xét</button>
       <button role="tab" data-tab="model" aria-selected="false">Mô hình &amp; kiểm định</button>
     </nav>
@@ -177,6 +198,7 @@ aside.drawer.open { transform: none; }
 
   <!-- ============ OVERVIEW ============ -->
   <section id="tab-overview">
+    <div id="alert-banner"></div>
     <div class="grid kpis" id="kpis"></div>
     <div class="grid two" style="margin-top:16px">
       <div class="card">
@@ -205,11 +227,29 @@ aside.drawer.open { transform: none; }
     </div>
   </section>
 
+  <!-- ============ ALERTS ============ -->
+  <section id="tab-alerts" class="hidden">
+    <div class="grid kpis kpis4" id="alert-kpis"></div>
+    <div class="card" style="margin-top:16px">
+      <h2>Cảnh báo sớm cho người quản lý</h2>
+      <p class="sub" id="alert-sub"></p>
+      <div class="filters">
+        <div class="seg" id="alert-scope"></div>
+        <select id="alert-sev" aria-label="Mức độ"><option value="">Mọi mức độ</option><option value="HIGH">Khẩn</option><option value="MEDIUM">Cần chú ý</option></select>
+        <select id="alert-owner" aria-label="Đơn vị phụ trách"></select>
+        <label class="muted" style="display:inline-flex;gap:6px;align-items:center"><input type="checkbox" id="alert-acked"> Hiện cả cảnh báo đã xem</label>
+      </div>
+      <div class="alert-list" id="alert-list"></div>
+      <div class="pager" id="alert-more"></div>
+    </div>
+  </section>
+
   <!-- ============ QUEUE ============ -->
   <section id="tab-queue" class="hidden">
     <div class="card">
       <h2>Danh sách sinh viên cần xem xét</h2>
       <p class="sub">Sắp xếp mặc định theo mức ưu tiên: lệch mục tiêu → chưa đủ bằng chứng → mong manh, sau đó theo xác suất hoàn thành kế hoạch tăng dần. Chọn một dòng để xem chi tiết.</p>
+      <div class="filters" id="ids-filter"></div>
       <div class="filters">
         <div class="statechips" id="state-chips"></div>
       </div>
@@ -258,6 +298,18 @@ aside.drawer.open { transform: none; }
     </div>
     <div class="grid two" style="margin-top:16px">
       <div class="card">
+        <h2>Snapshot theo sự kiện (kiểm định)</h2>
+        <p class="sub">Đánh giá trên học kỳ kiểm định: sự kiện quan trọng phát hiện từ dữ liệu hằng tuần giữa các mốc cố định.</p>
+        <div id="event-metrics"></div>
+      </div>
+      <div class="card">
+        <h2>Quy tắc cảnh báo</h2>
+        <p class="sub">Các ngưỡng nằm trong <code>config.py</code> (ALERT_RULES, EVENT_RULES), Ban Đào tạo có thể điều chỉnh.</p>
+        <div id="alert-rules"></div>
+      </div>
+    </div>
+    <div class="grid two" style="margin-top:16px">
+      <div class="card">
         <h2>Kiểm tra công bằng theo chương trình</h2>
         <p class="sub">Cảnh báo khi chênh lệch giữa dự báo và thực tế vượt 5 điểm phần trăm hoặc AUC thấp hơn 0,05 so với toàn bộ.</p>
         <div id="fairness"></div>
@@ -293,7 +345,10 @@ const STATES = {
 };
 const STATE_ORDER = ["ON_TRACK", "IMPROVING", "STABLE_FRAGILE", "DIVERGING", "PLAN_ADJUSTED", "INSUFFICIENT_EVIDENCE"];
 const CONF_VI = { HIGH: "Cao", MEDIUM: "Trung bình", LOW: "Thấp" };
-const OWNER_VI = { ACADEMIC_ADVISOR: "Cố vấn học tập", TRAINING_OFFICE: "Ban Đào tạo", DATA_STEWARD: "Quản trị dữ liệu", NONE: "Không cần" };
+const OWNER_VI = { ACADEMIC_ADVISOR: "Cố vấn học tập", TRAINING_OFFICE: "Ban Đào tạo", DATA_STEWARD: "Quản trị dữ liệu", PROGRAM_MANAGER: "Lãnh đạo chương trình", FACULTY: "Khoa / giảng viên học phần", NONE: "Không cần" };
+const SCOPE_VI = { "": "Tất cả", STUDENT: "Sinh viên", PROGRAM: "Chương trình", COURSE: "Học phần", DATA: "Dữ liệu", OPS: "Vận hành" };
+const SEV_VI = { HIGH: "Khẩn", MEDIUM: "Cần chú ý" };
+const TRIGGER_VI = { BECAME_DIVERGING: "Chuyển sang lệch mục tiêu", SHARP_DROP: "XS hoàn thành KH giảm mạnh", STANDING_WARNING_NEW: "Mới có nguy cơ cảnh báo học vụ", PROGRAM_DIVERGING_RISE: "Tỷ lệ lệch mục tiêu tăng", COURSE_RISK_CLUSTER: "Nhiều SV khó đạt học phần", INSUFFICIENT_EVIDENCE_SHARE: "Thiếu bằng chứng diện rộng", REVIEW_OVERDUE: "Quá hạn xem xét" };
 const REVIEW_VI = { NEW: "Mới", IN_REVIEW: "Đang xem xét", CONTACTED: "Đã liên hệ", SUPPORT_PLANNED: "Đã có kế hoạch hỗ trợ", RESOLVED: "Đã xử lý", NO_ACTION: "Không cần hành động" };
 const STANDING_VI = { SATISFACTORY: "Đạt yêu cầu", WATCH: "Cần theo dõi", WARNING_LIKELY: "Có nguy cơ cảnh báo" };
 const FEATURE_VI = {
@@ -308,8 +363,19 @@ const FEATURE_VI = {
   term_registered_credits: "Tín chỉ đăng ký", n_courses: "Số học phần", snapshot_index: "Thứ tự snapshot",
   snapshot_milestone: "Snapshot", program_id: "Chương trình", reduced_load_flag: "Giảm tải",
 };
-const M = D.meta, MS = M.milestones, RL = D.reason_labels;
-const msLabel = (m) => M.milestone_labels[m] || m;
+const M = D.meta, MS = M.milestones, RL = D.reason_labels, ALERTS = D.alerts || [];
+const msLabel = (m) => M.milestone_labels[m] || (m.startsWith("EVENT_W") ? "Sự kiện T" + Number(m.slice(7)) : m);
+// views: regular milestones + "LATEST" (each student's most recent snapshot, events included)
+const VIEWS = [...MS, "LATEST"];
+const viewLabel = (v) => v === "LATEST" ? `Mới nhất (T${M.current_week})` : msLabel(v);
+const lastKey = (s) => s.timeline[s.timeline.length - 1];
+const snapOf = (s, v = curMs) => v === "LATEST" ? s.snapshots[lastKey(s)] : s.snapshots[v];
+const keyOf = (s, v = curMs) => v === "LATEST" ? lastKey(s) : v;
+const snapName = (sn, key) => sn.type === "EVENT" ? `Sự kiện T${sn.week}` : msLabel(key);
+const DAY = 864e5;
+const todayMs = () => Math.max(Date.now(), new Date(M.as_of_date + "T23:59:59").getTime());
+const daysSince = (d) => Math.floor((todayMs() - new Date(d + "T12:00:00").getTime()) / DAY);
+const fmtDate = (d) => { const [y, m, dd] = d.split("-"); return `${dd}/${m}/${y}`; };
 const ALL_MS = Object.keys(M.milestone_labels);
 const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const pct = (x, d = 0) => x == null ? "—" : (x * 100).toFixed(d).replace(".", ",") + "%";
@@ -327,9 +393,10 @@ const saveReviews = () => { try { localStorage.setItem(REVIEW_KEY, JSON.stringif
 const reviewOf = (stu, snap) => (reviews[stu.id] && reviews[stu.id].status) || snap.review;
 
 // ------------------------------------------------------------------ state
-let curMs = MS[MS.length - 1];
+let curMs = "LATEST";
 let tab = "overview";
-const Q = { states: new Set(["DIVERGING", "INSUFFICIENT_EVIDENCE", "STABLE_FRAGILE", "IMPROVING"]), search: "", program: "", conf: "", owner: "", review: "", sort: "priority", dir: 1, page: 0 };
+const Q = { states: new Set(["DIVERGING", "INSUFFICIENT_EVIDENCE", "STABLE_FRAGILE", "IMPROVING"]), search: "", program: "", conf: "", owner: "", review: "", sort: "priority", dir: 1, page: 0, ids: null, idsLabel: "" };
+const A = { scope: "", sev: "", owner: "", acked: false, limit: 30 };
 let relKey = "M4_plan_completion";
 
 // ------------------------------------------------------------------ tooltip
@@ -373,19 +440,21 @@ function hbarPath(x, y, w, h, r = 4) {
 }
 
 // ------------------------------------------------------------------ data access
-const snapOf = (s, m = curMs) => s.snapshots[m];
-const studentsAt = (m = curMs) => D.students.filter((s) => s.snapshots[m]);
+const studentsAt = (m = curMs) => D.students.filter((s) => snapOf(s, m));
 
 // ================================================================== HEADER
 function renderHeader() {
-  document.getElementById("meta-line").textContent = `C1.1.2 · Học kỳ ${M.term_id} · mô hình v${M.model_version}`;
+  document.getElementById("meta-line").textContent = `C1.1.2 · Học kỳ ${M.term_id} · dữ liệu đến ${fmtDate(M.as_of_date)} · mô hình v${M.model_version}`;
+  const nb = openAlerts().filter((a) => a.severity === "HIGH").length;
+  document.getElementById("tab-alerts-btn").innerHTML = "Cảnh báo" + (nb ? `<span class="tab-count" title="${nb} cảnh báo khẩn chưa xem">${nb}</span>` : "");
   document.getElementById("synthetic-note").textContent = M.synthetic_data ? "Bản demo dùng dữ liệu mô phỏng, không phải dữ liệu sinh viên thật." : "";
   const seg = document.getElementById("ms-seg");
   seg.innerHTML = "";
-  ALL_MS.forEach((m) => {
+  [...ALL_MS, "LATEST"].forEach((m) => {
     const b = document.createElement("button");
-    const avail = MS.includes(m);
-    b.textContent = msLabel(m);
+    const avail = m === "LATEST" || MS.includes(m);
+    b.textContent = viewLabel(m);
+    if (m === "LATEST") b.title = "Snapshot gần nhất của mỗi sinh viên, gồm cả snapshot theo sự kiện";
     b.setAttribute("aria-pressed", m === curMs);
     if (!avail) { b.disabled = true; b.style.opacity = .4; b.title = "Chưa đến mốc này"; }
     b.onclick = () => { curMs = m; Q.page = 0; renderAll(); };
@@ -396,9 +465,9 @@ function renderHeader() {
 // ================================================================== OVERVIEW
 function renderKpis() {
   const cur = studentsAt();
-  const prevIdx = MS.indexOf(curMs) - 1, prevMs = prevIdx >= 0 ? MS[prevIdx] : null;
+  const prevIdx = VIEWS.indexOf(curMs) - 1, prevMs = prevIdx >= 0 ? VIEWS[prevIdx] : null;
   const calc = (m) => {
-    const ss = studentsAt(m).map((s) => s.snapshots[m]);
+    const ss = studentsAt(m).map((s) => snapOf(s, m));
     const ps = ss.map((x) => x.p_plan).sort((a, b) => a - b);
     return {
       n: ss.length,
@@ -412,12 +481,12 @@ function renderKpis() {
   const k = calc(curMs), p = prevMs ? calc(prevMs) : null;
   const delta = (a, b, fmt, goodDown) => {
     if (b == null) return `<span class="note">Snapshot đầu tiên</span>`;
-    const d = a - b; if (Math.abs(d) < 1e-9) return `<span class="note">Không đổi so với ${msLabel(prevMs)}</span>`;
+    const d = a - b; if (Math.abs(d) < 1e-9) return `<span class="note">Không đổi so với ${viewLabel(prevMs)}</span>`;
     const good = goodDown ? d < 0 : d > 0;
-    return `<span class="note ${good ? "delta-up" : "delta-down"}">${d > 0 ? "▲" : "▼"} ${fmt(Math.abs(d))} so với ${msLabel(prevMs)}</span>`;
+    return `<span class="note ${good ? "delta-up" : "delta-down"}">${d > 0 ? "▲" : "▼"} ${fmt(Math.abs(d))} so với ${viewLabel(prevMs)}</span>`;
   };
   const tiles = [
-    ["Sinh viên được dự báo", k.n.toLocaleString("vi-VN"), `<span class="note">${MS.length} snapshot trong học kỳ</span>`],
+    ["Sinh viên được dự báo", k.n.toLocaleString("vi-VN"), `<span class="note">${MS.length} mốc cố định · ${D.students.reduce((a, s) => a + s.timeline.filter((x) => x.startsWith("EVENT")).length, 0)} snapshot sự kiện</span>`],
     ["Cần xem xét", k.need.toLocaleString("vi-VN"), delta(k.need, p && p.need, (x) => x.toFixed(0), true)],
     ["Đang lệch khỏi mục tiêu", k.div.toLocaleString("vi-VN"), delta(k.div, p && p.div, (x) => x.toFixed(0), true)],
     ["XS hoàn thành kế hoạch (trung vị)", pct(k.med), delta(k.med, p && p.med, (x) => (x * 100).toFixed(1).replace(".", ",") + " điểm %", false)],
@@ -434,14 +503,14 @@ function renderStateLegend(el) {
 function renderStateBars() {
   renderStateLegend(document.getElementById("state-legend"));
   const box = document.getElementById("state-bars");
-  const rowH = 30, gap = 14, labW = 110, top = 4;
-  const { svg, w } = svgRoot(box, top + MS.length * (rowH + gap));
+  const rowH = 30, gap = 14, labW = 124, top = 4;
+  const { svg, w } = svgRoot(box, top + VIEWS.length * (rowH + gap));
   const bw = w - labW - 8;
-  MS.forEach((m, i) => {
-    const ss = studentsAt(m).map((s) => s.snapshots[m]);
+  VIEWS.forEach((m, i) => {
+    const ss = studentsAt(m).map((s) => snapOf(s, m));
     const n = ss.length, y = top + i * (rowH + gap);
     const lab = svgEl("text", { x: 0, y: y + rowH / 2 + 4, "font-weight": m === curMs ? 600 : 400 }, svg);
-    lab.textContent = msLabel(m);
+    lab.textContent = viewLabel(m);
     if (m === curMs) lab.style.fill = css("--text");
     let x = labW;
     STATE_ORDER.forEach((s) => {
@@ -449,7 +518,7 @@ function renderStateBars() {
       if (!c) return;
       const segW = (c / n) * bw;
       const r = svgEl("rect", { x: x, y, width: Math.max(0, segW - 2), height: rowH, rx: 3, fill: css(STATES[s].c), opacity: m === curMs ? 1 : .55 }, svg);
-      bindTip(r, `${msLabel(m)} · ${STATES[s].vi}`, [["Số sinh viên", c.toLocaleString("vi-VN")], ["Tỷ lệ", pct(c / n, 1)]]);
+      bindTip(r, `${viewLabel(m)} · ${STATES[s].vi}`, [["Số sinh viên", c.toLocaleString("vi-VN")], ["Tỷ lệ", pct(c / n, 1)]]);
       if (segW > 38) {
         const t = svgEl("text", { x: x + 6, y: y + rowH / 2 + 4, "pointer-events": "none" }, svg);
         t.textContent = pct(c / n);
@@ -462,13 +531,13 @@ function renderStateBars() {
 
 function renderTransition() {
   const box = document.getElementById("transition");
-  const i = MS.indexOf(curMs);
+  const i = VIEWS.indexOf(curMs);
   if (i <= 0) { box.innerHTML = `<div class="empty">Đây là snapshot đầu tiên của học kỳ, chưa có dữ liệu để so sánh.</div>`; document.getElementById("trans-sub").textContent = "Hàng: trạng thái trước · Cột: trạng thái hiện tại"; return; }
-  const prev = MS[i - 1];
-  document.getElementById("trans-sub").textContent = `Hàng: ${msLabel(prev)} · Cột: ${msLabel(curMs)} · số sinh viên`;
+  const prev = VIEWS[i - 1];
+  document.getElementById("trans-sub").textContent = `Hàng: ${viewLabel(prev)} · Cột: ${viewLabel(curMs)} · số sinh viên`;
   const mat = {}; let max = 0;
   D.students.forEach((s) => {
-    const a = s.snapshots[prev], b = s.snapshots[curMs];
+    const a = snapOf(s, prev), b = snapOf(s);
     if (!a || !b) return;
     const k = a.state + "|" + b.state; mat[k] = (mat[k] || 0) + 1; max = Math.max(max, mat[k]);
   });
@@ -488,7 +557,7 @@ function renderTransition() {
 
 function renderReasonBars() {
   const cnt = {};
-  studentsAt().forEach((s) => s.snapshots[curMs].sup.forEach((c) => { cnt[c] = (cnt[c] || 0) + 1; }));
+  studentsAt().forEach((s) => snapOf(s).sup.forEach((c) => { cnt[c] = (cnt[c] || 0) + 1; }));
   const rows = Object.entries(cnt).sort((a, b) => b[1] - a[1]).slice(0, 8);
   const box = document.getElementById("reason-bars");
   if (!rows.length) { box.innerHTML = '<div class="empty">Không có mã lý do.</div>'; return; }
@@ -509,7 +578,7 @@ function renderReasonBars() {
 
 function renderProgramTable() {
   const by = {};
-  studentsAt().forEach((s) => { (by[s.program] = by[s.program] || []).push(s.snapshots[curMs]); });
+  studentsAt().forEach((s) => { (by[s.program] = by[s.program] || []).push(snapOf(s)); });
   const rows = Object.entries(by).map(([p, ss]) => ({ p, n: ss.length, mp: ss.reduce((a, x) => a + x.p_plan, 0) / ss.length, ss })).sort((a, b) => a.mp - b.mp);
   let h = `<div class="table-wrap"><table><thead><tr><th>Chương trình</th><th class="num">SV</th><th class="num">XS hoàn thành KH</th><th>Cơ cấu trạng thái</th></tr></thead><tbody>`;
   rows.forEach((r) => {
@@ -559,12 +628,12 @@ const COLS = [
 function queueRows() {
   const q = Q.search.toLowerCase();
   let rows = studentsAt().filter((s) => {
-    const x = s.snapshots[curMs];
-    return Q.states.has(x.state) && (!q || s.id.toLowerCase().includes(q)) && (!Q.program || s.program === Q.program)
+    const x = snapOf(s);
+    return (Q.ids ? Q.ids.has(s.id) : Q.states.has(x.state)) && (!q || s.id.toLowerCase().includes(q)) && (!Q.program || s.program === Q.program)
       && (!Q.conf || x.conf === Q.conf) && (!Q.owner || x.owner === Q.owner) && (!Q.review || reviewOf(s, x) === Q.review);
   });
-  if (Q.sort === "priority") rows.sort((a, b) => STATES[a.snapshots[curMs].state].rank - STATES[b.snapshots[curMs].state].rank || a.snapshots[curMs].p_plan - b.snapshots[curMs].p_plan);
-  else { const col = COLS.find((c) => c.k === Q.sort); rows.sort((a, b) => { const va = col.s(a, a.snapshots[curMs]), vb = col.s(b, b.snapshots[curMs]); return (va < vb ? -1 : va > vb ? 1 : 0) * Q.dir; }); }
+  if (Q.sort === "priority") rows.sort((a, b) => STATES[snapOf(a).state].rank - STATES[snapOf(b).state].rank || snapOf(a).p_plan - snapOf(b).p_plan);
+  else { const col = COLS.find((c) => c.k === Q.sort); rows.sort((a, b) => { const va = col.s(a, snapOf(a)), vb = col.s(b, snapOf(b)); return (va < vb ? -1 : va > vb ? 1 : 0) * Q.dir; }); }
   return rows;
 }
 
@@ -572,16 +641,19 @@ function renderQueue() {
   const rows = queueRows(), per = 25, pages = Math.max(1, Math.ceil(rows.length / per));
   Q.page = Math.min(Q.page, pages - 1);
   document.getElementById("q-count").textContent = `${rows.length.toLocaleString("vi-VN")} sinh viên`;
+  const idf = document.getElementById("ids-filter");
+  idf.innerHTML = Q.ids ? `<span class="filter-tag">Đang lọc theo cảnh báo: <b>${esc(Q.idsLabel)}</b> (bỏ qua bộ lọc trạng thái)<button id="ids-clear" aria-label="Bỏ lọc">✕</button></span>` : "";
+  if (Q.ids) document.getElementById("ids-clear").onclick = () => { Q.ids = null; Q.page = 0; renderQueue(); };
   const arrow = (k) => Q.sort === k ? (Q.dir > 0 ? " ▲" : " ▼") : "";
   let h = `<thead><tr>${COLS.map((c) => `<th class="sortable ${c.num ? "num" : ""}" data-k="${c.k}">${c.l}${arrow(c.k)}</th>`).join("")}</tr></thead><tbody>`;
   if (!rows.length) h += `<tr><td colspan="${COLS.length}" class="empty">Không có sinh viên phù hợp bộ lọc.</td></tr>`;
   rows.slice(Q.page * per, Q.page * per + per).forEach((s) => {
-    const x = s.snapshots[curMs];
+    const x = snapOf(s);
     const dp = x.prev_p_plan == null ? null : x.p_plan - x.prev_p_plan;
     const dpH = dp == null ? '<span class="muted">—</span>' : `<span class="${dp > 0.005 ? "delta-up" : dp < -0.005 ? "delta-down" : ""}">${dp > 0.005 ? "▲" : dp < -0.005 ? "▼" : "•"} ${Math.abs(dp * 100).toFixed(0)} điểm</span>`;
     const rv = reviewOf(s, x);
     h += `<tr class="click" data-id="${s.id}" tabindex="0">
-      <td class="mono">${s.id}</td><td>${s.program}</td><td>${badge(x.state)}</td>
+      <td class="mono">${s.id}</td><td>${s.program}</td><td>${badge(x.state)}${x.type === "EVENT" ? `<span class="evt-mark">⚡ Sự kiện T${x.week} · ${fmtDate(x.date)}</span>` : ""}</td>
       <td class="num"><span class="pbar"><b style="width:${x.p_plan * 100}%"></b></span>${pct(x.p_plan)}</td>
       <td class="num">${dpH}</td>
       <td class="num">${num(x.exp_credits)} / ${x.plan_credits}</td>
@@ -612,12 +684,12 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawe
 function openDrawer(id) {
   const s = D.students.find((x) => x.id === id); if (!s) return;
   drawerId = id;
-  const x = s.snapshots[curMs];
+  const x = snapOf(s);
   const dp = x.prev_p_plan == null ? null : x.p_plan - x.prev_p_plan;
   const rv = reviews[s.id] || {};
   drawer.innerHTML = `
     <div class="drawer-head">
-      <div><div class="mono" style="font-size:15px;font-weight:600">${s.id}</div><div class="muted">${s.program} · đã học ${s.terms_completed} kỳ · GPA tích lũy trước ${num(s.prior_cum_gpa, 2)} · ${msLabel(curMs)}</div></div>
+      <div><div class="mono" style="font-size:15px;font-weight:600">${s.id}</div><div class="muted">${s.program} · đã học ${s.terms_completed} kỳ · GPA tích lũy trước ${num(s.prior_cum_gpa, 2)} · ${snapName(x, keyOf(s))} (${fmtDate(x.date)})</div></div>
       <div class="spacer"></div>${badge(x.state)}<span class="badge">Dữ liệu: ${CONF_VI[x.conf]}</span>
       <button class="icon-btn" id="d-close" aria-label="Đóng">✕</button>
     </div>
@@ -628,7 +700,7 @@ function openDrawer(id) {
         <div class="card kpi"><div class="label">GPA học kỳ dự báo</div><div class="value">${num(x.gpa, 2)}</div><div class="note">Khoảng 80%: ${num(x.gpa_lo, 2)}–${num(x.gpa_hi, 2)}</div></div>
         <div class="card kpi"><div class="label">Trạng thái học vụ dự báo</div><div class="value" style="font-size:16px;padding-top:4px">${STANDING_VI[x.standing]}</div><div class="note">XS đạt yêu cầu: ${pct(x.p_standing)}</div></div>
       </div>
-      <div class="card"><h2>Quỹ đạo xác suất hoàn thành kế hoạch</h2><p class="sub">Mỗi điểm là một snapshot; màu và biểu tượng thể hiện trạng thái quỹ đạo. Đường đứt nét là ngưỡng trạng thái hiện hành.</p><div id="d-traj"></div></div>
+      <div class="card"><h2>Quỹ đạo xác suất hoàn thành kế hoạch</h2><p class="sub">Mỗi điểm là một snapshot; màu và biểu tượng thể hiện trạng thái quỹ đạo. Đường đứt nét là ngưỡng trạng thái hiện hành.</p><div id="d-traj"></div>${eventHistory(s)}</div>
       <div class="grid two">
         <div class="card"><h2>Bằng chứng tích cực</h2><p class="sub">Yếu tố đẩy dự báo theo hướng thuận lợi.</p>${x.pos.map((c) => reasonChip(c, "pos")).join("") || '<span class="muted">Không có mã nổi bật.</span>'}</div>
         <div class="card"><h2>Lý do cần hỗ trợ</h2><p class="sub">Yếu tố đẩy dự báo theo hướng bất lợi, đã kiểm tra với giá trị thực.</p>${x.sup.map((c) => reasonChip(c, "sup")).join("") || '<span class="muted">Không có mã nổi bật.</span>'}
@@ -648,17 +720,19 @@ function openDrawer(id) {
     reviews[s.id] = { status: document.getElementById("d-status").value, note: document.getElementById("d-note").value, at: Date.now() };
     saveReviews();
     document.getElementById("d-saved").textContent = "Đã lưu " + new Date().toLocaleTimeString("vi-VN");
-    if (tab === "queue") renderQueue();
+    if (tab === "alerts") renderAlerts();
+  if (tab === "queue") renderQueue();
   };
   requestAnimationFrame(() => { renderTrajectory(s); renderCourses(x); });
 }
 
 function renderTrajectory(s) {
   const box = document.getElementById("d-traj");
-  const H = 230, m = { l: 52, r: 52, t: 22, b: 28 };
+  const H = 240, m = { l: 52, r: 52, t: 26, b: 30 };
   const { svg, w } = svgRoot(box, H);
   const iw = w - m.l - m.r, ih = H - m.t - m.b;
-  const X = (i) => m.l + (ALL_MS.length === 1 ? iw / 2 : (i / (ALL_MS.length - 1)) * iw);
+  const W0 = 4, W1 = 14;  // teaching weeks shown on the axis
+  const X = (wk) => m.l + ((wk - W0) / (W1 - W0)) * iw;
   const Y = (p) => m.t + (1 - p) * ih;
   [0, .25, .5, .75, 1].forEach((p) => {
     svgEl("line", { x1: m.l, x2: m.l + iw, y1: Y(p), y2: Y(p), stroke: css("--grid") }, svg);
@@ -669,23 +743,44 @@ function renderTrajectory(s) {
     svgEl("line", { x1: m.l, x2: m.l + iw, y1: Y(p), y2: Y(p), stroke: css("--axis"), "stroke-dasharray": "4 4" }, svg);
     const t = svgEl("text", { x: m.l + iw + m.r, y: Y(p) - 5, "text-anchor": "end" }, svg); t.textContent = `${l} ${pct(p)}`;
   });
-  ALL_MS.forEach((ms, i) => {
-    const t = svgEl("text", { x: X(i), y: H - 8, "text-anchor": "middle" }, svg); t.textContent = msLabel(ms);
+  // regular milestone ticks; weeks after the data cut-off are greyed out
+  if (M.current_week < W1) svgEl("rect", { x: X(M.current_week), y: m.t, width: X(W1) - X(M.current_week), height: ih, fill: css("--surface-2"), opacity: .6 }, svg);
+  ALL_MS.forEach((ms) => {
+    const wk = M.milestone_weeks[ms];
+    svgEl("line", { x1: X(wk), x2: X(wk), y1: m.t + ih, y2: m.t + ih + 4, stroke: css("--axis") }, svg);
+    const t = svgEl("text", { x: X(wk), y: H - 8, "text-anchor": "middle" }, svg); t.textContent = msLabel(ms);
     if (!s.snapshots[ms]) t.style.opacity = .45;
-    if (ms === curMs) { t.style.fill = css("--text"); t.style.fontWeight = 600; }
+    if (ms === keyOf(s)) { t.style.fill = css("--text"); t.style.fontWeight = 600; }
   });
-  const pts = ALL_MS.map((ms, i) => s.snapshots[ms] ? [X(i), Y(s.snapshots[ms].p_plan), ms] : null).filter(Boolean);
+  const pts = s.timeline.map((k) => [X(s.snapshots[k].week), Y(s.snapshots[k].p_plan), k]);
   if (pts.length > 1) svgEl("path", { d: pts.map((p, i) => (i ? "L" : "M") + p[0] + "," + p[1]).join(""), fill: "none", stroke: css("--text-2"), "stroke-width": 2 }, svg);
-  pts.forEach(([x, y, ms]) => {
-    const sn = s.snapshots[ms];
-    const g = svgEl("g", { style: "cursor:default" }, svg);
+  pts.forEach(([x, y, k]) => {
+    const sn = s.snapshots[k], isEv = sn.type === "EVENT", sel = k === keyOf(s);
+    const g = svgEl("g", {}, svg);
     svgEl("circle", { cx: x, cy: y, r: 16, fill: "transparent" }, g);  // hit target
-    svgEl("circle", { cx: x, cy: y, r: ms === curMs ? 9 : 7, fill: css(STATES[sn.state].c), stroke: css("--surface"), "stroke-width": 2 }, g);
+    const r = sel ? 9 : 7;
+    if (isEv) svgEl("path", { d: `M${x},${y - r - 2}L${x + r + 2},${y}L${x},${y + r + 2}L${x - r - 2},${y}Z`, fill: css(STATES[sn.state].c), stroke: css("--surface"), "stroke-width": 2 }, g);
+    else svgEl("circle", { cx: x, cy: y, r, fill: css(STATES[sn.state].c), stroke: css("--surface"), "stroke-width": 2 }, g);
     const ic = svgEl("text", { x, y: y + 3.5, "text-anchor": "middle", "pointer-events": "none" }, g);
-    ic.textContent = STATES[sn.state].ic; ic.style.fill = "#fff"; ic.style.fontSize = "9px"; ic.style.fontWeight = 700;
-    const lab = svgEl("text", { x, y: y - 14, "text-anchor": "middle" }, g); lab.textContent = pct(sn.p_plan); lab.style.fill = css("--text"); lab.style.fontWeight = 600;
-    bindTip(g, msLabel(ms), [["Trạng thái", STATES[sn.state].vi], ["XS hoàn thành KH", pct(sn.p_plan)], ["TC kỳ vọng", `${num(sn.exp_credits)} / ${sn.plan_credits}`], ["GPA dự báo", num(sn.gpa, 2)], ["Dữ liệu", CONF_VI[sn.conf]]]);
+    ic.textContent = STATES[sn.state].ic; ic.style.fill = sn.state === "STABLE_FRAGILE" ? "#191919" : "#fff"; ic.style.fontSize = "9px"; ic.style.fontWeight = 700;
+    const lab = svgEl("text", { x, y: y - 15, "text-anchor": "middle" }, g);
+    lab.textContent = (isEv ? `⚡T${sn.week} ` : "") + pct(sn.p_plan); lab.style.fill = css("--text"); lab.style.fontWeight = 600;
+    const rows = [["Ngày", fmtDate(sn.date)], ["Trạng thái", STATES[sn.state].vi], ["XS hoàn thành KH", pct(sn.p_plan)], ["TC kỳ vọng", `${num(sn.exp_credits)} / ${sn.plan_credits}`], ["GPA dự báo", num(sn.gpa, 2)], ["Dữ liệu", CONF_VI[sn.conf]]];
+    if (isEv) rows.push(["Sự kiện", sn.ev_new.map((c) => RL[c] || c).join("; ")]);
+    bindTip(g, snapName(sn, k), rows);
   });
+  const lg = svgEl("text", { x: m.l, y: 12 }, svg);
+  lg.textContent = "● mốc cố định · ◆ snapshot theo sự kiện" + (M.current_week < W1 ? ` · vùng xám: sau tuần ${M.current_week}, chưa có dữ liệu` : "");
+}
+
+function eventHistory(s) {
+  const evs = s.timeline.filter((k) => s.snapshots[k].type === "EVENT");
+  const x = snapOf(s);
+  const active = (x.ev || []).length ? `<p class="sub" style="margin:10px 0 4px">Điều kiện quan trọng đang hiện diện tại snapshot này:</p>${x.ev.map((c) => reasonChip(c, "evt")).join("")}` : "";
+  if (!evs.length) return active;
+  return active + `<p class="sub" style="margin:10px 0 4px">Snapshot theo sự kiện trong học kỳ:</p><div class="table-wrap"><table><thead><tr><th>Tuần</th><th>Ngày</th><th>Sự kiện mới</th><th>Trạng thái sau sự kiện</th><th class="num">XS hoàn thành KH</th></tr></thead><tbody>` +
+    evs.map((k) => { const e = s.snapshots[k]; return `<tr><td>T${e.week}</td><td>${fmtDate(e.date)}</td><td>${e.ev_new.map((c) => reasonChip(c, "evt")).join("")}</td><td>${badge(e.state)}</td><td class="num">${pct(e.p_plan)}${e.prev_p_plan != null ? ` <span class="${e.p_plan - e.prev_p_plan < -0.005 ? "delta-down" : e.p_plan - e.prev_p_plan > 0.005 ? "delta-up" : "muted"}">(${e.p_plan - e.prev_p_plan >= 0 ? "+" : ""}${((e.p_plan - e.prev_p_plan) * 100).toFixed(0)})</span>` : ""}</td></tr>`; }).join("") +
+    "</tbody></table></div>";
 }
 
 function scoreBar(c) {
@@ -716,6 +811,106 @@ function renderCourses(x) {
   document.getElementById("d-courses").innerHTML = h + "</tbody></table>";
 }
 
+// ================================================================== ALERTS
+const ACK_KEY = "ueh-c112-ack-" + M.term_id;
+let acks = {};
+try { acks = JSON.parse(localStorage.getItem(ACK_KEY) || "{}"); } catch (e) { acks = {}; }
+const saveAcks = () => { try { localStorage.setItem(ACK_KEY, JSON.stringify(acks)); } catch (e) {} };
+const studentById = {};
+D.students.forEach((s) => { studentById[s.id] = s; });
+
+function overdueDays(a) {
+  // a student alert is overdue when the case is still "Mới" past the SLA for its severity
+  if (a.scope !== "STUDENT") return 0;
+  const s = studentById[a.students[0]];
+  if (!s || reviewOf(s, s.snapshots[a.snapshot] || snapOf(s, "LATEST")) !== "NEW") return 0;
+  const d = daysSince(a.date), sla = M.alert_rules.sla_days[a.severity];
+  return d > sla ? d - sla : 0;
+}
+function opsAlerts() {
+  const over = ALERTS.filter((a) => overdueDays(a) > 0);
+  if (!over.length) return [];
+  const high = over.filter((a) => a.severity === "HIGH");
+  return [{
+    id: "OPS:OVERDUE:" + over.length + ":" + high.length, severity: high.length ? "HIGH" : "MEDIUM", scope: "OPS", type: "REVIEW_OVERDUE",
+    title: `${over.length} cảnh báo sinh viên quá hạn chưa được xem xét`,
+    detail: `${high.length} cảnh báo khẩn quá ${M.alert_rules.sla_days.HIGH} ngày, ${over.length - high.length} cảnh báo cần chú ý quá ${M.alert_rules.sla_days.MEDIUM} ngày vẫn ở trạng thái “Mới”. Cập nhật trạng thái xem xét trong chi tiết sinh viên để đóng cảnh báo này.`,
+    snapshot_label: "Theo dõi vận hành", date: new Date(todayMs()).toISOString().slice(0, 10), owner: "PROGRAM_MANAGER",
+    students: over.map((a) => a.students[0]), triggers: ["REVIEW_OVERDUE"], dynamic: true,
+  }];
+}
+const allAlerts = () => [...opsAlerts(), ...ALERTS];
+const isAcked = (a) => !a.dynamic && !!acks[a.id];
+const openAlerts = () => allAlerts().filter((a) => !isAcked(a));
+
+function sevPill(sev) { return `<span class="sev ${sev}"><i>${sev === "HIGH" ? "!" : "•"}</i>${SEV_VI[sev]}</span>`; }
+
+function filterQueueBy(ids, label) {
+  Q.ids = new Set(ids); Q.idsLabel = label; Q.page = 0; curMs = "LATEST";
+  tab = "queue"; renderAll(); scrollTo(0, 0);
+}
+
+function renderAlertBanner() {
+  const open = openAlerts(), h = open.filter((a) => a.severity === "HIGH").length, m = open.length - h;
+  const el = document.getElementById("alert-banner");
+  if (!open.length) { el.innerHTML = ""; return; }
+  const newWeek = open.filter((a) => a.scope === "STUDENT" && a.week === M.current_week).length;
+  el.innerHTML = `<div class="banner"><span class="sev HIGH"><i>!</i>${h} khẩn</span><span class="sev MEDIUM"><i>•</i>${m} cần chú ý</span>
+    <span class="b-text">Cảnh báo chưa xem tính đến ${fmtDate(M.as_of_date)}${newWeek ? ` · <b>${newWeek}</b> cảnh báo sinh viên mới trong tuần ${M.current_week}` : ""}.</span>
+    <button class="btn primary" id="go-alerts">Xem cảnh báo</button></div>`;
+  document.getElementById("go-alerts").onclick = () => { tab = "alerts"; renderTab(); scrollTo(0, 0); };
+}
+
+function initAlertFilters() {
+  const seg = document.getElementById("alert-scope");
+  seg.innerHTML = "";
+  Object.entries(SCOPE_VI).forEach(([k, l]) => {
+    const b = document.createElement("button"); b.textContent = l; b.dataset.k = k; b.setAttribute("aria-pressed", A.scope === k);
+    b.onclick = () => { A.scope = k; A.limit = 30; renderAlerts(); }; seg.appendChild(b);
+  });
+  document.getElementById("alert-owner").innerHTML = `<option value="">Mọi đơn vị phụ trách</option>` + Object.entries(OWNER_VI).filter(([k]) => k !== "NONE").map(([k, v]) => `<option value="${k}">${v}</option>`).join("");
+  document.getElementById("alert-sev").onchange = (e) => { A.sev = e.target.value; A.limit = 30; renderAlerts(); };
+  document.getElementById("alert-owner").onchange = (e) => { A.owner = e.target.value; A.limit = 30; renderAlerts(); };
+  document.getElementById("alert-acked").onchange = (e) => { A.acked = e.target.checked; renderAlerts(); };
+}
+
+function renderAlerts() {
+  const all = allAlerts(), open = all.filter((a) => !isAcked(a));
+  const over = all.find((a) => a.type === "REVIEW_OVERDUE");
+  const newWeek = open.filter((a) => a.scope === "STUDENT" && a.week === M.current_week).length;
+  const tiles = [
+    ["Khẩn, chưa xem", open.filter((a) => a.severity === "HIGH").length, "Cần xử lý trong " + M.alert_rules.sla_days.HIGH + " ngày"],
+    ["Cần chú ý, chưa xem", open.filter((a) => a.severity === "MEDIUM").length, "Cần xử lý trong " + M.alert_rules.sla_days.MEDIUM + " ngày"],
+    ["Ca quá hạn xem xét", over ? over.students.length : 0, "Cảnh báo sinh viên còn trạng thái “Mới”"],
+    [`Cảnh báo mới tuần ${M.current_week}`, newWeek, "Sinh viên, gồm snapshot theo sự kiện"],
+  ];
+  document.getElementById("alert-kpis").innerHTML = tiles.map(([l, v, n]) => `<div class="card kpi"><div class="label">${l}</div><div class="value">${v.toLocaleString("vi-VN")}</div><div class="note">${n}</div></div>`).join("");
+  document.getElementById("alert-sub").textContent = `Tính đến ${fmtDate(M.as_of_date)} (tuần ${M.current_week}). Cảnh báo sinh viên dựa trên snapshot mới nhất của từng người; cảnh báo chương trình, học phần và dữ liệu so sánh hai mốc cố định gần nhất. Đánh dấu “đã xem” chỉ lưu trên trình duyệt này (demo).`;
+  document.querySelectorAll("#alert-scope button").forEach((b) => b.setAttribute("aria-pressed", A.scope === b.dataset.k));
+  const list = all.filter((a) => (A.acked || !isAcked(a)) && (!A.scope || a.scope === A.scope) && (!A.sev || a.severity === A.sev) && (!A.owner || a.owner === A.owner));
+  const box = document.getElementById("alert-list");
+  if (!list.length) { box.innerHTML = '<div class="empty">Không có cảnh báo phù hợp bộ lọc.</div>'; document.getElementById("alert-more").innerHTML = ""; return; }
+  box.innerHTML = list.slice(0, A.limit).map((a, i) => {
+    const od = overdueDays(a), single = a.scope === "STUDENT";
+    const trig = a.triggers.map((c) => `<span class="chip ${c.startsWith("EVT_") ? "evt" : ""}">${esc(TRIGGER_VI[c] || RL[c] || c)}</span>`).join("");
+    return `<div class="alert ${a.severity} ${isAcked(a) ? "acked" : ""}">
+      <div class="a-head">${sevPill(a.severity)}<span class="chip">${SCOPE_VI[a.scope]}</span><span class="a-title">${esc(a.title)}</span><span class="muted">${esc(a.snapshot_label)} · ${fmtDate(a.date)}</span></div>
+      <div class="a-detail">${esc(a.detail)}</div>
+      <div class="a-actions">${trig}${od ? `<span class="chip over">Quá hạn ${od} ngày</span>` : ""}<span class="muted">Phụ trách: ${OWNER_VI[a.owner] || a.owner}</span><span class="spacer"></span>
+        ${single ? `<button class="btn" data-act="open" data-i="${i}">Xem sinh viên</button>` : a.students.length ? `<button class="btn" data-act="list" data-i="${i}">Mở danh sách (${a.students.length} SV)</button>` : ""}
+        ${a.dynamic ? "" : `<button class="btn" data-act="ack" data-i="${i}">${isAcked(a) ? "Bỏ đánh dấu" : "Đánh dấu đã xem"}</button>`}</div>
+    </div>`;
+  }).join("");
+  box.querySelectorAll("button[data-act]").forEach((btn) => btn.onclick = () => {
+    const a = list[+btn.dataset.i];
+    if (btn.dataset.act === "open") { curMs = "LATEST"; openDrawer(a.students[0]); }
+    if (btn.dataset.act === "list") filterQueueBy(a.students, a.title);
+    if (btn.dataset.act === "ack") { if (acks[a.id]) delete acks[a.id]; else acks[a.id] = Date.now(); saveAcks(); renderAlerts(); renderHeader(); }
+  });
+  document.getElementById("alert-more").innerHTML = list.length > A.limit ? `<span>Hiển thị ${A.limit}/${list.length}</span><button id="alert-more-btn">Xem thêm</button>` : `<span>${list.length} cảnh báo</span>`;
+  const mb = document.getElementById("alert-more-btn"); if (mb) mb.onclick = () => { A.limit += 30; renderAlerts(); };
+}
+
 // ================================================================== MODEL
 function renderModel() {
   const mt = D.metrics;
@@ -739,6 +934,7 @@ function renderModel() {
   renderAucMs(mt.M4_by_milestone, mt.M4_baselines.prior_cum_gpa_only_auc);
   renderFI(mt.feature_importance.M4);
   renderFairness(mt.M4_by_program, m4.auc);
+  renderEventMetrics(mt.events || {});
   const th = M.thresholds;
   document.getElementById("model-notes").innerHTML = `
     <ul class="list">
@@ -752,6 +948,8 @@ function renderModel() {
       <li>Ngưỡng là giá trị khởi điểm; cần hiệu chỉnh theo kết quả validation và năng lực xử lý của cố vấn.</li>
       <li>Quy tắc học vụ R1 dùng khung Thông tư 08/2021; phải đối chiếu quy chế UEH hiện hành.</li>
       <li>Khoảng GPA giả định các học phần độc lập nên hẹp hơn thực tế (độ phủ ${pct(mt.R1_term_gpa.coverage_80)} so với mục tiêu 80%).</li>
+      <li>Hiệu chỉnh M4 (${mt.calibration_methods.M4}) cải thiện Brier trên học kỳ hiệu chỉnh nhưng ECE trên học kỳ kiểm định là ${num(m4.ece, 3)} so với ${num(m4.ece_uncalibrated, 3)} khi chưa hiệu chỉnh: có dịch chuyển giữa các học kỳ, nên hiệu chỉnh lại mỗi kỳ trên dữ liệu thật.</li>
+      <li>Snapshot theo sự kiện dùng cùng mô hình huấn luyện ở các mốc cố định (tuần là biến số); được kiểm định riêng ở thẻ “Snapshot theo sự kiện”.</li>
       <li>Mô hình dự báo tương quan, không đánh giá tác động can thiệp; không suy luận well-being từ LMS.</li>
       ${M.synthetic_data ? "<li><b>Các chỉ số trên được tính trên dữ liệu mô phỏng</b>; cần kiểm định lại trên dữ liệu UEH thật trước khi sử dụng.</li>" : ""}
     </ul>`;
@@ -838,6 +1036,29 @@ function renderFI(fi) {
   });
 }
 
+function renderEventMetrics(e) {
+  const box = document.getElementById("event-metrics");
+  if (!e.n_event_snapshots) { box.innerHTML = '<div class="empty">Chưa có snapshot sự kiện trên học kỳ kiểm định.</div>'; }
+  else {
+    const row = (k, v) => `<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed var(--border);font-size:13px"><span>${k}</span><b>${v}</b></div>`;
+    box.innerHTML = row("Số snapshot sự kiện", e.n_event_snapshots.toLocaleString("vi-VN")) +
+      row("Sinh viên có ít nhất một sự kiện", `${e.n_students_with_event} (${pct(e.share_students_with_event)})`) +
+      row("Tỷ lệ hoàn thành KH: có sự kiện / không có", `${pct(e.plan_completed_rate_with_event)} / ${pct(e.plan_completed_rate_without_event)}`) +
+      row("AUC của M4 tại snapshot sự kiện", num(e.auc_at_event_snapshots, 3)) +
+      row("Thay đổi XS trung bình tại sự kiện", `${(e.mean_delta_p_at_event * 100).toFixed(1).replace(".", ",")} điểm %`) +
+      row("Đi trước mốc cố định kế tiếp (TB)", `${num(e.mean_lead_weeks, 1)} tuần`) +
+      `<p class="sub" style="margin:10px 0 4px">Sự kiện theo loại:</p>` + Object.entries(e.codes).map(([c, n]) => `<span class="chip evt">${esc(RL[c] || c)}: ${n}</span>`).join("");
+  }
+  const R = M.alert_rules, E = M.event_rules;
+  document.getElementById("alert-rules").innerHTML = `<ul class="list">
+    <li><b>Sự kiện</b>: vắng ≥ ${E.consecutive_absences} buổi liên tiếp ở một học phần; thiếu ≥ ${E.mandatory_missing} bài bắt buộc ở một học phần; xu hướng điểm TB ≤ ${num(E.score_trend_drop, 1)}; đăng ký chưa hoàn tất; dữ liệu mâu thuẫn. Cùng một điều kiện không kích hoạt lại trong ${E.cooldown_weeks} tuần.</li>
+    <li><b>Sinh viên</b>: có sự kiện mới kèm tác động lên dự báo (trạng thái mong manh/lệch, XS giảm ≥ ${num(-R.event_alert_min_drop * 100, 0)} điểm % hoặc học vụ chưa chắc đạt), chuyển sang “Lệch khỏi mục tiêu”, XS hoàn thành KH giảm ≥ ${num(-R.sharp_drop * 100, 0)} điểm % (khẩn khi ≥ ${num(-R.severe_drop * 100, 0)}), hoặc mới có nguy cơ cảnh báo học vụ.</li>
+    <li><b>Chương trình</b>: tỷ lệ lệch mục tiêu tăng ≥ ${num(R.program_rise_medium * 100, 0)} điểm % và thêm ≥ ${R.program_min_students} SV (khẩn khi ≥ ${num(R.program_rise_high * 100, 0)}).</li>
+    <li><b>Học phần</b>: tỷ lệ SV có XS đạt &lt; 50% gấp ≥ ${num(R.course_risk_ratio, 0)} lần mức chung của học kỳ và ≥ ${pct(R.course_risk_share_floor)}, ít nhất ${R.course_min_at_risk} SV (khẩn khi ≥ ${pct(R.course_risk_share_high)} hoặc gấp 5 lần); học phần có ≥ ${R.course_min_students} SV.</li>
+    <li><b>Dữ liệu</b>: ≥ ${pct(R.dq_insufficient_share)} SV chưa đủ bằng chứng, hoặc một loại lỗi dữ liệu ảnh hưởng ≥ ${pct(R.dq_issue_share)} lượt đăng ký học phần.</li>
+    <li><b>Quá hạn</b>: cảnh báo khẩn còn “Mới” sau ${R.sla_days.HIGH} ngày, cần chú ý sau ${R.sla_days.MEDIUM} ngày.</li></ul>`;
+}
+
 function renderFairness(rows, overall) {
   let h = `<div class="table-wrap"><table><thead><tr><th>Chương trình</th><th class="num">n</th><th class="num">Thực tế</th><th class="num">Dự báo TB</th><th class="num">Chênh lệch</th><th class="num">AUC</th><th>Đánh giá</th></tr></thead><tbody>`;
   rows.forEach((r) => {
@@ -851,9 +1072,10 @@ function renderFairness(rows, overall) {
 
 // ================================================================== wiring
 function renderTab() {
-  ["overview", "queue", "model"].forEach((t) => document.getElementById("tab-" + t).classList.toggle("hidden", t !== tab));
+  ["overview", "alerts", "queue", "model"].forEach((t) => document.getElementById("tab-" + t).classList.toggle("hidden", t !== tab));
   document.querySelectorAll("nav.tabs button").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === tab));
-  if (tab === "overview") { renderKpis(); renderStateBars(); renderTransition(); renderReasonBars(); renderProgramTable(); }
+  if (tab === "overview") { renderAlertBanner(); renderKpis(); renderStateBars(); renderTransition(); renderReasonBars(); renderProgramTable(); }
+  if (tab === "alerts") renderAlerts();
   if (tab === "queue") renderQueue();
   if (tab === "model") renderModel();
 }
@@ -869,6 +1091,7 @@ document.getElementById("theme-btn").onclick = () => {
 try { const th = localStorage.getItem("ueh-c112-theme"); if (th) document.documentElement.dataset.theme = th; const tb = localStorage.getItem("ueh-c112-tab"); if (tb) tab = tb; } catch (e) {}
 let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(renderAll, 150); });
 initQueueFilters();
+initAlertFilters();
 renderAll();
 })();
 </script>

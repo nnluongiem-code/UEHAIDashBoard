@@ -6,6 +6,10 @@ Temporal design (no leakage across terms):
     CALIBRATION_TERMS  fit isotonic calibrators and the conformal margin
     TEST_TERMS         untouched; every number on the model card comes from here
     CURRENT_TERM       scored for the dashboard (no labels yet)
+
+Models are trained on the regular milestones only. Weekly monitoring feeds are
+turned into event-triggered snapshots (events.py) and scored by the same models,
+which take the teaching week as a numeric input.
 """
 from __future__ import annotations
 
@@ -24,6 +28,8 @@ from . import config as C
 from . import evaluate as E
 from .features import (CAT_FEATURES, COURSE_FEATURES, TERM_CAT_FEATURES, TERM_FEATURES,
                        add_course_derived, build_term_frame)
+from .alerts import build_alerts
+from .events import EVENT_LABELS_VI, apply_event_snapshots
 from .models import CalibratedCatBoostClassifier, ConformalQuantileRegressor
 from .quality import course_quality, student_confidence
 from .reasons import (COURSE_REASON_MAP, REASON_LABELS_VI, TERM_REASON_MAP,
@@ -93,9 +99,13 @@ def _term_with_labels(course_pred, term_labels):
 # ------------------------------------------------------------------ training
 def train(course_df: pd.DataFrame, term_df: pd.DataFrame, log=print) -> Bundle:
     df = prepare(course_df)
-    tr = df[df.term_id.isin(C.TRAIN_TERMS)].reset_index(drop=True)
-    ca = df[df.term_id.isin(C.CALIBRATION_TERMS)].reset_index(drop=True)
-    te = df[df.term_id.isin(C.TEST_TERMS)].reset_index(drop=True)
+    if "snapshot_type" not in df.columns:
+        df["snapshot_type"] = "REGULAR"
+    reg = df[df.snapshot_type == "REGULAR"]
+    tr = reg[reg.term_id.isin(C.TRAIN_TERMS)].reset_index(drop=True)
+    ca = reg[reg.term_id.isin(C.CALIBRATION_TERMS)].reset_index(drop=True)
+    te = reg[reg.term_id.isin(C.TEST_TERMS)].reset_index(drop=True)
+    te_all = df[df.term_id.isin(C.TEST_TERMS)].reset_index(drop=True)
     log(f"rows: train={len(tr):,} calibration={len(ca):,} test={len(te):,}")
 
     log("M1-M3 out-of-fold predictions for stacking ...")
@@ -107,8 +117,8 @@ def train(course_df: pd.DataFrame, term_df: pd.DataFrame, log=print) -> Bundle:
     m2 = CalibratedCatBoostClassifier(COURSE_FEATURES, CAT_FEATURES).fit(tr2, tr2.course_pass_flag)
     m3 = ConformalQuantileRegressor(COURSE_FEATURES, CAT_FEATURES).fit(tr2, tr2.course_final_score)
     ca1 = ca[ca.approved_withdrawal_flag == 0]; ca2 = ca1[ca1.course_completed_flag == 1]
-    m1.calibrate(ca1, ca1.course_completed_flag)
-    m2.calibrate(ca2, ca2.course_pass_flag)
+    m1.calibrate(ca1, ca1.course_completed_flag, groups=ca1.student_id_hash)
+    m2.calibrate(ca2, ca2.course_pass_flag, groups=ca2.student_id_hash)
     m3.calibrate(ca2, ca2.course_final_score)
     log(f"  conformal margin = {m3.conformal_margin:.3f} points")
 
@@ -124,11 +134,12 @@ def train(course_df: pd.DataFrame, term_df: pd.DataFrame, log=print) -> Bundle:
     lab = "approved_plan_completed_flag"
     t_tr, t_ca = t_tr.dropna(subset=[lab]), t_ca.dropna(subset=[lab])
     m4 = CalibratedCatBoostClassifier(TERM_FEATURES, TERM_CAT_FEATURES).fit(t_tr, t_tr[lab])
-    m4.calibrate(t_ca, t_ca[lab])
+    m4.calibrate(t_ca, t_ca[lab], groups=t_ca.student_id_hash)
 
     bundle = Bundle(m1, m2, m3, m4)
     log("validating on the test term ...")
     bundle.metrics = validate(bundle, cp_te, t_te)
+    bundle.metrics["events"] = validate_events(bundle, te_all, term_df)
     return bundle
 
 
@@ -192,7 +203,48 @@ def validate(b: Bundle, cp: pd.DataFrame, t: pd.DataFrame) -> dict:
     M["conformal_margin"] = round(b.m3.conformal_margin, 3)
     M["calibration_methods"] = {"M1": b.m1.calibration_method, "M2": b.m2.calibration_method,
                                 "M4": b.m4.calibration_method}
+    M["calibration_cv"] = {k: getattr(m, "calibration_cv", None)
+                           for k, m in [("M1", b.m1), ("M2", b.m2), ("M4", b.m4)]}
     return M
+
+
+def validate_events(b: Bundle, te_all: pd.DataFrame, term_labels: pd.DataFrame) -> dict:
+    """How useful are event-triggered snapshots on the (labelled) test term?"""
+    f, info = apply_event_snapshots(te_all)
+    if (f.snapshot_type == "EVENT").sum() == 0:
+        return {"n_event_snapshots": 0}
+    cp = _predict_course(b.m1, b.m2, b.m3, f)
+    t = _term_with_labels(cp, term_labels)
+    t["p_plan_completion"] = b.m4.predict_proba(t)
+    t["data_confidence"] = _student_confidence(cp, t)
+    t = assign_trajectories(t)
+    lab = "approved_plan_completed_flag"
+    ev = t[t.snapshot_type == "EVENT"].dropna(subset=[lab])
+    students_ev = set(ev.student_id_hash)
+    per_student = t.drop_duplicates("student_id_hash").dropna(subset=[lab])
+    with_ev = per_student[per_student.student_id_hash.isin(students_ev)]
+    without = per_student[~per_student.student_id_hash.isin(students_ev)]
+    codes: dict[str, int] = {}
+    for k, v in info.items():
+        if k[2].startswith(C.EVENT_LABEL_PREFIX):
+            for c in v["new"]:
+                codes[c] = codes.get(c, 0) + 1
+    # weeks of lead time: event week vs the next regular milestone it precedes
+    reg_weeks = sorted(C.MILESTONE_WEEK.values())
+    lead = [min([w for w in reg_weeks if w > wk], default=wk + 1) - wk for wk in ev.snapshot_week]
+    return {
+        "n_event_snapshots": int(len(ev)),
+        "n_students_with_event": int(len(students_ev)),
+        "share_students_with_event": round(len(students_ev) / max(1, len(per_student)), 3),
+        "plan_completed_rate_with_event": round(float(with_ev[lab].mean()), 3) if len(with_ev) else None,
+        "plan_completed_rate_without_event": round(float(without[lab].mean()), 3) if len(without) else None,
+        "auc_at_event_snapshots": round(float(roc_auc_score(ev[lab], ev.p_plan_completion)), 3)
+        if ev[lab].nunique() > 1 else None,
+        "mean_delta_p_at_event": round(float(ev.delta_p_plan.mean()), 3),
+        "mean_lead_weeks": round(float(np.mean(lead)), 2),
+        "codes": codes,
+        "by_week": {str(int(w)): int(n) for w, n in ev.snapshot_week.value_counts().sort_index().items()},
+    }
 
 
 def _student_confidence(cp, t):
@@ -216,6 +268,7 @@ def _simulate(cp, term_rows):
 def score(b: Bundle, course_df: pd.DataFrame, term_id: str = C.CURRENT_TERM):
     """Score one term at every available snapshot -> (course_out, student_out)."""
     df = prepare(course_df[course_df.term_id == term_id]).reset_index(drop=True)
+    df, event_info = apply_event_snapshots(df)
     cp = _predict_course(b.m1, b.m2, b.m3, df)
     # an approved withdrawal is never scored as a failure
     wd = cp.approved_withdrawal_flag == 1
@@ -237,7 +290,11 @@ def score(b: Bundle, course_df: pd.DataFrame, term_id: str = C.CURRENT_TERM):
     keys = list(zip(t.student_id_hash, t.snapshot_milestone))
     sup = [(["REGISTRATION_INCOMPLETE"] if reg.get(k, 0) else []) + s for k, s in zip(keys, sup)]
     t["positive_reason_codes"], t["support_reason_codes"] = pos, sup
-    t["recommended_owner"] = [recommended_owner(s, c) for s, c in zip(t.trajectory_state, sup)]
+    ek = list(zip(t.student_id_hash, t.term_id, t.snapshot_milestone))
+    t["critical_event_codes"] = [event_info.get(k, {}).get("active", []) for k in ek]
+    t["new_event_codes"] = [event_info.get(k, {}).get("new", []) for k in ek]
+    t["recommended_owner"] = [recommended_owner(s, c, e) for s, c, e
+                              in zip(t.trajectory_state, sup, t.new_event_codes)]
     t["review_status"] = np.where(t.recommended_owner == "NONE", "NO_ACTION", "NEW")
     q = cp.groupby(["student_id_hash", "snapshot_milestone"]).quality_issue_codes \
         .apply(lambda s: sorted({c for lst in s for c in lst}))
@@ -259,6 +316,7 @@ def course_records(cp: pd.DataFrame, t: pd.DataFrame) -> list[dict]:
         out.append({
             "student_id_hash": r.student_id_hash, "term_id": r.term_id,
             "course_id": r.course_id, "snapshot_milestone": r.snapshot_milestone,
+            "snapshot_type": r.snapshot_type, "snapshot_date": r.snapshot_date,
             "model_version": C.MODEL_VERSION,
             "p_course_completion": _r(r.p_course_completion, 2),
             "p_course_pass": _r(r.p_course_pass, 2),
@@ -272,6 +330,7 @@ def course_records(cp: pd.DataFrame, t: pd.DataFrame) -> list[dict]:
             "previous_p_plan_completion": _r(s.previous_p_plan_completion, 2),
             "trajectory_state": s.trajectory_state,
             "data_confidence": s.data_confidence,
+            "critical_event_codes": list(s.critical_event_codes),
             "positive_reason_codes": list(r.positive_reason_codes),
             "support_reason_codes": list(r.support_reason_codes),
             "recommended_owner": s.recommended_owner,
@@ -280,17 +339,21 @@ def course_records(cp: pd.DataFrame, t: pd.DataFrame) -> list[dict]:
     return out
 
 
-def dashboard_payload(b: Bundle, cp: pd.DataFrame, t: pd.DataFrame) -> dict:
+def dashboard_payload(b: Bundle, cp: pd.DataFrame, t: pd.DataFrame, alerts: list) -> dict:
     """Compact nested structure for the dashboard: one entry per student."""
+    t = t.sort_values(["student_id_hash", "snapshot_week"])
     cg = {k: d for k, d in cp.groupby(["student_id_hash", "snapshot_milestone"])}
     students = {}
     for r in t.itertuples():
         st = students.setdefault(r.student_id_hash, {
             "id": r.student_id_hash, "program": r.program_id,
             "prior_cum_gpa": _r(r.prior_cum_gpa, 2), "terms_completed": int(r.terms_completed),
-            "snapshots": {}})
+            "snapshots": {}, "timeline": []})
+        st["timeline"].append(r.snapshot_milestone)  # t is sorted by week
         d = cg[(r.student_id_hash, r.snapshot_milestone)]
         st["snapshots"][r.snapshot_milestone] = {
+            "week": int(r.snapshot_week), "type": r.snapshot_type, "date": r.snapshot_date,
+            "ev": r.critical_event_codes, "ev_new": r.new_event_codes,
             "p_plan": _r(r.p_plan_completion), "prev_p_plan": _r(r.previous_p_plan_completion),
             "exp_credits": _r(r.expected_earned_credits, 1),
             "plan_credits": int(r.approved_plan_credits),
@@ -319,10 +382,14 @@ def dashboard_payload(b: Bundle, cp: pd.DataFrame, t: pd.DataFrame) -> dict:
         "meta": {"model_name": C.MODEL_NAME, "model_version": C.MODEL_VERSION,
                  "term_id": str(t.term_id.iloc[0]), "generated": date.today().isoformat(),
                  "milestones": milestones, "milestone_labels": C.MILESTONE_LABEL_VI,
+                 "milestone_weeks": C.MILESTONE_WEEK, "current_week": int(t.snapshot_week.max()),
+                 "as_of_date": str(t.snapshot_date.max()),
                  "synthetic_data": True, "thresholds": C.TRAJECTORY_RULES,
+                 "event_rules": C.EVENT_RULES, "alert_rules": C.ALERT_RULES,
                  "pass_score": C.PASS_SCORE},
-        "reason_labels": REASON_LABELS_VI,
+        "reason_labels": {**REASON_LABELS_VI, **EVENT_LABELS_VI},
         "metrics": b.metrics,
+        "alerts": alerts,
         "students": list(students.values()),
     }
 
@@ -335,7 +402,10 @@ def write_outputs(b: Bundle, cp, t, out_dir: Path, dashboard_dir: Path):
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
     with open(out_dir / "metrics.json", "w", encoding="utf-8") as f:
         json.dump(b.metrics, f, ensure_ascii=False, indent=2)
-    payload = dashboard_payload(b, cp, t)
+    alerts = build_alerts(cp, t)
+    with open(out_dir / "alerts.json", "w", encoding="utf-8") as f:
+        json.dump(alerts, f, ensure_ascii=False, indent=1)  # input for the future e-mail digest
+    payload = dashboard_payload(b, cp, t, alerts)
     with open(out_dir / "dashboard_payload.json", "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
     dashboard_dir.mkdir(parents=True, exist_ok=True)

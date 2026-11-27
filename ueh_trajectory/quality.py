@@ -17,7 +17,8 @@ def course_quality(df: pd.DataFrame) -> pd.DataFrame:
     R = C.QUALITY_RULES
     att_cov = (df.attendance_data_sessions / df.sessions_held.replace(0, np.nan)).fillna(0).clip(0, 1)
     # graded coverage is judged against what is *expected* at this milestone
-    expected_cov = df.snapshot_index.map({0: 0.10, 1: 0.40, 2: 0.50, 3: 0.60}).fillna(0.5)
+    expected_cov = pd.Series(np.interp(df.snapshot_week, [4, 8, 10, 14], [0.10, 0.40, 0.50, 0.60]),
+                             index=df.index)
     score_cov = (df.graded_coverage / expected_cov).clip(0, 1)
     lms_relevant = df.lms_data_coverage > 0
     lms_cov = np.where(lms_relevant, df.lms_data_coverage, 1.0)  # not penalised if LMS not designed in

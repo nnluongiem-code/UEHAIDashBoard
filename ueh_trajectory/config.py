@@ -13,7 +13,7 @@ MODEL_VERSION = "1.0.0"
 # ---------------------------------------------------------------- snapshots
 MILESTONES = ["WEEK_4", "POST_MIDTERM", "WEEK_10", "PRE_FINAL"]
 MILESTONE_WEEK = {"WEEK_4": 4, "POST_MIDTERM": 8, "WEEK_10": 10, "PRE_FINAL": 14}
-MILESTONE_LABEL_VI = {
+MILESTONE_LABEL_VI = {  # event snapshots are labelled "Sự kiện T<week>" in the UI
     "WEEK_4": "Tuần 4",
     "POST_MIDTERM": "Sau giữa kỳ",
     "WEEK_10": "Tuần 10",
@@ -65,6 +65,41 @@ CALIBRATION_TERMS = ["2025.2"]
 TEST_TERMS = ["2026.1"]
 CURRENT_TERM = "2026.2"
 CURRENT_TERM_MILESTONES = ["WEEK_4", "POST_MIDTERM", "WEEK_10"]  # snapshots so far
+CURRENT_WEEK = 12  # latest teaching week with data in the current term
+# first Monday of teaching for each term (snapshot dates are derived from these)
+TERM_START = {f"{y}.1": f"{y}-02-16" for y in range(2023, 2027)} | \
+             {f"{y}.2": f"{y}-09-07" for y in range(2023, 2027)}
+
+# ---------------------------------------------------------------- event snapshots
+# Weekly data feeds checked between milestones (spec section 8, item 5).
+MONITORING_WEEKS = [6, 9, 11, 12, 13]
+EVENT_RULES = {
+    "consecutive_absences": 3,     # any course with >= this many absences in a row
+    "mandatory_missing": 2,        # missing mandatory assessments within one course
+    "score_trend_drop": -1.3,      # mean recent score trend across courses <= this
+    "cooldown_weeks": 4,           # the same condition cannot re-trigger within this window
+}
+EVENT_LABEL_PREFIX = "EVENT_W"
+
+# ---------------------------------------------------------------- manager alerts
+ALERT_RULES = {
+    "sharp_drop": -0.15,           # Δp_plan <= this -> student alert
+    "severe_drop": -0.25,          # Δp_plan <= this -> HIGH
+    "program_rise_medium": 0.05,   # increase in DIVERGING share vs previous milestone
+    "program_rise_high": 0.10,
+    "program_min_students": 5,     # and at least this many more students
+    "course_min_students": 12,
+    # a course is flagged when its share of students with p_pass < 0.5 is unusual
+    # relative to the whole term: >= ratio x term share AND >= the floor
+    "course_risk_ratio": 3.0,
+    "course_risk_share_floor": 0.10,
+    "course_min_at_risk": 4,
+    "course_risk_share_high": 0.20,    # or ratio >= 5 -> HIGH
+    "event_alert_min_drop": -0.05,     # event becomes an alert only with impact (see alerts.py)
+    "dq_insufficient_share": 0.05,  # share of INSUFFICIENT_EVIDENCE
+    "dq_issue_share": 0.10,         # share of course enrolments hit by one data issue code
+    "sla_days": {"HIGH": 3, "MEDIUM": 7},  # unreviewed longer than this -> overdue
+}
 
 # ---------------------------------------------------------------- CatBoost
 CATBOOST_PARAMS = {

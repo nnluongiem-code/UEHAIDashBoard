@@ -91,7 +91,7 @@ def trajectory_state(p_plan: float, gap: float, prev_p: float | None, prev_gap: 
 
 def assign_trajectories(term: pd.DataFrame) -> pd.DataFrame:
     """Add previous-snapshot values, Δp and trajectory_state to a term frame."""
-    t = term.sort_values(["student_id_hash", "term_id", "snapshot_index"]).copy()
+    t = term.sort_values(["student_id_hash", "term_id", "snapshot_week"]).copy()
     g = t.groupby(["student_id_hash", "term_id"], sort=False)
     t["previous_p_plan_completion"] = g.p_plan_completion.shift(1)
     t["previous_progress_gap_credits"] = g.progress_gap_credits.shift(1)

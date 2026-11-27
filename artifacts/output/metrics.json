@@ -13,614 +13,632 @@
     "2025.2"
   ],
   "M1_course_completion": {
-    "n": 15552,
-    "base_rate": 0.95,
-    "auc": 0.748,
-    "brier": 0.0441,
-    "log_loss": 0.1768,
-    "ece": 0.007,
+    "n": 15460,
+    "base_rate": 0.944,
+    "auc": 0.74,
+    "brier": 0.0498,
+    "log_loss": 0.1943,
+    "ece": 0.0067,
     "reliability": [
       {
-        "bin": 5,
-        "mean_pred": 0.6,
-        "observed": 0.5,
-        "n": 20
-      },
-      {
         "bin": 6,
-        "mean_pred": 0.651,
-        "observed": 0.529,
-        "n": 51
-      },
-      {
-        "bin": 7,
-        "mean_pred": 0.783,
-        "observed": 0.786,
-        "n": 650
+        "mean_pred": 0.641,
+        "observed": 0.656,
+        "n": 90
       },
       {
         "bin": 8,
-        "mean_pred": 0.881,
-        "observed": 0.873,
-        "n": 1344
+        "mean_pred": 0.85,
+        "observed": 0.838,
+        "n": 1293
       },
       {
         "bin": 9,
-        "mean_pred": 0.962,
-        "observed": 0.969,
-        "n": 13481
+        "mean_pred": 0.963,
+        "observed": 0.957,
+        "n": 14062
       }
     ],
-    "ece_uncalibrated": 0.0224,
-    "brier_uncalibrated": 0.0446
+    "ece_uncalibrated": 0.029,
+    "brier_uncalibrated": 0.0517
   },
   "M2_course_attainment": {
-    "n": 14780,
-    "base_rate": 0.961,
-    "auc": 0.949,
-    "brier": 0.0246,
-    "log_loss": 0.0907,
-    "ece": 0.0108,
+    "n": 14600,
+    "base_rate": 0.963,
+    "auc": 0.937,
+    "brier": 0.0272,
+    "log_loss": 0.0981,
+    "ece": 0.0106,
     "reliability": [
       {
-        "bin": 0,
-        "mean_pred": 0.012,
-        "observed": 0.0,
-        "n": 22
-      },
-      {
-        "bin": 1,
-        "mean_pred": 0.158,
-        "observed": 0.0,
-        "n": 10
-      },
-      {
         "bin": 2,
-        "mean_pred": 0.286,
-        "observed": 0.083,
-        "n": 12
+        "mean_pred": 0.278,
+        "observed": 0.474,
+        "n": 19
       },
       {
         "bin": 3,
-        "mean_pred": 0.325,
-        "observed": 0.196,
-        "n": 51
+        "mean_pred": 0.382,
+        "observed": 0.532,
+        "n": 62
       },
       {
         "bin": 4,
-        "mean_pred": 0.435,
-        "observed": 0.385,
-        "n": 65
+        "mean_pred": 0.475,
+        "observed": 0.511,
+        "n": 45
       },
       {
         "bin": 5,
-        "mean_pred": 0.555,
-        "observed": 0.548,
-        "n": 312
+        "mean_pred": 0.572,
+        "observed": 0.527,
+        "n": 93
       },
       {
         "bin": 6,
-        "mean_pred": 0.626,
-        "observed": 0.767,
-        "n": 73
+        "mean_pred": 0.629,
+        "observed": 0.55,
+        "n": 258
       },
       {
         "bin": 7,
-        "mean_pred": 0.764,
-        "observed": 0.719,
-        "n": 359
+        "mean_pred": 0.711,
+        "observed": 0.732,
+        "n": 213
       },
       {
         "bin": 8,
-        "mean_pred": 0.845,
-        "observed": 0.872,
-        "n": 701
+        "mean_pred": 0.874,
+        "observed": 0.825,
+        "n": 785
       },
       {
         "bin": 9,
         "mean_pred": 0.985,
-        "observed": 0.992,
-        "n": 13175
+        "observed": 0.991,
+        "n": 13119
       }
     ],
-    "ece_uncalibrated": 0.0084,
-    "brier_uncalibrated": 0.0246
+    "ece_uncalibrated": 0.0094,
+    "brier_uncalibrated": 0.0281
   },
   "course_pass_overall": {
-    "n": 15552,
-    "base_rate": 0.914,
-    "auc": 0.855,
-    "brier": 0.0569,
-    "log_loss": 0.2097,
-    "ece": 0.0223,
+    "n": 15460,
+    "base_rate": 0.909,
+    "auc": 0.846,
+    "brier": 0.0646,
+    "log_loss": 0.2288,
+    "ece": 0.0167,
     "reliability": [
       {
-        "bin": 0,
-        "mean_pred": 0.017,
-        "observed": 0.0,
-        "n": 41
-      },
-      {
         "bin": 1,
-        "mean_pred": 0.146,
-        "observed": 0.0,
-        "n": 22
+        "mean_pred": 0.154,
+        "observed": 0.3,
+        "n": 10
       },
       {
         "bin": 2,
-        "mean_pred": 0.257,
-        "observed": 0.091,
-        "n": 77
+        "mean_pred": 0.248,
+        "observed": 0.25,
+        "n": 40
       },
       {
         "bin": 3,
-        "mean_pred": 0.347,
-        "observed": 0.259,
-        "n": 108
+        "mean_pred": 0.349,
+        "observed": 0.322,
+        "n": 121
       },
       {
         "bin": 4,
-        "mean_pred": 0.456,
-        "observed": 0.346,
-        "n": 179
+        "mean_pred": 0.457,
+        "observed": 0.436,
+        "n": 110
       },
       {
         "bin": 5,
-        "mean_pred": 0.544,
-        "observed": 0.544,
-        "n": 327
+        "mean_pred": 0.558,
+        "observed": 0.437,
+        "n": 371
       },
       {
         "bin": 6,
-        "mean_pred": 0.657,
-        "observed": 0.577,
-        "n": 291
+        "mean_pred": 0.647,
+        "observed": 0.587,
+        "n": 283
       },
       {
         "bin": 7,
-        "mean_pred": 0.754,
-        "observed": 0.765,
-        "n": 964
+        "mean_pred": 0.765,
+        "observed": 0.669,
+        "n": 471
       },
       {
         "bin": 8,
-        "mean_pred": 0.863,
-        "observed": 0.882,
-        "n": 1629
+        "mean_pred": 0.855,
+        "observed": 0.844,
+        "n": 2160
       },
       {
         "bin": 9,
-        "mean_pred": 0.953,
-        "observed": 0.973,
-        "n": 11914
+        "mean_pred": 0.957,
+        "observed": 0.967,
+        "n": 11885
       }
     ]
   },
   "M3_final_score": {
-    "n": 14780,
-    "mae_median": 0.696,
-    "pinball_q10": 0.1561,
-    "pinball_q50": 0.3478,
-    "pinball_q90": 0.1453,
-    "coverage_80": 0.805,
-    "mean_interval_width": 2.21
+    "n": 14600,
+    "mae_median": 0.698,
+    "pinball_q10": 0.1581,
+    "pinball_q50": 0.349,
+    "pinball_q90": 0.1443,
+    "coverage_80": 0.804,
+    "mean_interval_width": 2.22
   },
   "M3_by_milestone": [
     {
       "group": "WEEK_4",
-      "n": 3695,
-      "mae_median": 0.802,
-      "pinball_q10": 0.1793,
-      "pinball_q50": 0.401,
+      "n": 3650,
+      "mae_median": 0.805,
+      "pinball_q10": 0.1837,
+      "pinball_q50": 0.4023,
       "pinball_q90": 0.1654,
-      "coverage_80": 0.804,
-      "mean_interval_width": 2.54
+      "coverage_80": 0.807,
+      "mean_interval_width": 2.58
     },
     {
       "group": "POST_MIDTERM",
-      "n": 3695,
-      "mae_median": 0.696,
-      "pinball_q10": 0.1571,
-      "pinball_q50": 0.3481,
-      "pinball_q90": 0.1453,
-      "coverage_80": 0.811,
-      "mean_interval_width": 2.25
+      "n": 3650,
+      "mae_median": 0.703,
+      "pinball_q10": 0.1596,
+      "pinball_q50": 0.3516,
+      "pinball_q90": 0.1431,
+      "coverage_80": 0.799,
+      "mean_interval_width": 2.23
     },
     {
       "group": "WEEK_10",
-      "n": 3695,
-      "mae_median": 0.66,
-      "pinball_q10": 0.1487,
-      "pinball_q50": 0.3299,
-      "pinball_q90": 0.1388,
-      "coverage_80": 0.811,
-      "mean_interval_width": 2.09
+      "n": 3650,
+      "mae_median": 0.669,
+      "pinball_q10": 0.1482,
+      "pinball_q50": 0.3344,
+      "pinball_q90": 0.1398,
+      "coverage_80": 0.8,
+      "mean_interval_width": 2.1
     },
     {
       "group": "PRE_FINAL",
-      "n": 3695,
-      "mae_median": 0.624,
-      "pinball_q10": 0.1392,
-      "pinball_q50": 0.3121,
-      "pinball_q90": 0.1316,
-      "coverage_80": 0.793,
-      "mean_interval_width": 1.97
+      "n": 3650,
+      "mae_median": 0.615,
+      "pinball_q10": 0.141,
+      "pinball_q50": 0.3076,
+      "pinball_q90": 0.1289,
+      "coverage_80": 0.81,
+      "mean_interval_width": 1.98
     }
   ],
   "M4_plan_completion": {
     "n": 2672,
-    "base_rate": 0.746,
-    "auc": 0.851,
-    "brier": 0.1188,
-    "log_loss": 0.3822,
-    "ece": 0.0216,
+    "base_rate": 0.726,
+    "auc": 0.9,
+    "brier": 0.1098,
+    "log_loss": 0.3515,
+    "ece": 0.0467,
     "reliability": [
       {
         "bin": 0,
-        "mean_pred": 0.039,
-        "observed": 0.035,
-        "n": 172
+        "mean_pred": 0.05,
+        "observed": 0.0,
+        "n": 101
       },
       {
         "bin": 1,
-        "mean_pred": 0.149,
-        "observed": 0.206,
-        "n": 68
+        "mean_pred": 0.152,
+        "observed": 0.079,
+        "n": 89
       },
       {
         "bin": 2,
-        "mean_pred": 0.254,
-        "observed": 0.288,
-        "n": 66
+        "mean_pred": 0.25,
+        "observed": 0.12,
+        "n": 83
       },
       {
         "bin": 3,
-        "mean_pred": 0.352,
-        "observed": 0.329,
+        "mean_pred": 0.357,
+        "observed": 0.195,
         "n": 82
       },
       {
         "bin": 4,
         "mean_pred": 0.454,
-        "observed": 0.485,
-        "n": 97
+        "observed": 0.308,
+        "n": 91
       },
       {
         "bin": 5,
-        "mean_pred": 0.553,
-        "observed": 0.619,
-        "n": 118
+        "mean_pred": 0.554,
+        "observed": 0.407,
+        "n": 123
       },
       {
         "bin": 6,
-        "mean_pred": 0.654,
-        "observed": 0.695,
-        "n": 197
+        "mean_pred": 0.653,
+        "observed": 0.605,
+        "n": 172
       },
       {
         "bin": 7,
         "mean_pred": 0.754,
-        "observed": 0.793,
-        "n": 391
+        "observed": 0.695,
+        "n": 262
       },
       {
         "bin": 8,
-        "mean_pred": 0.854,
-        "observed": 0.871,
-        "n": 568
+        "mean_pred": 0.857,
+        "observed": 0.82,
+        "n": 477
       },
       {
         "bin": 9,
-        "mean_pred": 0.952,
-        "observed": 0.946,
-        "n": 913
+        "mean_pred": 0.953,
+        "observed": 0.966,
+        "n": 1192
       }
     ],
-    "ece_uncalibrated": 0.0276,
-    "brier_uncalibrated": 0.1192
+    "ece_uncalibrated": 0.0238,
+    "brier_uncalibrated": 0.1063
   },
   "M4_by_milestone": [
     {
       "group": "WEEK_4",
       "n": 668,
-      "observed": 0.746,
-      "mean_pred": 0.719,
-      "auc": 0.826,
-      "brier": 0.13
+      "observed": 0.726,
+      "mean_pred": 0.76,
+      "auc": 0.876,
+      "brier": 0.1211
     },
     {
       "group": "POST_MIDTERM",
       "n": 668,
-      "observed": 0.746,
-      "mean_pred": 0.737,
-      "auc": 0.846,
-      "brier": 0.1213
+      "observed": 0.726,
+      "mean_pred": 0.769,
+      "auc": 0.906,
+      "brier": 0.1106
     },
     {
       "group": "WEEK_10",
       "n": 668,
-      "observed": 0.746,
-      "mean_pred": 0.731,
-      "auc": 0.871,
-      "brier": 0.1101
+      "observed": 0.726,
+      "mean_pred": 0.761,
+      "auc": 0.902,
+      "brier": 0.1082
     },
     {
       "group": "PRE_FINAL",
       "n": 668,
-      "observed": 0.746,
-      "mean_pred": 0.73,
-      "auc": 0.859,
-      "brier": 0.1137
+      "observed": 0.726,
+      "mean_pred": 0.752,
+      "auc": 0.912,
+      "brier": 0.0994
     }
   ],
   "M4_by_program": [
     {
       "group": "ACC",
-      "n": 292,
-      "observed": 0.699,
-      "mean_pred": 0.713,
-      "auc": 0.883,
-      "brier": 0.1315
+      "n": 300,
+      "observed": 0.693,
+      "mean_pred": 0.724,
+      "auc": 0.85,
+      "brier": 0.1424
     },
     {
       "group": "BUS",
-      "n": 308,
-      "observed": 0.792,
-      "mean_pred": 0.709,
-      "auc": 0.853,
-      "brier": 0.1197
+      "n": 304,
+      "observed": 0.75,
+      "mean_pred": 0.766,
+      "auc": 0.922,
+      "brier": 0.0975
     },
     {
       "group": "ECO",
       "n": 284,
-      "observed": 0.746,
-      "mean_pred": 0.78,
-      "auc": 0.8,
-      "brier": 0.1337
+      "observed": 0.789,
+      "mean_pred": 0.824,
+      "auc": 0.829,
+      "brier": 0.1138
     },
     {
       "group": "FIN",
-      "n": 388,
-      "observed": 0.732,
-      "mean_pred": 0.715,
-      "auc": 0.895,
-      "brier": 0.1051
+      "n": 380,
+      "observed": 0.684,
+      "mean_pred": 0.72,
+      "auc": 0.852,
+      "brier": 0.1364
     },
     {
       "group": "ITE",
       "n": 284,
-      "observed": 0.775,
-      "mean_pred": 0.776,
-      "auc": 0.732,
-      "brier": 0.1408
+      "observed": 0.732,
+      "mean_pred": 0.773,
+      "auc": 0.958,
+      "brier": 0.0916
     },
     {
       "group": "LAW",
-      "n": 408,
-      "observed": 0.794,
-      "mean_pred": 0.735,
-      "auc": 0.865,
-      "brier": 0.0996
+      "n": 416,
+      "observed": 0.721,
+      "mean_pred": 0.762,
+      "auc": 0.942,
+      "brier": 0.0851
     },
     {
       "group": "LOG",
       "n": 316,
-      "observed": 0.734,
-      "mean_pred": 0.711,
-      "auc": 0.923,
-      "brier": 0.0839
+      "observed": 0.772,
+      "mean_pred": 0.766,
+      "auc": 0.936,
+      "brier": 0.0812
     },
     {
       "group": "MKT",
-      "n": 392,
-      "observed": 0.694,
-      "mean_pred": 0.712,
-      "auc": 0.834,
-      "brier": 0.1434
+      "n": 388,
+      "observed": 0.691,
+      "mean_pred": 0.763,
+      "auc": 0.888,
+      "brier": 0.1286
     }
   ],
   "M1_by_program": [
     {
       "group": "ACC",
-      "n": 1724,
-      "observed": 0.951,
-      "mean_pred": 0.95,
-      "auc": 0.702,
-      "brier": 0.0446
+      "n": 1736,
+      "observed": 0.954,
+      "mean_pred": 0.944,
+      "auc": 0.624,
+      "brier": 0.0444
     },
     {
       "group": "BUS",
-      "n": 1772,
-      "observed": 0.948,
-      "mean_pred": 0.94,
-      "auc": 0.761,
-      "brier": 0.0468
+      "n": 1748,
+      "observed": 0.95,
+      "mean_pred": 0.952,
+      "auc": 0.697,
+      "brier": 0.0473
     },
     {
       "group": "ECO",
-      "n": 1688,
-      "observed": 0.955,
-      "mean_pred": 0.959,
-      "auc": 0.72,
-      "brier": 0.0403
+      "n": 1608,
+      "observed": 0.958,
+      "mean_pred": 0.967,
+      "auc": 0.712,
+      "brier": 0.0402
     },
     {
       "group": "FIN",
-      "n": 2220,
-      "observed": 0.926,
-      "mean_pred": 0.938,
-      "auc": 0.82,
-      "brier": 0.0604
+      "n": 2204,
+      "observed": 0.946,
+      "mean_pred": 0.943,
+      "auc": 0.713,
+      "brier": 0.0505
     },
     {
       "group": "ITE",
-      "n": 1664,
-      "observed": 0.964,
-      "mean_pred": 0.958,
-      "auc": 0.567,
-      "brier": 0.0358
+      "n": 1648,
+      "observed": 0.925,
+      "mean_pred": 0.957,
+      "auc": 0.78,
+      "brier": 0.0665
     },
     {
       "group": "LAW",
-      "n": 2340,
-      "observed": 0.966,
-      "mean_pred": 0.94,
-      "auc": 0.764,
-      "brier": 0.0327
+      "n": 2352,
+      "observed": 0.946,
+      "mean_pred": 0.946,
+      "auc": 0.806,
+      "brier": 0.0459
     },
     {
       "group": "LOG",
-      "n": 1820,
-      "observed": 0.943,
-      "mean_pred": 0.942,
-      "auc": 0.793,
-      "brier": 0.046
+      "n": 1852,
+      "observed": 0.95,
+      "mean_pred": 0.949,
+      "auc": 0.802,
+      "brier": 0.0415
     },
     {
       "group": "MKT",
-      "n": 2324,
-      "observed": 0.952,
-      "mean_pred": 0.946,
-      "auc": 0.726,
-      "brier": 0.0448
+      "n": 2312,
+      "observed": 0.931,
+      "mean_pred": 0.953,
+      "auc": 0.752,
+      "brier": 0.0606
     }
   ],
   "M4_baselines": {
-    "prior_cum_gpa_only_auc": 0.749,
-    "mean_current_score_only_auc": 0.818
+    "prior_cum_gpa_only_auc": 0.77,
+    "mean_current_score_only_auc": 0.852
   },
   "state_outcomes": [
     {
       "state": "DIVERGING",
-      "n": 494,
-      "plan_completed_rate": 0.279,
-      "mean_p_plan": 0.264
+      "n": 466,
+      "plan_completed_rate": 0.2,
+      "mean_p_plan": 0.295
     },
     {
       "state": "IMPROVING",
-      "n": 150,
-      "plan_completed_rate": 0.627,
-      "mean_p_plan": 0.635
+      "n": 136,
+      "plan_completed_rate": 0.463,
+      "mean_p_plan": 0.625
     },
     {
       "state": "INSUFFICIENT_EVIDENCE",
-      "n": 109,
-      "plan_completed_rate": 0.633,
-      "mean_p_plan": 0.752
+      "n": 76,
+      "plan_completed_rate": 0.684,
+      "mean_p_plan": 0.744
     },
     {
       "state": "ON_TRACK",
-      "n": 973,
-      "plan_completed_rate": 0.927,
-      "mean_p_plan": 0.928
+      "n": 1128,
+      "plan_completed_rate": 0.967,
+      "mean_p_plan": 0.939
     },
     {
       "state": "PLAN_ADJUSTED",
-      "n": 250,
-      "plan_completed_rate": 0.932,
-      "mean_p_plan": 0.837
+      "n": 234,
+      "plan_completed_rate": 0.859,
+      "mean_p_plan": 0.873
     },
     {
       "state": "STABLE_FRAGILE",
-      "n": 696,
-      "plan_completed_rate": 0.799,
-      "mean_p_plan": 0.761
+      "n": 632,
+      "plan_completed_rate": 0.696,
+      "mean_p_plan": 0.775
     }
   ],
   "R1_standing": {
     "n": 668,
-    "base_rate": 0.843,
-    "auc": 0.987,
-    "brier": 0.0248,
-    "log_loss": 0.1029,
-    "ece": 0.0176,
+    "base_rate": 0.82,
+    "auc": 0.991,
+    "brier": 0.031,
+    "log_loss": 0.0969,
+    "ece": 0.0202,
     "reliability": [
       {
         "bin": 0,
-        "mean_pred": 0.002,
-        "observed": 0.025,
-        "n": 80
+        "mean_pred": 0.004,
+        "observed": 0.012,
+        "n": 83
+      },
+      {
+        "bin": 4,
+        "mean_pred": 0.441,
+        "observed": 0.4,
+        "n": 10
+      },
+      {
+        "bin": 7,
+        "mean_pred": 0.764,
+        "observed": 0.8,
+        "n": 10
       },
       {
         "bin": 8,
-        "mean_pred": 0.858,
-        "observed": 0.8,
-        "n": 15
+        "mean_pred": 0.849,
+        "observed": 0.6,
+        "n": 20
       },
       {
         "bin": 9,
         "mean_pred": 0.995,
-        "observed": 0.989,
-        "n": 545
+        "observed": 0.99,
+        "n": 522
       }
     ]
   },
   "R1_term_gpa": {
-    "mae": 0.278,
-    "coverage_80": 0.729
+    "mae": 0.273,
+    "coverage_80": 0.707
   },
   "feature_importance": {
     "M1": {
-      "attendance_rate": 14.83,
-      "course_id": 14.29,
-      "program_id": 12.89,
-      "prior_cum_gpa": 11.77,
-      "prior_earned_ratio": 6.01,
-      "prior_term_gpa": 5.7,
-      "terms_completed": 4.55,
-      "lms_required_completion": 3.98,
-      "approved_plan_credits": 2.44,
-      "snapshot_milestone": 2.44,
-      "prior_failed_courses": 2.36,
-      "prior_repeat_courses": 2.28
+      "attendance_rate": 13.41,
+      "course_id": 11.72,
+      "program_id": 11.41,
+      "prior_term_gpa": 10.14,
+      "prior_cum_gpa": 9.25,
+      "prior_earned_ratio": 7.65,
+      "terms_completed": 4.79,
+      "lms_required_completion": 3.99,
+      "term_registered_credits": 3.32,
+      "prior_repeat_courses": 3.28,
+      "attendance_coverage": 3.24,
+      "prior_failed_courses": 3.24
     },
     "M2": {
-      "prior_cum_gpa": 18.6,
-      "current_weighted_score": 17.26,
-      "course_id": 13.06,
-      "program_id": 8.2,
-      "prior_term_gpa": 7.71,
-      "attendance_rate": 7.3,
-      "prior_earned_ratio": 5.69,
-      "terms_completed": 3.66,
-      "prior_failed_courses": 2.8,
-      "recent_score_trend": 2.27,
-      "graded_coverage": 1.99,
-      "lms_required_completion": 1.63
+      "current_weighted_score": 20.39,
+      "prior_cum_gpa": 14.79,
+      "course_id": 12.4,
+      "prior_term_gpa": 11.42,
+      "attendance_rate": 7.14,
+      "program_id": 6.55,
+      "terms_completed": 3.64,
+      "prior_failed_courses": 3.29,
+      "prior_earned_ratio": 3.14,
+      "lms_required_completion": 2.55,
+      "recent_score_trend": 2.15,
+      "graded_coverage": 1.93
     },
     "M3": {
-      "current_weighted_score": 32.09,
-      "prior_cum_gpa": 21.8,
-      "course_id": 13.2,
-      "attendance_rate": 9.25,
-      "prior_term_gpa": 4.9,
-      "prior_warning_flag": 3.6,
-      "graded_coverage": 3.36,
-      "terms_completed": 2.36,
-      "prior_earned_ratio": 1.86,
-      "prior_failed_courses": 1.72,
-      "recent_score_trend": 1.4,
-      "program_id": 0.72
+      "current_weighted_score": 33.22,
+      "prior_cum_gpa": 21.16,
+      "course_id": 13.21,
+      "attendance_rate": 9.75,
+      "prior_term_gpa": 4.52,
+      "prior_warning_flag": 3.16,
+      "graded_coverage": 2.51,
+      "prior_failed_courses": 2.47,
+      "prior_earned_ratio": 2.03,
+      "terms_completed": 1.8,
+      "recent_score_trend": 1.16,
+      "snapshot_week": 1.05
     },
     "M4": {
-      "prior_cum_gpa": 9.41,
-      "prior_term_gpa": 8.65,
-      "prior_earned_ratio": 7.18,
-      "mean_attendance_rate": 7.05,
-      "mean_pred_score": 6.06,
-      "program_id": 5.36,
+      "prior_term_gpa": 10.66,
+      "prior_cum_gpa": 10.41,
+      "mean_attendance_rate": 8.25,
+      "mean_pred_score": 7.11,
+      "prior_earned_ratio": 6.09,
       "expected_earned_credits": 4.99,
-      "mean_data_quality": 4.93,
-      "mean_p_completion": 4.72,
-      "mean_lms_completion": 4.54,
-      "terms_completed": 4.4,
-      "mean_current_score": 3.9
+      "terms_completed": 4.55,
+      "mean_data_quality": 4.4,
+      "progress_gap_credits": 4.16,
+      "program_id": 4.07,
+      "mean_p_completion": 3.99,
+      "mean_current_score": 3.94
     }
   },
-  "conformal_margin": 0.037,
+  "conformal_margin": 0.039,
   "calibration_methods": {
     "M1": "isotonic",
     "M2": "isotonic",
     "M4": "platt"
+  },
+  "calibration_cv": {
+    "M1": {
+      "brier_raw": 0.04644,
+      "brier_calibrated": 0.04468
+    },
+    "M2": {
+      "brier_raw": 0.02554,
+      "brier_calibrated": 0.02484
+    },
+    "M4": {
+      "brier_raw": 0.11598,
+      "brier_calibrated": 0.11205
+    }
+  },
+  "events": {
+    "n_event_snapshots": 242,
+    "n_students_with_event": 182,
+    "share_students_with_event": 0.272,
+    "plan_completed_rate_with_event": 0.467,
+    "plan_completed_rate_without_event": 0.823,
+    "auc_at_event_snapshots": 0.874,
+    "mean_delta_p_at_event": -0.046,
+    "mean_lead_weeks": 1.79,
+    "codes": {
+      "EVT_SCORE_DECLINE": 63,
+      "EVT_MANDATORY_MISSING": 135,
+      "EVT_CONSECUTIVE_ABSENCES": 63
+    },
+    "by_week": {
+      "6": 26,
+      "9": 31,
+      "11": 62,
+      "12": 40,
+      "13": 83
+    }
   }
 }

@@ -54,10 +54,14 @@ Hai file phải theo đúng tên cột do `ueh_trajectory/synthetic.py` sinh ra.
 | Q1 | `quality.py` | Điểm chất lượng từ độ bao phủ điểm (so với kỳ vọng của mốc), chuyên cần, LMS, độ đầy đủ, độ mới và mâu thuẫn nguồn |
 | R1 | `rules.py` | 400 lần mô phỏng kết quả học phần → GPA học kỳ và tích lũy → quy tắc học vụ (khung TT 08/2021, **cần đối chiếu quy chế UEH**) |
 | R2 | `rules.py` | Thứ tự xét: Q1 thấp → kế hoạch điều chỉnh → giảm mạnh → đúng tiến độ → cải thiện → mong manh → lệch |
+| Snapshot theo sự kiện | `events.py` | Đọc dữ liệu hằng tuần giữa các mốc; tạo snapshot `EVENT_Wxx` khi xuất hiện điều kiện quan trọng **mới** (vắng liên tiếp, thiếu bài bắt buộc, điểm giảm rõ rệt, đăng ký chưa xong, dữ liệu mâu thuẫn); cooldown 4 tuần |
+| Cảnh báo | `alerts.py` | Cảnh báo sinh viên, chương trình, học phần, dữ liệu; mức Khẩn / Cần chú ý; ghi `alerts.json` |
 | Reason codes | `reasons.py` | Chỉ phát mã khi SHAP cùng chiều **và** giá trị thực nằm trong vùng tương ứng |
 | Pipeline | `pipeline.py` | Chia theo thời gian: train 2023.1–2025.1, hiệu chỉnh 2025.2, kiểm định 2026.1, dự báo 2026.2 |
 
-Mọi ngưỡng nằm trong `ueh_trajectory/config.py`.
+Mọi ngưỡng nằm trong `ueh_trajectory/config.py`, gồm `TRAJECTORY_RULES`, `EVENT_RULES` và `ALERT_RULES`.
+
+Thời gian đi vào mô hình dưới dạng **tuần học** (biến số), không phải nhãn mốc. Nhờ vậy cùng một mô hình chấm điểm được snapshot sự kiện ở bất kỳ tuần nào. Mô hình chỉ huấn luyện trên 4 mốc cố định, và hiệu năng tại snapshot sự kiện được kiểm định riêng trên học kỳ kiểm định. Hiệu chỉnh xác suất chỉ được giữ khi kiểm định chéo theo sinh viên trên học kỳ hiệu chỉnh cho thấy nó tốt hơn xác suất thô.
 
 ### Nguyên tắc nghiệp vụ được mã hóa
 
@@ -73,11 +77,20 @@ Mọi ngưỡng nằm trong `ueh_trajectory/config.py`.
 |---|---|
 | `artifacts/output/predictions_course.jsonl` | Một dòng cho mỗi SV × HP × snapshot, đúng schema mục 11 của đặc tả (thêm `course_id`) |
 | `artifacts/output/dashboard_payload.json` | Cấu trúc lồng SV → snapshot → học phần cho dashboard |
+| `artifacts/output/alerts.json` | Danh sách cảnh báo hiện hành; đầu vào cho bản tin email (giai đoạn sau) |
 | `artifacts/output/metrics.json` | Model card: AUC, Brier, ECE, reliability, coverage, theo snapshot và chương trình, kết quả theo trạng thái |
 | `dashboard/data.js` | Payload ở dạng script để mở dashboard không cần máy chủ |
 
 ## Dashboard (`dashboard/index.html`)
 
+- **Cảnh báo** (cho người quản lý):
+  - **Sinh viên:** sự kiện mới có tác động lên dự báo, chuyển sang "Lệch khỏi mục tiêu", XS hoàn thành kế hoạch giảm mạnh, mới có nguy cơ cảnh báo học vụ.
+  - **Chương trình:** tỷ lệ lệch mục tiêu tăng giữa hai mốc.
+  - **Học phần:** tỷ lệ SV khó đạt cao bất thường so với mức chung của học kỳ.
+  - **Dữ liệu:** thiếu bằng chứng diện rộng, nguồn chưa cập nhật, độ bao phủ thấp.
+  - **Vận hành:** ca quá hạn xem xét (khẩn sau 3 ngày, cần chú ý sau 7 ngày).
+  - Mỗi cảnh báo mở thẳng chi tiết sinh viên hoặc danh sách đã lọc sẵn. Tab Tổng quan có banner số cảnh báo chưa xem.
+- **Mới nhất (T12)**: chế độ xem snapshot gần nhất của từng sinh viên, gồm cả snapshot theo sự kiện. Biểu đồ quỹ đạo trong chi tiết sinh viên đặt theo tuần, đánh dấu sự kiện bằng ◆.
 - **Tổng quan**: KPI có so sánh với snapshot trước, phân bố trạng thái qua các snapshot, ma trận chuyển trạng thái, lý do hỗ trợ phổ biến, phân tích theo chương trình.
 - **Danh sách xem xét**: lọc theo trạng thái, chương trình, mức dữ liệu, đơn vị phụ trách và trạng thái xem xét. Danh sách sắp theo mức ưu tiên.
 - **Chi tiết sinh viên** gồm:
@@ -96,4 +109,6 @@ Dashboard hỗ trợ giao diện sáng/tối và màn hình điện thoại. Tr�
 2. Đối chiếu `PASS_SCORE`, thang quy đổi điểm và `STANDING_RULES` với quy chế UEH hiện hành (Ban Đào tạo).
 3. Huấn luyện lại, đọc model card, hiệu chỉnh ngưỡng R2 theo năng lực xử lý của cố vấn (mục 7 của đặc tả).
 4. Rà soát công bằng theo chương trình, khóa tuyển, giới tính và vùng miền nếu được phép dùng các biến này cho kiểm định.
-5. Thay lưu trữ `localStorage` của phần ghi nhận bằng API có phân quyền và nhật ký truy cập.
+5. Thay lưu trữ `localStorage` của phần ghi nhận và "đã xem" cảnh báo bằng API có phân quyền và nhật ký truy cập. Khi đó cảnh báo quá hạn mới phản ánh đúng công việc của toàn bộ cố vấn.
+6. Kết nối nguồn dữ liệu hằng tuần (LMS, chuyên cần, điểm thành phần) để snapshot theo sự kiện chạy thật.
+7. (Giai đoạn sau) Bản tin email cảnh báo đọc từ `alerts.json`.

@@ -35,6 +35,27 @@ def to_grade_point(score):
     return out
 
 
+def snapshot_date(term: str, week: int) -> str:
+    """Friday of the given teaching week (term start dates live in config)."""
+    start = pd.Timestamp(C.TERM_START[term])
+    return (start + pd.Timedelta(days=7 * (week - 1) + 4)).date().isoformat()
+
+
+def _snapshot_specs(term: str):
+    """Regular milestones plus weekly monitoring feeds (test + current term only).
+
+    Monitoring rows are what the event detector reads between milestones; only
+    the ones that trigger an event become scored EVENT snapshots.
+    """
+    current = term == C.CURRENT_TERM
+    specs = [(ms, C.MILESTONE_WEEK[ms], "REGULAR") for ms in C.MILESTONES
+             if not current or ms in C.CURRENT_TERM_MILESTONES]
+    if current or term in C.TEST_TERMS:
+        specs += [(f"MONITOR_W{w:02d}", w, "MONITOR") for w in C.MONITORING_WEEKS
+                  if not current or w <= C.CURRENT_WEEK]
+    return sorted(specs, key=lambda x: x[1])
+
+
 def _hash(i: int) -> str:
     return "S" + hashlib.sha256(f"ueh-demo-{i}".encode()).hexdigest()[:8].upper()
 
@@ -98,6 +119,13 @@ def generate(n_students: int = 1100, seed: int = 7):
         # record-level sync failure (e.g. program transfer not yet reflected):
         # hits every course of the student at once, as real SIS breakages do
         sync_issue = rng.random(n_students) < 0.03
+        # mid-term crisis (illness, family, work): engagement drops from a given week
+        crisis = rng.random(n_students) < 0.06
+        crisis_week = rng.integers(5, 12, n_students)
+        crisis_absent = rng.random(n_students) < 0.75
+        # registration not finalised at term start, fixed some weeks later
+        reg_incomplete = rng.random(n_students) < 0.015
+        reg_fixed_week = rng.integers(5, 13, n_students)
 
         for i in idx:
             k = rng.integers(3, 5) if reduced[i] else rng.integers(5, 8)
@@ -125,7 +153,7 @@ def generate(n_students: int = 1100, seed: int = 7):
                 lecturer_lag = rng.choice([1.0, 0.5], p=[0.85, 0.15])  # late grade entry
                 stale = sync_issue[i] or rng.random() < 0.08
                 conflict = (sync_issue[i] and rng.random() < 0.7) or rng.random() < 0.03
-                e_final = e_term + drift[i]
+                e_final = e_term + drift[i] - (1.1 if crisis[i] else 0.0)
                 z = 0.8 * a + 0.45 * e_final - crs.course_difficulty + rng.normal(0, 0.35)
                 true_score = float(np.clip(6.9 + 1.5 * z + rng.normal(0, 0.7), 0, 10))
                 approved_wd = rng.random() < 0.01
@@ -134,23 +162,26 @@ def generate(n_students: int = 1100, seed: int = 7):
                 passed = completed and true_score >= C.PASS_SCORE
                 final_score = true_score if completed else np.nan
 
-                for m, ms in enumerate(C.MILESTONES):
-                    if term == C.CURRENT_TERM and ms not in C.CURRENT_TERM_MILESTONES:
-                        continue
-                    week = C.MILESTONE_WEEK[ms]
-                    frac = m / 3.0
-                    e_m = e_term + drift[i] * frac
-                    cov = float(np.clip([0.1, 0.4, 0.5, 0.6][m] * lecturer_lag
+                for ms, week, stype in _snapshot_specs(term):
+                    frac = (week - 4) / 10.0
+                    in_crisis = crisis[i] and week >= crisis_week[i]
+                    e_m = e_term + drift[i] * frac - (1.6 if in_crisis else 0.0)
+                    cov = float(np.clip(np.interp(week, [4, 8, 10, 14], [0.1, 0.4, 0.5, 0.6]) * lecturer_lag
                                         + rng.normal(0, 0.03), 0, 1))
                     noise_sd = 1.9 * (1 - cov) + 0.35
                     partial = true_score - drift[i] * (1 - frac) * 1.2
                     cur_score = np.clip(partial + rng.normal(0, noise_sd), 0, 10) if cov > 0.05 else np.nan
-                    trend = (drift[i] * 1.5 + rng.normal(0, 0.5)) if m >= 1 else np.nan
-                    n_assign = 2 + 2 * m
+                    if week > 4:
+                        trend = drift[i] * 1.5 + rng.normal(0, 0.5) - (1.6 if in_crisis else 0.0)
+                    else:
+                        trend = np.nan
+                    n_assign = int(round(2 + (week - 4) * 0.6))
                     late = rng.binomial(n_assign, _sigmoid(-1.8 - 1.1 * e_m))
-                    mand_missing = rng.binomial(1 + m, _sigmoid(-2.8 - 1.3 * e_m))
+                    mand_missing = rng.binomial(1 + (week - 4) // 3, _sigmoid(-3.3 - 1.3 * e_m))
                     att_rate = float(np.clip(_sigmoid(2.1 + 1.2 * e_m + rng.normal(0, .4)), 0, 1))
-                    consec = int(rng.poisson(max(0.05, (1 - att_rate) * week * 0.5)))
+                    consec = int(rng.poisson(max(0.05, (1 - att_rate) * week * 0.12)))
+                    if in_crisis and crisis_absent[i]:
+                        consec = max(consec, week - crisis_week[i] + 1)
                     att_cov = float(np.clip(section_attn_cov + rng.normal(0, .02), 0, 1))
                     if crs.lms_designed:
                         lms = float(np.clip(_sigmoid(1.0 + 1.3 * e_m + rng.normal(0, .5)), 0, 1))
@@ -163,7 +194,8 @@ def generate(n_students: int = 1100, seed: int = 7):
                         program_id=stu.program_id.values[i],
                         course_id=crs.course_id,
                         section_id=f"{crs.course_id}-{term}-{rng.integers(1, 4):02d}",
-                        snapshot_milestone=ms, snapshot_index=m,
+                        snapshot_milestone=ms, snapshot_week=week, snapshot_type=stype,
+                        snapshot_date=snapshot_date(term, week),
                         course_credits=int(crs.course_credits),
                         delivery_mode=crs.delivery_mode,
                         **prev,
@@ -184,7 +216,7 @@ def generate(n_students: int = 1100, seed: int = 7):
                         days_since_source_update=int(rng.integers(15, 40) if stale else rng.integers(0, 7)),
                         required_field_completeness=float(np.clip(rng.normal(.75 if sync_issue[i] else .97, .05), .5, 1)),
                         source_conflict_flag=int(conflict),
-                        registration_incomplete_flag=int(rng.random() < 0.01),
+                        registration_incomplete_flag=int(reg_incomplete[i] and week < reg_fixed_week[i]),
                         approved_withdrawal_flag=int(approved_wd),
                     )
                     if term != C.CURRENT_TERM:

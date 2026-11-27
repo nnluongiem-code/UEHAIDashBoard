@@ -8,10 +8,12 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-CAT_FEATURES = ["snapshot_milestone", "program_id", "course_id", "delivery_mode"]
+# Time enters as the teaching week (numeric), not as a milestone category, so the
+# same models can score an event-triggered snapshot in any week (spec section 8).
+CAT_FEATURES = ["program_id", "course_id", "delivery_mode"]
 
 COURSE_NUM_FEATURES = [
-    "snapshot_index", "course_credits",
+    "snapshot_week", "course_credits",
     # history (spec 9.2)
     "prior_term_gpa", "prior_cum_gpa", "prior_earned_ratio", "prior_failed_courses",
     "prior_repeat_courses", "prior_warning_flag", "terms_completed",
@@ -28,9 +30,9 @@ COURSE_NUM_FEATURES = [
 COURSE_FEATURES = CAT_FEATURES + COURSE_NUM_FEATURES
 
 # Semester-level inputs: course-model outputs aggregated + history + plan.
-TERM_CAT_FEATURES = ["snapshot_milestone", "program_id"]
+TERM_CAT_FEATURES = ["program_id"]
 TERM_NUM_FEATURES = [
-    "snapshot_index", "n_courses", "approved_plan_credits", "term_registered_credits",
+    "snapshot_week", "n_courses", "approved_plan_credits", "term_registered_credits",
     "reduced_load_flag",
     "prior_term_gpa", "prior_cum_gpa", "prior_earned_ratio", "prior_failed_courses",
     "prior_warning_flag", "terms_completed",
@@ -64,7 +66,9 @@ def build_term_frame(course_pred: pd.DataFrame) -> pd.DataFrame:
     ).groupby(keys, sort=False)
     t = g.agg(
         program_id=("program_id", "first"),
-        snapshot_index=("snapshot_index", "first"),
+        snapshot_week=("snapshot_week", "first"),
+        snapshot_type=("snapshot_type", "first"),
+        snapshot_date=("snapshot_date", "first"),
         n_courses=("course_id", "count"),
         approved_plan_credits=("approved_plan_credits", "first"),
         term_registered_credits=("term_registered_credits", "first"),
