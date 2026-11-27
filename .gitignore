@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+catboost_info/
+artifacts/models/
+artifacts/data/
+.pytest_cache/
+.venv/
+artifacts/run.log
+artifacts/output/predictions_course.jsonl
+artifacts/output/dashboard_payload.json

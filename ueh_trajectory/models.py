@@ -1,0 +1,125 @@
+"""M1-M4 model wrappers.
+
+* Classifiers (M1, M2, M4): CatBoost + post-hoc calibration fitted on a held-out
+  calibration term, so a predicted 0.70 means roughly 70 of 100 similar cases
+  succeed. Isotonic regression is used when the calibration set is large; Platt
+  (logistic) scaling otherwise, because isotonic overfits small sets.
+  Calibrated probabilities are bounded to [P_MIN, 1-P_MIN]: a model should never
+  tell an advisor that an outcome is certain.
+* Regressor (M3): CatBoost MultiQuantile (Q10/Q50/Q90), then conformalised on the
+  calibration term (CQR) so the Q10-Q90 band really covers about 80% of outcomes.
+"""
+from __future__ import annotations
+
+import numpy as np
+import pandas as pd
+from catboost import CatBoostClassifier, CatBoostRegressor, Pool
+from sklearn.isotonic import IsotonicRegression
+from sklearn.linear_model import LogisticRegression
+
+from . import config as C
+
+
+def _pool(X: pd.DataFrame, cat_features, y=None):
+    return Pool(X, label=y, cat_features=[c for c in cat_features if c in X.columns])
+
+
+P_MIN = 0.01
+ISOTONIC_MIN_ROWS = 5000
+
+
+def _logit(p):
+    p = np.clip(p, 1e-6, 1 - 1e-6)
+    return np.log(p / (1 - p)).reshape(-1, 1)
+
+
+class CalibratedCatBoostClassifier:
+    def __init__(self, features, cat_features, **params):
+        self.features = list(features)
+        self.cat_features = list(cat_features)
+        self.params = {**C.CATBOOST_PARAMS, "loss_function": "Logloss", **params}
+        self.model = CatBoostClassifier(**self.params)
+        self.calibrator = None
+        self.calibration_method = None
+
+    def fit(self, X, y):
+        self.model.fit(_pool(X[self.features], self.cat_features, y))
+        return self
+
+    def raw_proba(self, X):
+        return self.model.predict_proba(_pool(X[self.features], self.cat_features))[:, 1]
+
+    def calibrate(self, X, y, method: str = "auto"):
+        raw, y = self.raw_proba(X), np.asarray(y)
+        if method == "auto":
+            method = "isotonic" if len(y) >= ISOTONIC_MIN_ROWS else "platt"
+        if method == "isotonic":
+            self.calibrator = IsotonicRegression(out_of_bounds="clip", y_min=0.0, y_max=1.0).fit(raw, y)
+        else:
+            self.calibrator = LogisticRegression(C=1e4).fit(_logit(raw), y)
+        self.calibration_method = method
+        return self
+
+    def apply_calibration(self, raw):
+        raw = np.asarray(raw, dtype=float)
+        if self.calibrator is None:
+            p = raw
+        elif self.calibration_method == "isotonic":
+            p = self.calibrator.predict(raw)
+        else:
+            p = self.calibrator.predict_proba(_logit(raw))[:, 1]
+        return np.clip(p, P_MIN, 1 - P_MIN)
+
+    def predict_proba(self, X):
+        return self.apply_calibration(self.raw_proba(X))
+
+    def shap_values(self, X):
+        """Per-row SHAP contributions (log-odds), last column dropped (bias)."""
+        sv = self.model.get_feature_importance(
+            _pool(X[self.features], self.cat_features), type="ShapValues")
+        return pd.DataFrame(sv[:, :-1], columns=self.features, index=X.index)
+
+    def feature_importance(self):
+        return pd.Series(self.model.get_feature_importance(), index=self.features) \
+            .sort_values(ascending=False)
+
+
+class ConformalQuantileRegressor:
+    def __init__(self, features, cat_features, quantiles=C.QUANTILES, **params):
+        self.features = list(features)
+        self.cat_features = list(cat_features)
+        self.q = list(quantiles)
+        alpha = ",".join(str(a) for a in self.q)
+        self.params = {**C.CATBOOST_PARAMS, "loss_function": f"MultiQuantile:alpha={alpha}", **params}
+        self.model = CatBoostRegressor(**self.params)
+        self.conformal_margin = 0.0
+
+    def fit(self, X, y):
+        self.model.fit(_pool(X[self.features], self.cat_features, y))
+        return self
+
+    def raw_predict(self, X):
+        p = self.model.predict(_pool(X[self.features], self.cat_features))
+        return np.sort(p, axis=1)  # guard against quantile crossing
+
+    def calibrate(self, X, y):
+        """Split-conformal margin on the calibration term (CQR, Romano et al. 2019)."""
+        p = self.raw_predict(X)
+        y = np.asarray(y)
+        scores = np.maximum(p[:, 0] - y, y - p[:, -1])
+        target = self.q[-1] - self.q[0]  # 0.80
+        n = len(scores)
+        level = min(1.0, np.ceil((n + 1) * target) / n)
+        self.conformal_margin = float(np.quantile(scores, level))
+        return self
+
+    def predict(self, X):
+        p = self.raw_predict(X)
+        lo = np.clip(p[:, 0] - self.conformal_margin, 0, 10)
+        hi = np.clip(p[:, -1] + self.conformal_margin, 0, 10)
+        med = np.clip(p[:, 1], lo, hi)
+        return lo, med, hi
+
+    def feature_importance(self):
+        return pd.Series(self.model.get_feature_importance(), index=self.features) \
+            .sort_values(ascending=False)

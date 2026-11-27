@@ -1,0 +1,626 @@
+{
+  "test_terms": [
+    "2026.1"
+  ],
+  "train_terms": [
+    "2023.1",
+    "2023.2",
+    "2024.1",
+    "2024.2",
+    "2025.1"
+  ],
+  "calibration_terms": [
+    "2025.2"
+  ],
+  "M1_course_completion": {
+    "n": 15552,
+    "base_rate": 0.95,
+    "auc": 0.748,
+    "brier": 0.0441,
+    "log_loss": 0.1768,
+    "ece": 0.007,
+    "reliability": [
+      {
+        "bin": 5,
+        "mean_pred": 0.6,
+        "observed": 0.5,
+        "n": 20
+      },
+      {
+        "bin": 6,
+        "mean_pred": 0.651,
+        "observed": 0.529,
+        "n": 51
+      },
+      {
+        "bin": 7,
+        "mean_pred": 0.783,
+        "observed": 0.786,
+        "n": 650
+      },
+      {
+        "bin": 8,
+        "mean_pred": 0.881,
+        "observed": 0.873,
+        "n": 1344
+      },
+      {
+        "bin": 9,
+        "mean_pred": 0.962,
+        "observed": 0.969,
+        "n": 13481
+      }
+    ],
+    "ece_uncalibrated": 0.0224,
+    "brier_uncalibrated": 0.0446
+  },
+  "M2_course_attainment": {
+    "n": 14780,
+    "base_rate": 0.961,
+    "auc": 0.949,
+    "brier": 0.0246,
+    "log_loss": 0.0907,
+    "ece": 0.0108,
+    "reliability": [
+      {
+        "bin": 0,
+        "mean_pred": 0.012,
+        "observed": 0.0,
+        "n": 22
+      },
+      {
+        "bin": 1,
+        "mean_pred": 0.158,
+        "observed": 0.0,
+        "n": 10
+      },
+      {
+        "bin": 2,
+        "mean_pred": 0.286,
+        "observed": 0.083,
+        "n": 12
+      },
+      {
+        "bin": 3,
+        "mean_pred": 0.325,
+        "observed": 0.196,
+        "n": 51
+      },
+      {
+        "bin": 4,
+        "mean_pred": 0.435,
+        "observed": 0.385,
+        "n": 65
+      },
+      {
+        "bin": 5,
+        "mean_pred": 0.555,
+        "observed": 0.548,
+        "n": 312
+      },
+      {
+        "bin": 6,
+        "mean_pred": 0.626,
+        "observed": 0.767,
+        "n": 73
+      },
+      {
+        "bin": 7,
+        "mean_pred": 0.764,
+        "observed": 0.719,
+        "n": 359
+      },
+      {
+        "bin": 8,
+        "mean_pred": 0.845,
+        "observed": 0.872,
+        "n": 701
+      },
+      {
+        "bin": 9,
+        "mean_pred": 0.985,
+        "observed": 0.992,
+        "n": 13175
+      }
+    ],
+    "ece_uncalibrated": 0.0084,
+    "brier_uncalibrated": 0.0246
+  },
+  "course_pass_overall": {
+    "n": 15552,
+    "base_rate": 0.914,
+    "auc": 0.855,
+    "brier": 0.0569,
+    "log_loss": 0.2097,
+    "ece": 0.0223,
+    "reliability": [
+      {
+        "bin": 0,
+        "mean_pred": 0.017,
+        "observed": 0.0,
+        "n": 41
+      },
+      {
+        "bin": 1,
+        "mean_pred": 0.146,
+        "observed": 0.0,
+        "n": 22
+      },
+      {
+        "bin": 2,
+        "mean_pred": 0.257,
+        "observed": 0.091,
+        "n": 77
+      },
+      {
+        "bin": 3,
+        "mean_pred": 0.347,
+        "observed": 0.259,
+        "n": 108
+      },
+      {
+        "bin": 4,
+        "mean_pred": 0.456,
+        "observed": 0.346,
+        "n": 179
+      },
+      {
+        "bin": 5,
+        "mean_pred": 0.544,
+        "observed": 0.544,
+        "n": 327
+      },
+      {
+        "bin": 6,
+        "mean_pred": 0.657,
+        "observed": 0.577,
+        "n": 291
+      },
+      {
+        "bin": 7,
+        "mean_pred": 0.754,
+        "observed": 0.765,
+        "n": 964
+      },
+      {
+        "bin": 8,
+        "mean_pred": 0.863,
+        "observed": 0.882,
+        "n": 1629
+      },
+      {
+        "bin": 9,
+        "mean_pred": 0.953,
+        "observed": 0.973,
+        "n": 11914
+      }
+    ]
+  },
+  "M3_final_score": {
+    "n": 14780,
+    "mae_median": 0.696,
+    "pinball_q10": 0.1561,
+    "pinball_q50": 0.3478,
+    "pinball_q90": 0.1453,
+    "coverage_80": 0.805,
+    "mean_interval_width": 2.21
+  },
+  "M3_by_milestone": [
+    {
+      "group": "WEEK_4",
+      "n": 3695,
+      "mae_median": 0.802,
+      "pinball_q10": 0.1793,
+      "pinball_q50": 0.401,
+      "pinball_q90": 0.1654,
+      "coverage_80": 0.804,
+      "mean_interval_width": 2.54
+    },
+    {
+      "group": "POST_MIDTERM",
+      "n": 3695,
+      "mae_median": 0.696,
+      "pinball_q10": 0.1571,
+      "pinball_q50": 0.3481,
+      "pinball_q90": 0.1453,
+      "coverage_80": 0.811,
+      "mean_interval_width": 2.25
+    },
+    {
+      "group": "WEEK_10",
+      "n": 3695,
+      "mae_median": 0.66,
+      "pinball_q10": 0.1487,
+      "pinball_q50": 0.3299,
+      "pinball_q90": 0.1388,
+      "coverage_80": 0.811,
+      "mean_interval_width": 2.09
+    },
+    {
+      "group": "PRE_FINAL",
+      "n": 3695,
+      "mae_median": 0.624,
+      "pinball_q10": 0.1392,
+      "pinball_q50": 0.3121,
+      "pinball_q90": 0.1316,
+      "coverage_80": 0.793,
+      "mean_interval_width": 1.97
+    }
+  ],
+  "M4_plan_completion": {
+    "n": 2672,
+    "base_rate": 0.746,
+    "auc": 0.851,
+    "brier": 0.1188,
+    "log_loss": 0.3822,
+    "ece": 0.0216,
+    "reliability": [
+      {
+        "bin": 0,
+        "mean_pred": 0.039,
+        "observed": 0.035,
+        "n": 172
+      },
+      {
+        "bin": 1,
+        "mean_pred": 0.149,
+        "observed": 0.206,
+        "n": 68
+      },
+      {
+        "bin": 2,
+        "mean_pred": 0.254,
+        "observed": 0.288,
+        "n": 66
+      },
+      {
+        "bin": 3,
+        "mean_pred": 0.352,
+        "observed": 0.329,
+        "n": 82
+      },
+      {
+        "bin": 4,
+        "mean_pred": 0.454,
+        "observed": 0.485,
+        "n": 97
+      },
+      {
+        "bin": 5,
+        "mean_pred": 0.553,
+        "observed": 0.619,
+        "n": 118
+      },
+      {
+        "bin": 6,
+        "mean_pred": 0.654,
+        "observed": 0.695,
+        "n": 197
+      },
+      {
+        "bin": 7,
+        "mean_pred": 0.754,
+        "observed": 0.793,
+        "n": 391
+      },
+      {
+        "bin": 8,
+        "mean_pred": 0.854,
+        "observed": 0.871,
+        "n": 568
+      },
+      {
+        "bin": 9,
+        "mean_pred": 0.952,
+        "observed": 0.946,
+        "n": 913
+      }
+    ],
+    "ece_uncalibrated": 0.0276,
+    "brier_uncalibrated": 0.1192
+  },
+  "M4_by_milestone": [
+    {
+      "group": "WEEK_4",
+      "n": 668,
+      "observed": 0.746,
+      "mean_pred": 0.719,
+      "auc": 0.826,
+      "brier": 0.13
+    },
+    {
+      "group": "POST_MIDTERM",
+      "n": 668,
+      "observed": 0.746,
+      "mean_pred": 0.737,
+      "auc": 0.846,
+      "brier": 0.1213
+    },
+    {
+      "group": "WEEK_10",
+      "n": 668,
+      "observed": 0.746,
+      "mean_pred": 0.731,
+      "auc": 0.871,
+      "brier": 0.1101
+    },
+    {
+      "group": "PRE_FINAL",
+      "n": 668,
+      "observed": 0.746,
+      "mean_pred": 0.73,
+      "auc": 0.859,
+      "brier": 0.1137
+    }
+  ],
+  "M4_by_program": [
+    {
+      "group": "ACC",
+      "n": 292,
+      "observed": 0.699,
+      "mean_pred": 0.713,
+      "auc": 0.883,
+      "brier": 0.1315
+    },
+    {
+      "group": "BUS",
+      "n": 308,
+      "observed": 0.792,
+      "mean_pred": 0.709,
+      "auc": 0.853,
+      "brier": 0.1197
+    },
+    {
+      "group": "ECO",
+      "n": 284,
+      "observed": 0.746,
+      "mean_pred": 0.78,
+      "auc": 0.8,
+      "brier": 0.1337
+    },
+    {
+      "group": "FIN",
+      "n": 388,
+      "observed": 0.732,
+      "mean_pred": 0.715,
+      "auc": 0.895,
+      "brier": 0.1051
+    },
+    {
+      "group": "ITE",
+      "n": 284,
+      "observed": 0.775,
+      "mean_pred": 0.776,
+      "auc": 0.732,
+      "brier": 0.1408
+    },
+    {
+      "group": "LAW",
+      "n": 408,
+      "observed": 0.794,
+      "mean_pred": 0.735,
+      "auc": 0.865,
+      "brier": 0.0996
+    },
+    {
+      "group": "LOG",
+      "n": 316,
+      "observed": 0.734,
+      "mean_pred": 0.711,
+      "auc": 0.923,
+      "brier": 0.0839
+    },
+    {
+      "group": "MKT",
+      "n": 392,
+      "observed": 0.694,
+      "mean_pred": 0.712,
+      "auc": 0.834,
+      "brier": 0.1434
+    }
+  ],
+  "M1_by_program": [
+    {
+      "group": "ACC",
+      "n": 1724,
+      "observed": 0.951,
+      "mean_pred": 0.95,
+      "auc": 0.702,
+      "brier": 0.0446
+    },
+    {
+      "group": "BUS",
+      "n": 1772,
+      "observed": 0.948,
+      "mean_pred": 0.94,
+      "auc": 0.761,
+      "brier": 0.0468
+    },
+    {
+      "group": "ECO",
+      "n": 1688,
+      "observed": 0.955,
+      "mean_pred": 0.959,
+      "auc": 0.72,
+      "brier": 0.0403
+    },
+    {
+      "group": "FIN",
+      "n": 2220,
+      "observed": 0.926,
+      "mean_pred": 0.938,
+      "auc": 0.82,
+      "brier": 0.0604
+    },
+    {
+      "group": "ITE",
+      "n": 1664,
+      "observed": 0.964,
+      "mean_pred": 0.958,
+      "auc": 0.567,
+      "brier": 0.0358
+    },
+    {
+      "group": "LAW",
+      "n": 2340,
+      "observed": 0.966,
+      "mean_pred": 0.94,
+      "auc": 0.764,
+      "brier": 0.0327
+    },
+    {
+      "group": "LOG",
+      "n": 1820,
+      "observed": 0.943,
+      "mean_pred": 0.942,
+      "auc": 0.793,
+      "brier": 0.046
+    },
+    {
+      "group": "MKT",
+      "n": 2324,
+      "observed": 0.952,
+      "mean_pred": 0.946,
+      "auc": 0.726,
+      "brier": 0.0448
+    }
+  ],
+  "M4_baselines": {
+    "prior_cum_gpa_only_auc": 0.749,
+    "mean_current_score_only_auc": 0.818
+  },
+  "state_outcomes": [
+    {
+      "state": "DIVERGING",
+      "n": 494,
+      "plan_completed_rate": 0.279,
+      "mean_p_plan": 0.264
+    },
+    {
+      "state": "IMPROVING",
+      "n": 150,
+      "plan_completed_rate": 0.627,
+      "mean_p_plan": 0.635
+    },
+    {
+      "state": "INSUFFICIENT_EVIDENCE",
+      "n": 109,
+      "plan_completed_rate": 0.633,
+      "mean_p_plan": 0.752
+    },
+    {
+      "state": "ON_TRACK",
+      "n": 973,
+      "plan_completed_rate": 0.927,
+      "mean_p_plan": 0.928
+    },
+    {
+      "state": "PLAN_ADJUSTED",
+      "n": 250,
+      "plan_completed_rate": 0.932,
+      "mean_p_plan": 0.837
+    },
+    {
+      "state": "STABLE_FRAGILE",
+      "n": 696,
+      "plan_completed_rate": 0.799,
+      "mean_p_plan": 0.761
+    }
+  ],
+  "R1_standing": {
+    "n": 668,
+    "base_rate": 0.843,
+    "auc": 0.987,
+    "brier": 0.0248,
+    "log_loss": 0.1029,
+    "ece": 0.0176,
+    "reliability": [
+      {
+        "bin": 0,
+        "mean_pred": 0.002,
+        "observed": 0.025,
+        "n": 80
+      },
+      {
+        "bin": 8,
+        "mean_pred": 0.858,
+        "observed": 0.8,
+        "n": 15
+      },
+      {
+        "bin": 9,
+        "mean_pred": 0.995,
+        "observed": 0.989,
+        "n": 545
+      }
+    ]
+  },
+  "R1_term_gpa": {
+    "mae": 0.278,
+    "coverage_80": 0.729
+  },
+  "feature_importance": {
+    "M1": {
+      "attendance_rate": 14.83,
+      "course_id": 14.29,
+      "program_id": 12.89,
+      "prior_cum_gpa": 11.77,
+      "prior_earned_ratio": 6.01,
+      "prior_term_gpa": 5.7,
+      "terms_completed": 4.55,
+      "lms_required_completion": 3.98,
+      "approved_plan_credits": 2.44,
+      "snapshot_milestone": 2.44,
+      "prior_failed_courses": 2.36,
+      "prior_repeat_courses": 2.28
+    },
+    "M2": {
+      "prior_cum_gpa": 18.6,
+      "current_weighted_score": 17.26,
+      "course_id": 13.06,
+      "program_id": 8.2,
+      "prior_term_gpa": 7.71,
+      "attendance_rate": 7.3,
+      "prior_earned_ratio": 5.69,
+      "terms_completed": 3.66,
+      "prior_failed_courses": 2.8,
+      "recent_score_trend": 2.27,
+      "graded_coverage": 1.99,
+      "lms_required_completion": 1.63
+    },
+    "M3": {
+      "current_weighted_score": 32.09,
+      "prior_cum_gpa": 21.8,
+      "course_id": 13.2,
+      "attendance_rate": 9.25,
+      "prior_term_gpa": 4.9,
+      "prior_warning_flag": 3.6,
+      "graded_coverage": 3.36,
+      "terms_completed": 2.36,
+      "prior_earned_ratio": 1.86,
+      "prior_failed_courses": 1.72,
+      "recent_score_trend": 1.4,
+      "program_id": 0.72
+    },
+    "M4": {
+      "prior_cum_gpa": 9.41,
+      "prior_term_gpa": 8.65,
+      "prior_earned_ratio": 7.18,
+      "mean_attendance_rate": 7.05,
+      "mean_pred_score": 6.06,
+      "program_id": 5.36,
+      "expected_earned_credits": 4.99,
+      "mean_data_quality": 4.93,
+      "mean_p_completion": 4.72,
+      "mean_lms_completion": 4.54,
+      "terms_completed": 4.4,
+      "mean_current_score": 3.9
+    }
+  },
+  "conformal_margin": 0.037,
+  "calibration_methods": {
+    "M1": "isotonic",
+    "M2": "isotonic",
+    "M4": "platt"
+  }
+}

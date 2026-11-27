@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quỹ đạo học tập UEH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9; --surface: #ffffff; --surface-2: #f0f2f5; --border: #e2e5ea;
+  --text: #191919; --text-2: #5c6370; --text-3: #8a909a;
+  --accent: #005b96; --accent-soft: #e5f0f8;
+  --grid: #e9ebef; --axis: #c9cdd4;
+  --s-on: #0aac23; --s-imp: #257de0; --s-fra: #f2a600; --s-div: #dc3c3d; --s-adj: #6a4ce2; --s-ins: #8c8c8c;
+  --seq-0: #f3f7fc; --seq-1: #cce3fd; --seq-2: #84b9f3; --seq-3: #338ced; --seq-4: #1b64be; --seq-5: #0e3d7e;
+  --bar: #257de0; --good-text: #0a7a1c; --bad-text: #c0302f;
+  --shadow: 0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #111214; --surface: #191919; --surface-2: #222326; --border: #303236;
+    --text: #efefef; --text-2: #a6abb3; --text-3: #7d828a;
+    --accent: #5aa9e6; --accent-soft: #1a2b3a;
+    --grid: #2a2c30; --axis: #45484e;
+    --s-on: #0aac23; --s-imp: #338ced; --s-fra: #d28e05; --s-div: #dc3c3d; --s-adj: #9887ef; --s-ins: #8a8a8a;
+    --seq-0: #1d2126; --seq-1: #0e3d7e; --seq-2: #1757ac; --seq-3: #2370cd; --seq-4: #519ced; --seq-5: #9dc8f7;
+    --bar: #338ced; --good-text: #3ccf55; --bad-text: #f07878;
+    --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111214; --surface: #191919; --surface-2: #222326; --border: #303236;
+  --text: #efefef; --text-2: #a6abb3; --text-3: #7d828a;
+  --accent: #5aa9e6; --accent-soft: #1a2b3a;
+  --grid: #2a2c30; --axis: #45484e;
+  --s-on: #0aac23; --s-imp: #338ced; --s-fra: #d28e05; --s-div: #dc3c3d; --s-adj: #9887ef; --s-ins: #8a8a8a;
+  --seq-0: #1d2126; --seq-1: #0e3d7e; --seq-2: #1757ac; --seq-3: #2370cd; --seq-4: #519ced; --seq-5: #9dc8f7;
+  --bar: #338ced; --good-text: #3ccf55; --bad-text: #f07878;
+  --shadow: none;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--text); font: 14px/1.5 "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+button, select, input, textarea { font: inherit; color: inherit; }
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+header.top { background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 20; }
+.top-row { display: flex; align-items: center; gap: 16px; padding: 12px 0; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand-mark { width: 34px; height: 34px; border-radius: 8px; background: var(--accent); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 13px; flex: none; }
+.brand h1 { font-size: 16px; margin: 0; font-weight: 600; line-height: 1.25; }
+.brand p { margin: 0; font-size: 12px; color: var(--text-2); }
+.spacer { flex: 1; }
+.seg { display: inline-flex; background: var(--surface-2); border-radius: 8px; padding: 3px; gap: 2px; flex-wrap: wrap; }
+.seg button { border: 0; background: transparent; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; color: var(--text-2); white-space: nowrap; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--text); font-weight: 600; box-shadow: var(--shadow); }
+.icon-btn { border: 1px solid var(--border); background: var(--surface); border-radius: 8px; width: 34px; height: 34px; cursor: pointer; display: grid; place-items: center; }
+nav.tabs { display: flex; gap: 4px; overflow-x: auto; }
+nav.tabs button { border: 0; background: none; padding: 10px 14px; cursor: pointer; color: var(--text-2); border-bottom: 2px solid transparent; font-weight: 500; white-space: nowrap; }
+nav.tabs button[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+.notice { display: flex; gap: 10px; align-items: flex-start; background: var(--accent-soft); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; margin: 16px 0; font-size: 13px; color: var(--text-2); }
+.notice b { color: var(--text); }
+main { padding-bottom: 48px; }
+.grid { display: grid; gap: 16px; }
+.kpis { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.two { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); min-width: 0; }
+.card h2 { font-size: 14px; margin: 0 0 2px; font-weight: 600; }
+.card .sub { font-size: 12px; color: var(--text-2); margin: 0 0 12px; }
+.kpi .label { font-size: 12px; color: var(--text-2); }
+.kpi .value { font-size: 26px; font-weight: 600; line-height: 1.2; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.kpi .note { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+.delta-up { color: var(--good-text); } .delta-down { color: var(--bad-text); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--text-2); margin-bottom: 10px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 10px; height: 10px; border-radius: 3px; display: inline-block; flex: none; }
+.badge { display: inline-flex; align-items: center; gap: 5px; padding: 2px 8px 2px 6px; border-radius: 999px; font-size: 12px; font-weight: 500; white-space: nowrap; border: 1px solid var(--border); background: var(--surface); }
+.badge i { font-style: normal; width: 16px; height: 16px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 10px; font-weight: 700; }
+.chip { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; background: var(--surface-2); color: var(--text-2); margin: 2px 4px 2px 0; }
+.chip.pos { background: color-mix(in srgb, var(--s-on) 14%, transparent); color: var(--good-text); }
+.chip.sup { background: color-mix(in srgb, var(--s-div) 12%, transparent); color: var(--bad-text); }
+.chip.dq { background: color-mix(in srgb, var(--s-ins) 18%, transparent); }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.filters select, .filters input { border: 1px solid var(--border); background: var(--surface); border-radius: 8px; padding: 7px 10px; font-size: 13px; min-width: 0; }
+.filters input { width: 200px; }
+.statechips { display: flex; flex-wrap: wrap; gap: 6px; }
+.statechips button { cursor: pointer; opacity: .45; }
+.statechips button[aria-pressed="true"] { opacity: 1; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+th { font-weight: 600; font-size: 12px; color: var(--text-2); background: var(--surface-2); white-space: nowrap; position: sticky; top: 0; }
+th.sortable { cursor: pointer; user-select: none; }
+th.sortable:hover { color: var(--text); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+tbody tr.click { cursor: pointer; }
+tbody tr.click:hover { background: var(--surface-2); }
+tbody tr:last-child td { border-bottom: 0; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+.pager { display: flex; gap: 8px; align-items: center; justify-content: flex-end; margin-top: 10px; font-size: 13px; color: var(--text-2); }
+.pager button, .btn { border: 1px solid var(--border); background: var(--surface); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+.btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.pbar { display: inline-block; width: 56px; height: 6px; border-radius: 3px; background: var(--surface-2); vertical-align: middle; margin-right: 6px; position: relative; overflow: hidden; }
+.pbar b { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 3px; background: var(--bar); }
+svg { display: block; overflow: visible; }
+svg text { fill: var(--text-2); font-size: 11px; font-family: inherit; }
+.tick line { stroke: var(--grid); }
+#tooltip { position: fixed; pointer-events: none; z-index: 100; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.14); opacity: 0; transition: opacity .1s; max-width: 260px; }
+#tooltip .t { font-weight: 600; margin-bottom: 2px; }
+#tooltip .r { display: flex; justify-content: space-between; gap: 14px; color: var(--text-2); }
+#tooltip .r b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+.drawer-bg { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 40; opacity: 0; pointer-events: none; transition: opacity .15s; }
+.drawer-bg.open { opacity: 1; pointer-events: auto; }
+aside.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(860px, 100vw); background: var(--bg); z-index: 50; transform: translateX(100%); transition: transform .2s; overflow-y: auto; border-left: 1px solid var(--border); }
+aside.drawer.open { transform: none; }
+.drawer-head { position: sticky; top: 0; background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 20px; display: flex; gap: 12px; align-items: center; z-index: 2; flex-wrap: wrap; }
+.drawer-body { padding: 16px 20px 40px; display: grid; gap: 16px; }
+.mini-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.mini-kpis .kpi .value { font-size: 20px; }
+.review { display: grid; gap: 8px; }
+.review textarea { width: 100%; min-height: 70px; border: 1px solid var(--border); background: var(--surface); border-radius: 8px; padding: 8px; resize: vertical; }
+.review select { border: 1px solid var(--border); background: var(--surface); border-radius: 8px; padding: 7px 10px; }
+.muted { color: var(--text-3); font-size: 12px; }
+.list { margin: 0; padding-left: 18px; color: var(--text-2); font-size: 13px; }
+.list li { margin: 4px 0; }
+.metric-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.metric-grid .card .row { display: flex; justify-content: space-between; font-size: 13px; padding: 3px 0; border-bottom: 1px dashed var(--border); }
+.metric-grid .card .row:last-child { border-bottom: 0; }
+.metric-grid .card .row b { font-variant-numeric: tabular-nums; }
+.hidden { display: none !important; }
+.empty { padding: 28px; text-align: center; color: var(--text-3); }
+@media (max-width: 1080px) { .kpis { grid-template-columns: repeat(3, minmax(0,1fr)); } .metric-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 860px) { .two { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 640px) {
+  .wrap { padding: 0 16px; }
+  .kpis { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .metric-grid, .mini-kpis { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .kpi .value { font-size: 22px; }
+  .filters input { width: 100%; }
+  .drawer-body { padding: 16px; }
+  .brand p { display: none; }
+}
+@media (forced-colors: active) { .sw, .badge i { forced-color-adjust: none; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="top-row">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">UEH</div>
+        <div>
+          <h1>Quỹ đạo tiến trình học tập</h1>
+          <p id="meta-line">C1.1.2 · Predictive Analytics Dashboard</p>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="seg" id="ms-seg" role="group" aria-label="Chọn snapshot"></div>
+      <button class="icon-btn" id="theme-btn" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện sáng/tối"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-tab="overview" aria-selected="true">Tổng quan</button>
+      <button role="tab" data-tab="queue" aria-selected="false">Danh sách xem xét</button>
+      <button role="tab" data-tab="model" aria-selected="false">Mô hình &amp; kiểm định</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="notice" id="notice">
+    <span aria-hidden="true">ⓘ</span>
+    <div><b>Công cụ hỗ trợ cố vấn, không tự động ra quyết định học vụ.</b> Kết quả là xác suất dự báo tại từng snapshot, không phải nhãn cố định về người học. <span id="synthetic-note"></span></div>
+  </div>
+
+  <!-- ============ OVERVIEW ============ -->
+  <section id="tab-overview">
+    <div class="grid kpis" id="kpis"></div>
+    <div class="grid two" style="margin-top:16px">
+      <div class="card">
+        <h2>Phân bố trạng thái quỹ đạo theo snapshot</h2>
+        <p class="sub">Tỷ lệ sinh viên ở mỗi trạng thái; snapshot đang chọn được tô đậm.</p>
+        <div class="legend" id="state-legend"></div>
+        <div id="state-bars"></div>
+      </div>
+      <div class="card">
+        <h2>Chuyển trạng thái so với snapshot trước</h2>
+        <p class="sub" id="trans-sub">Hàng: trạng thái trước · Cột: trạng thái hiện tại</p>
+        <div id="transition"></div>
+      </div>
+    </div>
+    <div class="grid two" style="margin-top:16px">
+      <div class="card">
+        <h2>Lý do cần hỗ trợ phổ biến</h2>
+        <p class="sub">Số sinh viên có mã lý do tại snapshot đang chọn (một sinh viên có thể có nhiều mã).</p>
+        <div id="reason-bars"></div>
+      </div>
+      <div class="card">
+        <h2>Theo chương trình đào tạo</h2>
+        <p class="sub">Xác suất hoàn thành kế hoạch trung bình và cơ cấu trạng thái.</p>
+        <div id="program-table"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUEUE ============ -->
+  <section id="tab-queue" class="hidden">
+    <div class="card">
+      <h2>Danh sách sinh viên cần xem xét</h2>
+      <p class="sub">Sắp xếp mặc định theo mức ưu tiên: lệch mục tiêu → chưa đủ bằng chứng → mong manh, sau đó theo xác suất hoàn thành kế hoạch tăng dần. Chọn một dòng để xem chi tiết.</p>
+      <div class="filters">
+        <div class="statechips" id="state-chips"></div>
+      </div>
+      <div class="filters">
+        <input type="search" id="f-search" placeholder="Tìm mã sinh viên (hash)…" aria-label="Tìm mã sinh viên">
+        <select id="f-program" aria-label="Chương trình"></select>
+        <select id="f-conf" aria-label="Mức đủ dữ liệu">
+          <option value="">Mọi mức dữ liệu</option><option value="HIGH">Dữ liệu: Cao</option><option value="MEDIUM">Dữ liệu: Trung bình</option><option value="LOW">Dữ liệu: Thấp</option>
+        </select>
+        <select id="f-owner" aria-label="Đơn vị phụ trách"></select>
+        <select id="f-review" aria-label="Trạng thái xem xét"></select>
+        <span class="muted" id="q-count"></span>
+      </div>
+      <div class="table-wrap"><table id="q-table"></table></div>
+      <div class="pager" id="pager"></div>
+    </div>
+  </section>
+
+  <!-- ============ MODEL ============ -->
+  <section id="tab-model" class="hidden">
+    <div class="grid metric-grid" id="metric-cards"></div>
+    <div class="grid two" style="margin-top:16px">
+      <div class="card">
+        <h2>Biểu đồ hiệu chỉnh (reliability)</h2>
+        <p class="sub">Điểm nằm trên đường chéo nghĩa là xác suất dự báo khớp tỷ lệ thực tế trên học kỳ kiểm định.</p>
+        <div class="seg" id="rel-seg" style="margin-bottom:10px"></div>
+        <div id="reliability"></div>
+      </div>
+      <div class="card">
+        <h2>Kết quả thực tế theo trạng thái quỹ đạo</h2>
+        <p class="sub">Tỷ lệ sinh viên thực sự hoàn thành kế hoạch, theo trạng thái được gán trên học kỳ kiểm định.</p>
+        <div id="state-outcomes"></div>
+      </div>
+    </div>
+    <div class="grid two" style="margin-top:16px">
+      <div class="card">
+        <h2>Độ phân biệt M4 theo snapshot</h2>
+        <p class="sub">AUC tăng dần khi có thêm bằng chứng trong học kỳ; đường đứt nét là baseline chỉ dùng GPA tích lũy.</p>
+        <div id="auc-ms"></div>
+      </div>
+      <div class="card">
+        <h2>Biến quan trọng nhất của M4</h2>
+        <p class="sub">CatBoost feature importance (PredictionValuesChange).</p>
+        <div id="fi"></div>
+      </div>
+    </div>
+    <div class="grid two" style="margin-top:16px">
+      <div class="card">
+        <h2>Kiểm tra công bằng theo chương trình</h2>
+        <p class="sub">Cảnh báo khi chênh lệch giữa dự báo và thực tế vượt 5 điểm phần trăm hoặc AUC thấp hơn 0,05 so với toàn bộ.</p>
+        <div id="fairness"></div>
+      </div>
+      <div class="card">
+        <h2>Cấu hình &amp; giới hạn</h2>
+        <p class="sub" id="model-name"></p>
+        <div id="model-notes"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="drawer-bg" id="drawer-bg"></div>
+<aside class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-label="Chi tiết sinh viên"></aside>
+<div id="tooltip" role="tooltip"></div>
+
+<script src="data.js"></script>
+<script>
+(() => {
+"use strict";
+const D = window.UEH_DATA;
+if (!D) { document.querySelector("main").innerHTML = '<div class="empty">Chưa có dữ liệu. Chạy <code>python scripts/run_pipeline.py</code> để tạo dashboard/data.js.</div>'; return; }
+
+// ------------------------------------------------------------------ constants
+const STATES = {
+  ON_TRACK:              { vi: "Đúng tiến độ",          c: "--s-on",  ic: "✓", rank: 5 },
+  IMPROVING:             { vi: "Đang cải thiện",        c: "--s-imp", ic: "↗", rank: 3 },
+  STABLE_FRAGILE:        { vi: "Ổn định nhưng mong manh", c: "--s-fra", ic: "~", rank: 2 },
+  DIVERGING:             { vi: "Lệch khỏi mục tiêu",    c: "--s-div", ic: "↘", rank: 0 },
+  PLAN_ADJUSTED:         { vi: "Theo kế hoạch điều chỉnh", c: "--s-adj", ic: "⇄", rank: 4 },
+  INSUFFICIENT_EVIDENCE: { vi: "Chưa đủ bằng chứng",    c: "--s-ins", ic: "?", rank: 1 },
+};
+const STATE_ORDER = ["ON_TRACK", "IMPROVING", "STABLE_FRAGILE", "DIVERGING", "PLAN_ADJUSTED", "INSUFFICIENT_EVIDENCE"];
+const CONF_VI = { HIGH: "Cao", MEDIUM: "Trung bình", LOW: "Thấp" };
+const OWNER_VI = { ACADEMIC_ADVISOR: "Cố vấn học tập", TRAINING_OFFICE: "Ban Đào tạo", DATA_STEWARD: "Quản trị dữ liệu", NONE: "Không cần" };
+const REVIEW_VI = { NEW: "Mới", IN_REVIEW: "Đang xem xét", CONTACTED: "Đã liên hệ", SUPPORT_PLANNED: "Đã có kế hoạch hỗ trợ", RESOLVED: "Đã xử lý", NO_ACTION: "Không cần hành động" };
+const STANDING_VI = { SATISFACTORY: "Đạt yêu cầu", WATCH: "Cần theo dõi", WARNING_LIKELY: "Có nguy cơ cảnh báo" };
+const FEATURE_VI = {
+  expected_earned_credits: "Tín chỉ kỳ vọng đạt", progress_gap_credits: "Khoảng cách tiến độ", progress_gap_share: "Khoảng cách tiến độ (%)",
+  min_p_pass: "XS đạt thấp nhất", mean_p_pass: "XS đạt trung bình", n_courses_p_pass_below_05: "Số HP có XS đạt < 50%",
+  mean_p_completion: "XS hoàn thành TB", mean_pred_score: "Điểm dự báo TB", mean_score_interval: "Độ rộng khoảng điểm",
+  mean_current_score: "Điểm hiện tại TB", mean_attendance_rate: "Chuyên cần TB", sum_mandatory_missing: "Thiếu bài bắt buộc",
+  sum_missing_or_late: "Bài trễ/thiếu", mean_recent_trend: "Xu hướng điểm", mean_lms_completion: "Hoàn thành LMS",
+  max_consecutive_absence: "Vắng liên tiếp", mean_data_quality: "Chất lượng dữ liệu", prior_cum_gpa: "GPA tích lũy trước",
+  prior_term_gpa: "GPA kỳ trước", prior_earned_ratio: "Tỷ lệ tín chỉ đạt trước", prior_failed_courses: "Số HP không đạt trước",
+  prior_warning_flag: "Từng bị cảnh báo", terms_completed: "Số kỳ đã học", approved_plan_credits: "Tín chỉ kế hoạch",
+  term_registered_credits: "Tín chỉ đăng ký", n_courses: "Số học phần", snapshot_index: "Thứ tự snapshot",
+  snapshot_milestone: "Snapshot", program_id: "Chương trình", reduced_load_flag: "Giảm tải",
+};
+const M = D.meta, MS = M.milestones, RL = D.reason_labels;
+const msLabel = (m) => M.milestone_labels[m] || m;
+const ALL_MS = Object.keys(M.milestone_labels);
+const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const pct = (x, d = 0) => x == null ? "—" : (x * 100).toFixed(d).replace(".", ",") + "%";
+const num = (x, d = 1) => x == null ? "—" : Number(x).toFixed(d).replace(".", ",");
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const badge = (s) => `<span class="badge"><i style="background:var(${STATES[s].c})">${STATES[s].ic}</i>${STATES[s].vi}</span>`;
+const reasonChip = (c, cls) => `<span class="chip ${cls}" title="${esc(c)}">${esc(RL[c] || c)}</span>`;
+const NS = "http://www.w3.org/2000/svg";
+
+// ------------------------------------------------------------------ review store (demo: browser only)
+const REVIEW_KEY = "ueh-c112-review-" + M.term_id;
+let reviews = {};
+try { reviews = JSON.parse(localStorage.getItem(REVIEW_KEY) || "{}"); } catch (e) { reviews = {}; }
+const saveReviews = () => { try { localStorage.setItem(REVIEW_KEY, JSON.stringify(reviews)); } catch (e) {} };
+const reviewOf = (stu, snap) => (reviews[stu.id] && reviews[stu.id].status) || snap.review;
+
+// ------------------------------------------------------------------ state
+let curMs = MS[MS.length - 1];
+let tab = "overview";
+const Q = { states: new Set(["DIVERGING", "INSUFFICIENT_EVIDENCE", "STABLE_FRAGILE", "IMPROVING"]), search: "", program: "", conf: "", owner: "", review: "", sort: "priority", dir: 1, page: 0 };
+let relKey = "M4_plan_completion";
+
+// ------------------------------------------------------------------ tooltip
+const tip = document.getElementById("tooltip");
+function showTip(e, title, rows) {
+  tip.innerHTML = `<div class="t">${esc(title)}</div>` + rows.map(([k, v]) => `<div class="r"><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join("");
+  tip.style.opacity = 1; moveTip(e);
+}
+function moveTip(e) {
+  const pad = 14, w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = e.clientX + pad, y = e.clientY + pad;
+  if (x + w > innerWidth - 8) x = e.clientX - w - pad;
+  if (y + h > innerHeight - 8) y = e.clientY - h - pad;
+  tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px";
+}
+const hideTip = () => { tip.style.opacity = 0; };
+function bindTip(el, title, rows) {
+  el.addEventListener("mouseenter", (e) => showTip(e, title, rows));
+  el.addEventListener("mousemove", moveTip);
+  el.addEventListener("mouseleave", hideTip);
+}
+
+// ------------------------------------------------------------------ svg helpers
+function svgEl(tag, attrs = {}, parent) {
+  const el = document.createElementNS(NS, tag);
+  for (const k in attrs) el.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(el);
+  return el;
+}
+function svgRoot(container, height) {
+  container.innerHTML = "";
+  const w = Math.max(280, container.clientWidth || 600);
+  const svg = svgEl("svg", { width: w, height, viewBox: `0 0 ${w} ${height}`, role: "img" }, container);
+  return { svg, w };
+}
+// rounded only on the data end (right side) for horizontal bars
+function hbarPath(x, y, w, h, r = 4) {
+  if (w <= 0) return "";
+  r = Math.min(r, w, h / 2);
+  return `M${x},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${y + h - r}Q${x + w},${y + h} ${x + w - r},${y + h}H${x}Z`;
+}
+
+// ------------------------------------------------------------------ data access
+const snapOf = (s, m = curMs) => s.snapshots[m];
+const studentsAt = (m = curMs) => D.students.filter((s) => s.snapshots[m]);
+
+// ================================================================== HEADER
+function renderHeader() {
+  document.getElementById("meta-line").textContent = `C1.1.2 · Học kỳ ${M.term_id} · mô hình v${M.model_version}`;
+  document.getElementById("synthetic-note").textContent = M.synthetic_data ? "Bản demo dùng dữ liệu mô phỏng, không phải dữ liệu sinh viên thật." : "";
+  const seg = document.getElementById("ms-seg");
+  seg.innerHTML = "";
+  ALL_MS.forEach((m) => {
+    const b = document.createElement("button");
+    const avail = MS.includes(m);
+    b.textContent = msLabel(m);
+    b.setAttribute("aria-pressed", m === curMs);
+    if (!avail) { b.disabled = true; b.style.opacity = .4; b.title = "Chưa đến mốc này"; }
+    b.onclick = () => { curMs = m; Q.page = 0; renderAll(); };
+    seg.appendChild(b);
+  });
+}
+
+// ================================================================== OVERVIEW
+function renderKpis() {
+  const cur = studentsAt();
+  const prevIdx = MS.indexOf(curMs) - 1, prevMs = prevIdx >= 0 ? MS[prevIdx] : null;
+  const calc = (m) => {
+    const ss = studentsAt(m).map((s) => s.snapshots[m]);
+    const ps = ss.map((x) => x.p_plan).sort((a, b) => a - b);
+    return {
+      n: ss.length,
+      need: ss.filter((x) => x.owner !== "NONE").length,
+      med: ps[Math.floor(ps.length / 2)],
+      gap: ss.reduce((a, x) => a + Math.max(0, x.gap), 0),
+      low: ss.filter((x) => x.conf === "LOW").length,
+      div: ss.filter((x) => x.state === "DIVERGING").length,
+    };
+  };
+  const k = calc(curMs), p = prevMs ? calc(prevMs) : null;
+  const delta = (a, b, fmt, goodDown) => {
+    if (b == null) return `<span class="note">Snapshot đầu tiên</span>`;
+    const d = a - b; if (Math.abs(d) < 1e-9) return `<span class="note">Không đổi so với ${msLabel(prevMs)}</span>`;
+    const good = goodDown ? d < 0 : d > 0;
+    return `<span class="note ${good ? "delta-up" : "delta-down"}">${d > 0 ? "▲" : "▼"} ${fmt(Math.abs(d))} so với ${msLabel(prevMs)}</span>`;
+  };
+  const tiles = [
+    ["Sinh viên được dự báo", k.n.toLocaleString("vi-VN"), `<span class="note">${MS.length} snapshot trong học kỳ</span>`],
+    ["Cần xem xét", k.need.toLocaleString("vi-VN"), delta(k.need, p && p.need, (x) => x.toFixed(0), true)],
+    ["Đang lệch khỏi mục tiêu", k.div.toLocaleString("vi-VN"), delta(k.div, p && p.div, (x) => x.toFixed(0), true)],
+    ["XS hoàn thành kế hoạch (trung vị)", pct(k.med), delta(k.med, p && p.med, (x) => (x * 100).toFixed(1).replace(".", ",") + " điểm %", false)],
+    ["Tổng tín chỉ dự báo thiếu", Math.round(k.gap).toLocaleString("vi-VN"), delta(k.gap, p && p.gap, (x) => x.toFixed(0) + " TC", true)],
+  ];
+  document.getElementById("kpis").innerHTML = tiles.map(([l, v, n]) =>
+    `<div class="card kpi"><div class="label">${l}</div><div class="value">${v}</div>${n}</div>`).join("");
+}
+
+function renderStateLegend(el) {
+  el.innerHTML = STATE_ORDER.map((s) => `<span><i class="sw" style="background:var(${STATES[s].c})"></i>${STATES[s].ic} ${STATES[s].vi}</span>`).join("");
+}
+
+function renderStateBars() {
+  renderStateLegend(document.getElementById("state-legend"));
+  const box = document.getElementById("state-bars");
+  const rowH = 30, gap = 14, labW = 110, top = 4;
+  const { svg, w } = svgRoot(box, top + MS.length * (rowH + gap));
+  const bw = w - labW - 8;
+  MS.forEach((m, i) => {
+    const ss = studentsAt(m).map((s) => s.snapshots[m]);
+    const n = ss.length, y = top + i * (rowH + gap);
+    const lab = svgEl("text", { x: 0, y: y + rowH / 2 + 4, "font-weight": m === curMs ? 600 : 400 }, svg);
+    lab.textContent = msLabel(m);
+    if (m === curMs) lab.style.fill = css("--text");
+    let x = labW;
+    STATE_ORDER.forEach((s) => {
+      const c = ss.filter((x) => x.state === s).length;
+      if (!c) return;
+      const segW = (c / n) * bw;
+      const r = svgEl("rect", { x: x, y, width: Math.max(0, segW - 2), height: rowH, rx: 3, fill: css(STATES[s].c), opacity: m === curMs ? 1 : .55 }, svg);
+      bindTip(r, `${msLabel(m)} · ${STATES[s].vi}`, [["Số sinh viên", c.toLocaleString("vi-VN")], ["Tỷ lệ", pct(c / n, 1)]]);
+      if (segW > 38) {
+        const t = svgEl("text", { x: x + 6, y: y + rowH / 2 + 4, "pointer-events": "none" }, svg);
+        t.textContent = pct(c / n);
+        t.style.fill = s === "STABLE_FRAGILE" ? "#191919" : "#fff"; t.style.fontWeight = 600;
+      }
+      x += segW;
+    });
+  });
+}
+
+function renderTransition() {
+  const box = document.getElementById("transition");
+  const i = MS.indexOf(curMs);
+  if (i <= 0) { box.innerHTML = `<div class="empty">Đây là snapshot đầu tiên của học kỳ, chưa có dữ liệu để so sánh.</div>`; document.getElementById("trans-sub").textContent = "Hàng: trạng thái trước · Cột: trạng thái hiện tại"; return; }
+  const prev = MS[i - 1];
+  document.getElementById("trans-sub").textContent = `Hàng: ${msLabel(prev)} · Cột: ${msLabel(curMs)} · số sinh viên`;
+  const mat = {}; let max = 0;
+  D.students.forEach((s) => {
+    const a = s.snapshots[prev], b = s.snapshots[curMs];
+    if (!a || !b) return;
+    const k = a.state + "|" + b.state; mat[k] = (mat[k] || 0) + 1; max = Math.max(max, mat[k]);
+  });
+  const step = (v) => !v ? "transparent" : css("--seq-" + Math.min(5, 1 + Math.floor((v / max) * 4.999)));
+  const dark = (v) => v && v / max > 0.45;
+  let h = `<div class="table-wrap"><table><thead><tr><th>Trước \\ Hiện tại</th>${STATE_ORDER.map((s) => `<th class="num" title="${STATES[s].vi}"><span class="sw" style="background:var(${STATES[s].c})"></span> ${STATES[s].ic}</th>`).join("")}</tr></thead><tbody>`;
+  STATE_ORDER.forEach((a) => {
+    h += `<tr><td style="white-space:nowrap">${badge(a)}</td>`;
+    STATE_ORDER.forEach((b) => {
+      const v = mat[a + "|" + b] || 0;
+      h += `<td class="num" style="background:${step(v)};${dark(v) ? "color:#fff;" : ""}${a === b ? "font-weight:600;" : ""}" title="${STATES[a].vi} → ${STATES[b].vi}: ${v}">${v || ""}</td>`;
+    });
+    h += "</tr>";
+  });
+  box.innerHTML = h + `</tbody></table></div><p class="muted" style="margin:8px 0 0">Đường chéo (in đậm) là sinh viên giữ nguyên trạng thái. Màu đậm hơn = nhiều sinh viên hơn.</p>`;
+}
+
+function renderReasonBars() {
+  const cnt = {};
+  studentsAt().forEach((s) => s.snapshots[curMs].sup.forEach((c) => { cnt[c] = (cnt[c] || 0) + 1; }));
+  const rows = Object.entries(cnt).sort((a, b) => b[1] - a[1]).slice(0, 8);
+  const box = document.getElementById("reason-bars");
+  if (!rows.length) { box.innerHTML = '<div class="empty">Không có mã lý do.</div>'; return; }
+  const rowH = 22, gap = 10, labW = Math.min(230, (box.clientWidth || 500) * 0.48);
+  const { svg, w } = svgRoot(box, rows.length * (rowH + gap));
+  const max = rows[0][1], bw = w - labW - 48;
+  rows.forEach(([c, v], i) => {
+    const y = i * (rowH + gap);
+    const t = svgEl("text", { x: labW - 8, y: y + rowH / 2 + 4, "text-anchor": "end" }, svg);
+    let label = RL[c] || c; t.textContent = label;
+    while (t.getComputedTextLength && t.getComputedTextLength() > labW - 12 && label.length > 4) { label = label.slice(0, -2); t.textContent = label + "…"; }
+    const p = svgEl("path", { d: hbarPath(labW, y, (v / max) * bw, rowH), fill: css("--bar") }, svg);
+    bindTip(p, RL[c] || c, [["Mã", c], ["Số sinh viên", v.toLocaleString("vi-VN")]]);
+    const vt = svgEl("text", { x: labW + (v / max) * bw + 6, y: y + rowH / 2 + 4 }, svg);
+    vt.textContent = v; vt.style.fill = css("--text"); vt.style.fontWeight = 600;
+  });
+}
+
+function renderProgramTable() {
+  const by = {};
+  studentsAt().forEach((s) => { (by[s.program] = by[s.program] || []).push(s.snapshots[curMs]); });
+  const rows = Object.entries(by).map(([p, ss]) => ({ p, n: ss.length, mp: ss.reduce((a, x) => a + x.p_plan, 0) / ss.length, ss })).sort((a, b) => a.mp - b.mp);
+  let h = `<div class="table-wrap"><table><thead><tr><th>Chương trình</th><th class="num">SV</th><th class="num">XS hoàn thành KH</th><th>Cơ cấu trạng thái</th></tr></thead><tbody>`;
+  rows.forEach((r) => {
+    let bar = `<div style="display:flex;height:10px;border-radius:3px;overflow:hidden;gap:2px;min-width:120px">`;
+    STATE_ORDER.forEach((s) => {
+      const c = r.ss.filter((x) => x.state === s).length;
+      if (c) bar += `<span style="flex:${c};background:var(${STATES[s].c})" title="${STATES[s].vi}: ${c} (${pct(c / r.n)})"></span>`;
+    });
+    h += `<tr><td><b>${r.p}</b></td><td class="num">${r.n}</td><td class="num"><span class="pbar"><b style="width:${r.mp * 100}%"></b></span>${pct(r.mp)}</td><td>${bar}</div></td></tr>`;
+  });
+  document.getElementById("program-table").innerHTML = h + "</tbody></table></div>";
+}
+
+// ================================================================== QUEUE
+function initQueueFilters() {
+  const chips = document.getElementById("state-chips");
+  chips.innerHTML = "";
+  STATE_ORDER.forEach((s) => {
+    const b = document.createElement("button");
+    b.className = "badge"; b.innerHTML = `<i style="background:var(${STATES[s].c})">${STATES[s].ic}</i>${STATES[s].vi}`;
+    b.setAttribute("aria-pressed", Q.states.has(s));
+    b.onclick = () => { Q.states.has(s) ? Q.states.delete(s) : Q.states.add(s); b.setAttribute("aria-pressed", Q.states.has(s)); Q.page = 0; renderQueue(); };
+    chips.appendChild(b);
+  });
+  const progs = [...new Set(D.students.map((s) => s.program))].sort();
+  document.getElementById("f-program").innerHTML = `<option value="">Mọi chương trình</option>` + progs.map((p) => `<option>${p}</option>`).join("");
+  document.getElementById("f-owner").innerHTML = `<option value="">Mọi đơn vị phụ trách</option>` + Object.entries(OWNER_VI).map(([k, v]) => `<option value="${k}">${v}</option>`).join("");
+  document.getElementById("f-review").innerHTML = `<option value="">Mọi trạng thái xem xét</option>` + Object.entries(REVIEW_VI).map(([k, v]) => `<option value="${k}">${v}</option>`).join("");
+  const bind = (id, key, ev = "change") => document.getElementById(id).addEventListener(ev, (e) => { Q[key] = e.target.value.trim(); Q.page = 0; renderQueue(); });
+  bind("f-search", "search", "input"); bind("f-program", "program"); bind("f-conf", "conf"); bind("f-owner", "owner"); bind("f-review", "review");
+}
+
+const COLS = [
+  { k: "id", l: "Sinh viên", s: (s) => s.id },
+  { k: "program", l: "CT", s: (s) => s.program },
+  { k: "state", l: "Trạng thái", s: (s, x) => STATES[x.state].rank },
+  { k: "p_plan", l: "XS hoàn thành KH", num: 1, s: (s, x) => x.p_plan },
+  { k: "dp", l: "Δ so với trước", num: 1, s: (s, x) => x.prev_p_plan == null ? 0 : x.p_plan - x.prev_p_plan },
+  { k: "credits", l: "TC kỳ vọng / KH", num: 1, s: (s, x) => x.exp_credits / x.plan_credits },
+  { k: "gpa", l: "GPA dự báo", num: 1, s: (s, x) => x.gpa },
+  { k: "conf", l: "Dữ liệu", s: (s, x) => ({ LOW: 0, MEDIUM: 1, HIGH: 2 })[x.conf] },
+  { k: "sup", l: "Lý do cần hỗ trợ", s: (s, x) => x.sup.length },
+  { k: "owner", l: "Phụ trách", s: (s, x) => x.owner },
+  { k: "review", l: "Xem xét", s: (s, x) => reviewOf(s, x) },
+];
+
+function queueRows() {
+  const q = Q.search.toLowerCase();
+  let rows = studentsAt().filter((s) => {
+    const x = s.snapshots[curMs];
+    return Q.states.has(x.state) && (!q || s.id.toLowerCase().includes(q)) && (!Q.program || s.program === Q.program)
+      && (!Q.conf || x.conf === Q.conf) && (!Q.owner || x.owner === Q.owner) && (!Q.review || reviewOf(s, x) === Q.review);
+  });
+  if (Q.sort === "priority") rows.sort((a, b) => STATES[a.snapshots[curMs].state].rank - STATES[b.snapshots[curMs].state].rank || a.snapshots[curMs].p_plan - b.snapshots[curMs].p_plan);
+  else { const col = COLS.find((c) => c.k === Q.sort); rows.sort((a, b) => { const va = col.s(a, a.snapshots[curMs]), vb = col.s(b, b.snapshots[curMs]); return (va < vb ? -1 : va > vb ? 1 : 0) * Q.dir; }); }
+  return rows;
+}
+
+function renderQueue() {
+  const rows = queueRows(), per = 25, pages = Math.max(1, Math.ceil(rows.length / per));
+  Q.page = Math.min(Q.page, pages - 1);
+  document.getElementById("q-count").textContent = `${rows.length.toLocaleString("vi-VN")} sinh viên`;
+  const arrow = (k) => Q.sort === k ? (Q.dir > 0 ? " ▲" : " ▼") : "";
+  let h = `<thead><tr>${COLS.map((c) => `<th class="sortable ${c.num ? "num" : ""}" data-k="${c.k}">${c.l}${arrow(c.k)}</th>`).join("")}</tr></thead><tbody>`;
+  if (!rows.length) h += `<tr><td colspan="${COLS.length}" class="empty">Không có sinh viên phù hợp bộ lọc.</td></tr>`;
+  rows.slice(Q.page * per, Q.page * per + per).forEach((s) => {
+    const x = s.snapshots[curMs];
+    const dp = x.prev_p_plan == null ? null : x.p_plan - x.prev_p_plan;
+    const dpH = dp == null ? '<span class="muted">—</span>' : `<span class="${dp > 0.005 ? "delta-up" : dp < -0.005 ? "delta-down" : ""}">${dp > 0.005 ? "▲" : dp < -0.005 ? "▼" : "•"} ${Math.abs(dp * 100).toFixed(0)} điểm</span>`;
+    const rv = reviewOf(s, x);
+    h += `<tr class="click" data-id="${s.id}" tabindex="0">
+      <td class="mono">${s.id}</td><td>${s.program}</td><td>${badge(x.state)}</td>
+      <td class="num"><span class="pbar"><b style="width:${x.p_plan * 100}%"></b></span>${pct(x.p_plan)}</td>
+      <td class="num">${dpH}</td>
+      <td class="num">${num(x.exp_credits)} / ${x.plan_credits}</td>
+      <td class="num">${num(x.gpa, 2)}</td>
+      <td>${CONF_VI[x.conf]}</td>
+      <td>${x.sup.slice(0, 2).map((c) => reasonChip(c, "sup")).join("") || '<span class="muted">—</span>'}${x.sup.length > 2 ? `<span class="muted">+${x.sup.length - 2}</span>` : ""}</td>
+      <td>${OWNER_VI[x.owner]}</td><td>${REVIEW_VI[rv] || rv}</td></tr>`;
+  });
+  const t = document.getElementById("q-table");
+  t.innerHTML = h + "</tbody>";
+  t.querySelectorAll("th.sortable").forEach((th) => th.onclick = () => { const k = th.dataset.k; if (Q.sort === k) Q.dir *= -1; else { Q.sort = k; Q.dir = 1; } renderQueue(); });
+  t.querySelectorAll("tr.click").forEach((tr) => {
+    tr.onclick = () => openDrawer(tr.dataset.id);
+    tr.onkeydown = (e) => { if (e.key === "Enter") openDrawer(tr.dataset.id); };
+  });
+  document.getElementById("pager").innerHTML = `<button ${Q.page === 0 ? "disabled" : ""} id="pg-prev">← Trước</button><span>Trang ${Q.page + 1}/${pages}</span><button ${Q.page >= pages - 1 ? "disabled" : ""} id="pg-next">Sau →</button>`;
+  document.getElementById("pg-prev").onclick = () => { Q.page--; renderQueue(); };
+  document.getElementById("pg-next").onclick = () => { Q.page++; renderQueue(); };
+}
+
+// ================================================================== DRAWER
+const drawer = document.getElementById("drawer"), drawerBg = document.getElementById("drawer-bg");
+let drawerId = null;
+function closeDrawer() { drawer.classList.remove("open"); drawerBg.classList.remove("open"); drawer.setAttribute("aria-hidden", "true"); drawerId = null; }
+drawerBg.onclick = closeDrawer;
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
+
+function openDrawer(id) {
+  const s = D.students.find((x) => x.id === id); if (!s) return;
+  drawerId = id;
+  const x = s.snapshots[curMs];
+  const dp = x.prev_p_plan == null ? null : x.p_plan - x.prev_p_plan;
+  const rv = reviews[s.id] || {};
+  drawer.innerHTML = `
+    <div class="drawer-head">
+      <div><div class="mono" style="font-size:15px;font-weight:600">${s.id}</div><div class="muted">${s.program} · đã học ${s.terms_completed} kỳ · GPA tích lũy trước ${num(s.prior_cum_gpa, 2)} · ${msLabel(curMs)}</div></div>
+      <div class="spacer"></div>${badge(x.state)}<span class="badge">Dữ liệu: ${CONF_VI[x.conf]}</span>
+      <button class="icon-btn" id="d-close" aria-label="Đóng">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div class="mini-kpis">
+        <div class="card kpi"><div class="label">XS hoàn thành kế hoạch</div><div class="value">${pct(x.p_plan)}</div>${dp == null ? '<div class="note">Snapshot đầu tiên</div>' : Math.abs(dp) < 0.005 ? '<div class="note">Không đổi so với snapshot trước</div>' : `<div class="note ${dp > 0 ? "delta-up" : "delta-down"}">${dp > 0 ? "▲" : "▼"} ${Math.abs(dp * 100).toFixed(0)} điểm % so với trước</div>`}</div>
+        <div class="card kpi"><div class="label">Tín chỉ kỳ vọng / kế hoạch</div><div class="value">${num(x.exp_credits)} / ${x.plan_credits}</div><div class="note">Khoảng cách: ${x.gap > 0 ? "thiếu " + num(x.gap) : "đạt/vượt " + num(-x.gap)} TC</div></div>
+        <div class="card kpi"><div class="label">GPA học kỳ dự báo</div><div class="value">${num(x.gpa, 2)}</div><div class="note">Khoảng 80%: ${num(x.gpa_lo, 2)}–${num(x.gpa_hi, 2)}</div></div>
+        <div class="card kpi"><div class="label">Trạng thái học vụ dự báo</div><div class="value" style="font-size:16px;padding-top:4px">${STANDING_VI[x.standing]}</div><div class="note">XS đạt yêu cầu: ${pct(x.p_standing)}</div></div>
+      </div>
+      <div class="card"><h2>Quỹ đạo xác suất hoàn thành kế hoạch</h2><p class="sub">Mỗi điểm là một snapshot; màu và biểu tượng thể hiện trạng thái quỹ đạo. Đường đứt nét là ngưỡng trạng thái hiện hành.</p><div id="d-traj"></div></div>
+      <div class="grid two">
+        <div class="card"><h2>Bằng chứng tích cực</h2><p class="sub">Yếu tố đẩy dự báo theo hướng thuận lợi.</p>${x.pos.map((c) => reasonChip(c, "pos")).join("") || '<span class="muted">Không có mã nổi bật.</span>'}</div>
+        <div class="card"><h2>Lý do cần hỗ trợ</h2><p class="sub">Yếu tố đẩy dự báo theo hướng bất lợi, đã kiểm tra với giá trị thực.</p>${x.sup.map((c) => reasonChip(c, "sup")).join("") || '<span class="muted">Không có mã nổi bật.</span>'}
+          ${x.dq.length ? `<p class="sub" style="margin:10px 0 4px">Vấn đề chất lượng dữ liệu:</p>${x.dq.map((c) => reasonChip(c, "dq")).join("")}` : ""}</div>
+      </div>
+      <div class="card"><h2>Dự báo theo học phần</h2><p class="sub">Thanh ngang là khoảng dự báo điểm 80% (Q10–Q90), vạch đậm là trung vị, chấm rỗng là điểm hiện tại, vạch đỏ là ngưỡng đạt ${num(M.pass_score)}.</p><div class="table-wrap" id="d-courses"></div></div>
+      <div class="card review"><h2>Ghi nhận xem xét</h2>
+        <p class="sub">Đề xuất phụ trách: <b>${OWNER_VI[x.owner]}</b>. Trong bản demo, ghi nhận chỉ lưu trên trình duyệt này; bản triển khai sẽ ghi vào hệ thống quản lý ca hỗ trợ.</p>
+        <select id="d-status">${Object.entries(REVIEW_VI).map(([k, v]) => `<option value="${k}" ${(rv.status || x.review) === k ? "selected" : ""}>${v}</option>`).join("")}</select>
+        <textarea id="d-note" placeholder="Ghi chú của cố vấn (không ghi thông tin nhạy cảm)…">${esc(rv.note || "")}</textarea>
+        <div style="display:flex;gap:8px;align-items:center"><button class="btn primary" id="d-save">Lưu</button><span class="muted" id="d-saved">${rv.at ? "Lưu lần cuối: " + new Date(rv.at).toLocaleString("vi-VN") : ""}</span></div>
+      </div>
+    </div>`;
+  drawer.classList.add("open"); drawerBg.classList.add("open"); drawer.setAttribute("aria-hidden", "false");
+  document.getElementById("d-close").onclick = closeDrawer;
+  document.getElementById("d-save").onclick = () => {
+    reviews[s.id] = { status: document.getElementById("d-status").value, note: document.getElementById("d-note").value, at: Date.now() };
+    saveReviews();
+    document.getElementById("d-saved").textContent = "Đã lưu " + new Date().toLocaleTimeString("vi-VN");
+    if (tab === "queue") renderQueue();
+  };
+  requestAnimationFrame(() => { renderTrajectory(s); renderCourses(x); });
+}
+
+function renderTrajectory(s) {
+  const box = document.getElementById("d-traj");
+  const H = 230, m = { l: 52, r: 52, t: 22, b: 28 };
+  const { svg, w } = svgRoot(box, H);
+  const iw = w - m.l - m.r, ih = H - m.t - m.b;
+  const X = (i) => m.l + (ALL_MS.length === 1 ? iw / 2 : (i / (ALL_MS.length - 1)) * iw);
+  const Y = (p) => m.t + (1 - p) * ih;
+  [0, .25, .5, .75, 1].forEach((p) => {
+    svgEl("line", { x1: m.l, x2: m.l + iw, y1: Y(p), y2: Y(p), stroke: css("--grid") }, svg);
+    const t = svgEl("text", { x: m.l - 8, y: Y(p) + 4, "text-anchor": "end" }, svg); t.textContent = pct(p);
+  });
+  const th = M.thresholds;
+  [[th.on_track_p_plan, "Ngưỡng đúng tiến độ"], [th.fragile_p_plan, "Ngưỡng mong manh"]].forEach(([p, l]) => {
+    svgEl("line", { x1: m.l, x2: m.l + iw, y1: Y(p), y2: Y(p), stroke: css("--axis"), "stroke-dasharray": "4 4" }, svg);
+    const t = svgEl("text", { x: m.l + iw + m.r, y: Y(p) - 5, "text-anchor": "end" }, svg); t.textContent = `${l} ${pct(p)}`;
+  });
+  ALL_MS.forEach((ms, i) => {
+    const t = svgEl("text", { x: X(i), y: H - 8, "text-anchor": "middle" }, svg); t.textContent = msLabel(ms);
+    if (!s.snapshots[ms]) t.style.opacity = .45;
+    if (ms === curMs) { t.style.fill = css("--text"); t.style.fontWeight = 600; }
+  });
+  const pts = ALL_MS.map((ms, i) => s.snapshots[ms] ? [X(i), Y(s.snapshots[ms].p_plan), ms] : null).filter(Boolean);
+  if (pts.length > 1) svgEl("path", { d: pts.map((p, i) => (i ? "L" : "M") + p[0] + "," + p[1]).join(""), fill: "none", stroke: css("--text-2"), "stroke-width": 2 }, svg);
+  pts.forEach(([x, y, ms]) => {
+    const sn = s.snapshots[ms];
+    const g = svgEl("g", { style: "cursor:default" }, svg);
+    svgEl("circle", { cx: x, cy: y, r: 16, fill: "transparent" }, g);  // hit target
+    svgEl("circle", { cx: x, cy: y, r: ms === curMs ? 9 : 7, fill: css(STATES[sn.state].c), stroke: css("--surface"), "stroke-width": 2 }, g);
+    const ic = svgEl("text", { x, y: y + 3.5, "text-anchor": "middle", "pointer-events": "none" }, g);
+    ic.textContent = STATES[sn.state].ic; ic.style.fill = "#fff"; ic.style.fontSize = "9px"; ic.style.fontWeight = 700;
+    const lab = svgEl("text", { x, y: y - 14, "text-anchor": "middle" }, g); lab.textContent = pct(sn.p_plan); lab.style.fill = css("--text"); lab.style.fontWeight = 600;
+    bindTip(g, msLabel(ms), [["Trạng thái", STATES[sn.state].vi], ["XS hoàn thành KH", pct(sn.p_plan)], ["TC kỳ vọng", `${num(sn.exp_credits)} / ${sn.plan_credits}`], ["GPA dự báo", num(sn.gpa, 2)], ["Dữ liệu", CONF_VI[sn.conf]]]);
+  });
+}
+
+function scoreBar(c) {
+  const W = 150, H = 18, X = (v) => 4 + (v / 10) * (W - 8);
+  if (c.q50 == null) return "";
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" aria-label="Khoảng điểm ${c.q10}–${c.q90}">
+    <line x1="4" x2="${W - 4}" y1="${H / 2}" y2="${H / 2}" stroke="var(--grid)" stroke-width="2"/>
+    <line x1="${X(M.pass_score)}" x2="${X(M.pass_score)}" y1="1" y2="${H - 1}" stroke="var(--s-div)" stroke-width="1.5"/>
+    <rect x="${X(c.q10)}" y="${H / 2 - 4}" width="${Math.max(2, X(c.q90) - X(c.q10))}" height="8" rx="4" fill="var(--bar)" opacity=".35"/>
+    <line x1="${X(c.q50)}" x2="${X(c.q50)}" y1="${H / 2 - 6}" y2="${H / 2 + 6}" stroke="var(--bar)" stroke-width="3" stroke-linecap="round"/>
+    ${c.cur != null ? `<circle cx="${X(c.cur)}" cy="${H / 2}" r="4" fill="var(--surface)" stroke="var(--text)" stroke-width="1.5"/>` : ""}
+  </svg>`;
+}
+
+function renderCourses(x) {
+  let h = `<table><thead><tr><th>Học phần</th><th class="num">TC</th><th class="num">XS hoàn thành</th><th class="num">XS đạt</th><th>Điểm dự báo (0–10)</th><th class="num">Trung vị</th><th class="num">Chuyên cần</th><th class="num">LMS</th><th class="num">Thiếu / trễ</th><th>Lý do</th></tr></thead><tbody>`;
+  [...x.courses].sort((a, b) => (a.pp ?? 2) - (b.pp ?? 2)).forEach((c) => {
+    if (c.wd) { h += `<tr><td class="mono">${c.id}</td><td class="num">${c.cr}</td><td colspan="8" class="muted">Rút học phần được phê duyệt, không tính là không đạt.</td></tr>`; return; }
+    const risk = c.pp != null && c.pp < 0.5;
+    h += `<tr><td class="mono">${c.id}<div class="muted">${({ IN_PERSON: "Trực tiếp", BLENDED: "Kết hợp", ONLINE: "Trực tuyến" })[c.mode] || c.mode}</div></td>
+      <td class="num">${c.cr}</td><td class="num">${pct(c.pc)}</td>
+      <td class="num" style="${risk ? "color:var(--bad-text);font-weight:600" : ""}">${risk ? "▼ " : ""}${pct(c.pp)}</td>
+      <td>${scoreBar(c)}</td><td class="num">${num(c.q50)}<div class="muted">${num(c.q10)}–${num(c.q90)}</div></td>
+      <td class="num">${pct(c.att)}</td><td class="num">${c.lms == null ? '<span class="muted" title="Học phần không thiết kế LMS bắt buộc">n/a</span>' : pct(c.lms)}</td>
+      <td class="num">${c.miss} / ${c.late}</td>
+      <td>${c.sup.map((r) => reasonChip(r, "sup")).join("")}${c.pos.map((r) => reasonChip(r, "pos")).join("")}</td></tr>`;
+  });
+  document.getElementById("d-courses").innerHTML = h + "</tbody></table>";
+}
+
+// ================================================================== MODEL
+function renderModel() {
+  const mt = D.metrics;
+  document.getElementById("model-name").textContent = `${M.model_name} · v${M.model_version} · huấn luyện ${mt.train_terms.join(", ")} · hiệu chỉnh ${mt.calibration_terms.join(", ")} · kiểm định ${mt.test_terms.join(", ")}`;
+  const card = (title, sub, rows) => `<div class="card"><h2>${title}</h2><p class="sub">${sub}</p>${rows.map(([k, v]) => `<div class="row"><span>${k}</span><b>${v}</b></div>`).join("")}</div>`;
+  const m1 = mt.M1_course_completion, m2 = mt.M2_course_attainment, m3 = mt.M3_final_score, m4 = mt.M4_plan_completion, r1 = mt.R1_standing;
+  document.getElementById("metric-cards").innerHTML = [
+    card("M1 · Hoàn thành học phần", "Calibrated CatBoost Classifier", [["AUC", num(m1.auc, 3)], ["Brier", num(m1.brier, 3)], ["ECE (sau / trước hiệu chỉnh)", `${num(m1.ece, 3)} / ${num(m1.ece_uncalibrated, 3)}`], ["Tỷ lệ cơ sở", pct(m1.base_rate, 1)]]),
+    card("M2 · Đạt học phần", "Calibrated CatBoost, trên HP đã hoàn thành", [["AUC", num(m2.auc, 3)], ["Brier", num(m2.brier, 3)], ["ECE (sau / trước)", `${num(m2.ece, 3)} / ${num(m2.ece_uncalibrated, 3)}`], ["AUC đạt tổng thể (M1×M2)", num(mt.course_pass_overall.auc, 3)]]),
+    card("M3 · Điểm cuối kỳ", "CatBoost Quantile + conformal", [["MAE trung vị", num(m3.mae_median, 2) + " điểm"], ["Độ phủ khoảng 80%", pct(m3.coverage_80, 1)], ["Độ rộng khoảng TB", num(m3.mean_interval_width, 2) + " điểm"], ["Biên conformal", "±" + num(mt.conformal_margin, 3)]]),
+    card("M4 · Hoàn thành kế hoạch", "Calibrated CatBoost, stacking từ M1–M3", [["AUC", num(m4.auc, 3)], ["Brier", num(m4.brier, 3)], ["ECE (sau / trước)", `${num(m4.ece, 3)} / ${num(m4.ece_uncalibrated, 3)}`], ["R1 học vụ · AUC", num(r1.auc, 3)]]),
+  ].join("");
+  const relSeg = document.getElementById("rel-seg");
+  relSeg.innerHTML = "";
+  [["M4_plan_completion", "M4 kế hoạch"], ["M1_course_completion", "M1 hoàn thành"], ["M2_course_attainment", "M2 đạt"], ["R1_standing", "R1 học vụ"]].forEach(([k, l]) => {
+    const b = document.createElement("button"); b.textContent = l; b.setAttribute("aria-pressed", k === relKey);
+    b.onclick = () => { relKey = k; renderModel(); }; relSeg.appendChild(b);
+  });
+  renderReliability(mt[relKey]);
+  renderStateOutcomes(mt.state_outcomes);
+  renderAucMs(mt.M4_by_milestone, mt.M4_baselines.prior_cum_gpa_only_auc);
+  renderFI(mt.feature_importance.M4);
+  renderFairness(mt.M4_by_program, m4.auc);
+  const th = M.thresholds;
+  document.getElementById("model-notes").innerHTML = `
+    <ul class="list">
+      <li>Đúng tiến độ: XS hoàn thành KH ≥ ${pct(th.on_track_p_plan)} và thiếu ≤ ${num(th.on_track_max_gap)} TC.</li>
+      <li>Lệch mục tiêu: XS giảm ≥ ${num(th.delta_p_change * 100, 0)} điểm % hoặc khoảng cách tăng ≥ ${num(th.delta_gap_change)} TC; hoặc XS &lt; ${pct(th.fragile_p_plan)} mà không cải thiện.</li>
+      <li>Đang cải thiện: XS tăng ≥ ${num(th.delta_p_change * 100, 0)} điểm % hoặc khoảng cách giảm ≥ ${num(th.delta_gap_change)} TC.</li>
+      <li>Chưa đủ bằng chứng: cổng chất lượng dữ liệu Q1 đánh giá mức Thấp.</li>
+    </ul>
+    <p class="sub" style="margin:12px 0 4px"><b>Giới hạn cần lưu ý</b></p>
+    <ul class="list">
+      <li>Ngưỡng là giá trị khởi điểm; cần hiệu chỉnh theo kết quả validation và năng lực xử lý của cố vấn.</li>
+      <li>Quy tắc học vụ R1 dùng khung Thông tư 08/2021; phải đối chiếu quy chế UEH hiện hành.</li>
+      <li>Khoảng GPA giả định các học phần độc lập nên hẹp hơn thực tế (độ phủ ${pct(mt.R1_term_gpa.coverage_80)} so với mục tiêu 80%).</li>
+      <li>Mô hình dự báo tương quan, không đánh giá tác động can thiệp; không suy luận well-being từ LMS.</li>
+      ${M.synthetic_data ? "<li><b>Các chỉ số trên được tính trên dữ liệu mô phỏng</b>; cần kiểm định lại trên dữ liệu UEH thật trước khi sử dụng.</li>" : ""}
+    </ul>`;
+}
+
+function renderReliability(mm) {
+  const box = document.getElementById("reliability");
+  const H = 260, m = { l: 44, r: 12, t: 10, b: 36 };
+  const { svg, w } = svgRoot(box, H);
+  const side = Math.min(w - m.l - m.r, H - m.t - m.b);
+  const X = (p) => m.l + p * side, Y = (p) => m.t + (1 - p) * side;
+  [0, .2, .4, .6, .8, 1].forEach((p) => {
+    svgEl("line", { x1: X(0), x2: X(1), y1: Y(p), y2: Y(p), stroke: css("--grid") }, svg);
+    const ty = svgEl("text", { x: X(0) - 6, y: Y(p) + 4, "text-anchor": "end" }, svg); ty.textContent = pct(p);
+    const tx = svgEl("text", { x: X(p), y: Y(0) + 16, "text-anchor": "middle" }, svg); tx.textContent = pct(p);
+  });
+  svgEl("line", { x1: X(0), y1: Y(0), x2: X(1), y2: Y(1), stroke: css("--axis"), "stroke-dasharray": "4 4" }, svg);
+  const xl = svgEl("text", { x: X(.5), y: H - 4, "text-anchor": "middle" }, svg); xl.textContent = "Xác suất dự báo";
+  const yl = svgEl("text", { x: X(1) + 8, y: Y(1) + 10 }, svg); yl.textContent = `ECE ${num(mm.ece, 3)}`; yl.style.fill = css("--text"); yl.style.fontWeight = 600;
+  const pts = mm.reliability;
+  svgEl("path", { d: pts.map((p, i) => (i ? "L" : "M") + X(p.mean_pred) + "," + Y(p.observed)).join(""), fill: "none", stroke: css("--bar"), "stroke-width": 2 }, svg);
+  const maxN = Math.max(...pts.map((p) => p.n));
+  pts.forEach((p) => {
+    const g = svgEl("g", {}, svg);
+    svgEl("circle", { cx: X(p.mean_pred), cy: Y(p.observed), r: 14, fill: "transparent" }, g);
+    svgEl("circle", { cx: X(p.mean_pred), cy: Y(p.observed), r: 4 + 4 * Math.sqrt(p.n / maxN), fill: css("--bar"), stroke: css("--surface"), "stroke-width": 2 }, g);
+    bindTip(g, `Nhóm ${pct(p.bin / 10)}–${pct((p.bin + 1) / 10)}`, [["Dự báo TB", pct(p.mean_pred, 1)], ["Thực tế", pct(p.observed, 1)], ["Số quan sát", p.n.toLocaleString("vi-VN")]]);
+  });
+}
+
+function renderStateOutcomes(rows) {
+  const box = document.getElementById("state-outcomes");
+  const ord = STATE_ORDER.filter((s) => rows.find((r) => r.state === s && r.n >= 5));
+  const rowH = 24, gap = 12, labW = 170;
+  const { svg, w } = svgRoot(box, ord.length * (rowH + gap) + 20);
+  const bw = w - labW - 70;
+  ord.forEach((s, i) => {
+    const r = rows.find((x) => x.state === s), y = i * (rowH + gap);
+    const t = svgEl("text", { x: labW - 8, y: y + rowH / 2 + 4, "text-anchor": "end" }, svg); t.textContent = `${STATES[s].ic} ${STATES[s].vi}`;
+    const p = svgEl("path", { d: hbarPath(labW, y, r.plan_completed_rate * bw, rowH), fill: css(STATES[s].c) }, svg);
+    bindTip(p, STATES[s].vi, [["Thực tế hoàn thành KH", pct(r.plan_completed_rate, 1)], ["XS dự báo TB", pct(r.mean_p_plan, 1)], ["Số snapshot", r.n.toLocaleString("vi-VN")]]);
+    const v = svgEl("text", { x: labW + r.plan_completed_rate * bw + 6, y: y + rowH / 2 + 4 }, svg);
+    v.textContent = `${pct(r.plan_completed_rate)} · n=${r.n}`; v.style.fill = css("--text");
+  });
+  const n = svgEl("text", { x: labW, y: ord.length * (rowH + gap) + 12 }, svg); n.textContent = "Trạng thái được gán tại mỗi snapshot; kết quả là thực tế cuối học kỳ.";
+}
+
+function renderAucMs(rows, base) {
+  const box = document.getElementById("auc-ms");
+  const H = 220, m = { l: 48, r: 52, t: 20, b: 28 };
+  const { svg, w } = svgRoot(box, H);
+  const iw = w - m.l - m.r, ih = H - m.t - m.b;
+  const lo = 0.5, hi = 1.0;
+  const X = (i) => m.l + (rows.length === 1 ? iw / 2 : (i / (rows.length - 1)) * iw), Y = (v) => m.t + (1 - (v - lo) / (hi - lo)) * ih;
+  [.5, .6, .7, .8, .9, 1].forEach((v) => {
+    svgEl("line", { x1: m.l, x2: m.l + iw, y1: Y(v), y2: Y(v), stroke: css("--grid") }, svg);
+    const t = svgEl("text", { x: m.l - 8, y: Y(v) + 4, "text-anchor": "end" }, svg); t.textContent = num(v, 1);
+  });
+  svgEl("line", { x1: m.l, x2: m.l + iw, y1: Y(base), y2: Y(base), stroke: css("--axis"), "stroke-dasharray": "5 4", "stroke-width": 2 }, svg);
+  const bt = svgEl("text", { x: m.l + iw, y: Y(base) + 14, "text-anchor": "end" }, svg); bt.textContent = `Baseline GPA tích lũy · ${num(base, 3)}`;
+  svgEl("path", { d: rows.map((r, i) => (i ? "L" : "M") + X(i) + "," + Y(r.auc)).join(""), fill: "none", stroke: css("--bar"), "stroke-width": 2 }, svg);
+  rows.forEach((r, i) => {
+    const g = svgEl("g", {}, svg);
+    svgEl("circle", { cx: X(i), cy: Y(r.auc), r: 14, fill: "transparent" }, g);
+    svgEl("circle", { cx: X(i), cy: Y(r.auc), r: 5, fill: css("--bar"), stroke: css("--surface"), "stroke-width": 2 }, g);
+    const v = svgEl("text", { x: X(i), y: Y(r.auc) - 10, "text-anchor": "middle" }, g); v.textContent = num(r.auc, 3); v.style.fill = css("--text"); v.style.fontWeight = 600;
+    const l = svgEl("text", { x: X(i), y: H - 8, "text-anchor": "middle" }, svg); l.textContent = msLabel(r.group);
+    bindTip(g, msLabel(r.group), [["AUC", num(r.auc, 3)], ["Brier", num(r.brier, 3)], ["Dự báo TB / thực tế", `${pct(r.mean_pred, 1)} / ${pct(r.observed, 1)}`]]);
+  });
+}
+
+function renderFI(fi) {
+  const box = document.getElementById("fi");
+  const rows = Object.entries(fi).slice(0, 10);
+  const rowH = 18, gap = 8, labW = Math.min(200, (box.clientWidth || 500) * 0.45);
+  const { svg, w } = svgRoot(box, rows.length * (rowH + gap));
+  const max = rows[0][1], bw = w - labW - 44;
+  rows.forEach(([f, v], i) => {
+    const y = i * (rowH + gap);
+    const t = svgEl("text", { x: labW - 8, y: y + rowH / 2 + 4, "text-anchor": "end" }, svg); t.textContent = FEATURE_VI[f] || f;
+    const p = svgEl("path", { d: hbarPath(labW, y, (v / max) * bw, rowH), fill: css("--bar") }, svg);
+    bindTip(p, FEATURE_VI[f] || f, [["Biến", f], ["Importance", num(v, 2)]]);
+    const vt = svgEl("text", { x: labW + (v / max) * bw + 6, y: y + rowH / 2 + 4 }, svg); vt.textContent = num(v, 1); vt.style.fill = css("--text");
+  });
+}
+
+function renderFairness(rows, overall) {
+  let h = `<div class="table-wrap"><table><thead><tr><th>Chương trình</th><th class="num">n</th><th class="num">Thực tế</th><th class="num">Dự báo TB</th><th class="num">Chênh lệch</th><th class="num">AUC</th><th>Đánh giá</th></tr></thead><tbody>`;
+  rows.forEach((r) => {
+    const gap = r.mean_pred - r.observed, flag = Math.abs(gap) > 0.05 || r.auc < overall - 0.05;
+    h += `<tr><td><b>${r.group}</b></td><td class="num">${r.n}</td><td class="num">${pct(r.observed, 1)}</td><td class="num">${pct(r.mean_pred, 1)}</td>
+      <td class="num">${gap >= 0 ? "+" : ""}${(gap * 100).toFixed(1)} điểm</td><td class="num">${num(r.auc, 3)}</td>
+      <td>${flag ? '<span class="chip sup">⚠ Cần rà soát</span>' : '<span class="chip pos">✓ Trong ngưỡng</span>'}</td></tr>`;
+  });
+  document.getElementById("fairness").innerHTML = h + "</tbody></table></div>";
+}
+
+// ================================================================== wiring
+function renderTab() {
+  ["overview", "queue", "model"].forEach((t) => document.getElementById("tab-" + t).classList.toggle("hidden", t !== tab));
+  document.querySelectorAll("nav.tabs button").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === tab));
+  if (tab === "overview") { renderKpis(); renderStateBars(); renderTransition(); renderReasonBars(); renderProgramTable(); }
+  if (tab === "queue") renderQueue();
+  if (tab === "model") renderModel();
+}
+function renderAll() { renderHeader(); renderTab(); if (drawerId) openDrawer(drawerId); }
+document.querySelectorAll("nav.tabs button").forEach((b) => b.onclick = () => { tab = b.dataset.tab; try { localStorage.setItem("ueh-c112-tab", tab); } catch (e) {} renderTab(); });
+document.getElementById("theme-btn").onclick = () => {
+  const root = document.documentElement;
+  const isDark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = isDark ? "light" : "dark";
+  try { localStorage.setItem("ueh-c112-theme", root.dataset.theme); } catch (e) {}
+  renderAll();
+};
+try { const th = localStorage.getItem("ueh-c112-theme"); if (th) document.documentElement.dataset.theme = th; const tb = localStorage.getItem("ueh-c112-tab"); if (tb) tab = tb; } catch (e) {}
+let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(renderAll, 150); });
+initQueueFilters();
+renderAll();
+})();
+</script>
+</body>
+</html>
